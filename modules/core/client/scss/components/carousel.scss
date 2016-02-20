@@ -1,0 +1,180 @@
+
+$transition-duration: .9s;
+
+.carousel-container {
+  height: 100vh;
+  max-height: 500px;
+  width: 100vw;
+  position: relative;
+  color: #fff;
+  overflow: hidden;
+}
+
+.carousel-controls {
+  position: absolute;
+  width: 100%;
+  top: 46%; // Has knowledge of top-nav placement; must be set to push it below the nav
+  z-index: 1;
+}
+.info{
+  position: absolute;
+  padding-left: 20px;
+  height: 50%;
+  min-height: 250px;
+  width: 28%;
+  min-width: 240px;
+  top: 15%;
+  left: 10%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, .5);
+  @media screen and (max-width: 767px) {
+    background: none;
+    width: 80%;
+
+    height: 80%;
+  }
+}
+
+.info p{
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+.info a{
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+}
+.info h4{
+  letter-spacing: 3px;
+}
+
+.info .animated-slide {
+  overflow-y: auto;
+}
+
+.animated-slide {
+  position: absolute;
+}
+
+.carousel-controls .next, .carousel-controls .previous {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.carousel-controls .next {
+  float: right;
+}
+
+.carousel-img-container {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.bg-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/*********************/
+/** ANIMATIONS *******/
+/*********************/
+
+/* for the images */
+.slide-left.ng-hide-add {
+  animation:$transition-duration slideLeftOut ease;
+}
+
+.slide-left.ng-hide-remove {
+  animation:$transition-duration slideLeftIn ease;
+}
+
+.slide-right.ng-hide-add {
+  animation:$transition-duration slideRightOut ease;
+}
+
+.slide-right.ng-hide-remove {
+  animation:$transition-duration slideRightIn ease;
+}
+
+/* for the info bar */
+.info .slide-left.ng-hide-add {
+  animation:$transition-duration fadeSlideLeftOut ease;
+}
+
+.info .slide-left.ng-hide-remove {
+  animation:$transition-duration fadeSlideLeftIn ease;
+}
+
+.info .slide-right.ng-hide-add {
+  animation:$transition-duration fadeSlideRightOut ease;
+}
+
+.info .slide-right.ng-hide-remove {
+  animation:$transition-duration fadeSlideRightIn ease;
+}
+
+
+/* slide in */
+@keyframes slideLeftIn {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes slideRightIn {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* slide out */
+@keyframes slideLeftOut {
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+@keyframes slideRightOut {
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+/* fade & slide in */
+@keyframes fadeSlideLeftIn {
+  0% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeSlideRightIn {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* fade & slide out */
+@keyframes fadeSlideLeftOut {
+  100% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+}
+@keyframes fadeSlideRightOut {
+  100% {
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+  }
+}

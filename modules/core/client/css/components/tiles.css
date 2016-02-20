@@ -1,0 +1,48 @@
+.dynamicTile .col-sm-2.col-xs-4 {
+  padding: 5px; }
+
+.dynamicTile .col-sm-4.col-xs-8 {
+  padding: 5px; }
+
+#tile1 {
+  background: #00acee; }
+
+#tile2 {
+  background: #f3f3f3; }
+
+#tile3 {
+  background: #47c1e4; }
+
+#tile4 {
+  background-image: url("http://handsontek.net/demoimages/tiles/facebook.png");
+  background-size: cover; }
+
+#tile5 {
+  background: #af1a3f; }
+
+#tile6 {
+  background: #3e9dd7; }
+
+#tile7 {
+  background: white; }
+
+#tile8 {
+  background: #d14625; }
+
+#tile9 {
+  background: #008e00; }
+
+#tile10 {
+  background: #005de9; }
+
+.tilecaption {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  margin: 0 !important;
+  text-align: center;
+  color: white;
+  font-family: Segoe UI;
+  font-weight: lighter; }

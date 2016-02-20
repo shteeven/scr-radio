@@ -1,0 +1,200 @@
+.carousel-container {
+  height: 100vh;
+  max-height: 500px;
+  width: 100vw;
+  position: relative;
+  color: #fff;
+  overflow: hidden; }
+
+.carousel-controls {
+  position: absolute;
+  width: 100%;
+  top: 46%;
+  z-index: 1; }
+
+.info {
+  position: absolute;
+  padding-left: 20px;
+  height: 50%;
+  min-height: 250px;
+  width: 28%;
+  min-width: 240px;
+  top: 15%;
+  left: 10%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5); }
+  @media screen and (max-width: 767px) {
+    .info {
+      background: none;
+      width: 80%;
+      height: 80%; } }
+
+@media screen and (max-width: 767px) {
+  .info p {
+    display: none; } }
+
+@media screen and (min-width: 768px) {
+  .info a {
+    display: none; } }
+
+.info h4 {
+  letter-spacing: 3px; }
+
+.info .animated-slide {
+  overflow-y: auto; }
+
+.animated-slide {
+  position: absolute; }
+
+.carousel-controls .next, .carousel-controls .previous {
+  margin-top: 20px;
+  display: inline-block; }
+
+.carousel-controls .next {
+  float: right; }
+
+.carousel-img-container {
+  position: absolute;
+  height: 100%;
+  width: 100%; }
+
+.bg-img {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; }
+
+/*********************/
+/** ANIMATIONS *******/
+/*********************/
+/* for the images */
+.slide-left.ng-hide-add {
+  -webkit-animation: 0.9s slideLeftOut ease;
+          animation: 0.9s slideLeftOut ease; }
+
+.slide-left.ng-hide-remove {
+  -webkit-animation: 0.9s slideLeftIn ease;
+          animation: 0.9s slideLeftIn ease; }
+
+.slide-right.ng-hide-add {
+  -webkit-animation: 0.9s slideRightOut ease;
+          animation: 0.9s slideRightOut ease; }
+
+.slide-right.ng-hide-remove {
+  -webkit-animation: 0.9s slideRightIn ease;
+          animation: 0.9s slideRightIn ease; }
+
+/* for the info bar */
+.info .slide-left.ng-hide-add {
+  -webkit-animation: 0.9s fadeSlideLeftOut ease;
+          animation: 0.9s fadeSlideLeftOut ease; }
+
+.info .slide-left.ng-hide-remove {
+  -webkit-animation: 0.9s fadeSlideLeftIn ease;
+          animation: 0.9s fadeSlideLeftIn ease; }
+
+.info .slide-right.ng-hide-add {
+  -webkit-animation: 0.9s fadeSlideRightOut ease;
+          animation: 0.9s fadeSlideRightOut ease; }
+
+.info .slide-right.ng-hide-remove {
+  -webkit-animation: 0.9s fadeSlideRightIn ease;
+          animation: 0.9s fadeSlideRightIn ease; }
+
+/* slide in */
+@-webkit-keyframes slideLeftIn {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
+@keyframes slideLeftIn {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
+
+@-webkit-keyframes slideRightIn {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0); } }
+
+@keyframes slideRightIn {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0); } }
+
+/* slide out */
+@-webkit-keyframes slideLeftOut {
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0); } }
+@keyframes slideLeftOut {
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0); } }
+
+@-webkit-keyframes slideRightOut {
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
+
+@keyframes slideRightOut {
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0); } }
+
+/* fade & slide in */
+@-webkit-keyframes fadeSlideLeftIn {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@keyframes fadeSlideLeftIn {
+  0% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@-webkit-keyframes fadeSlideRightIn {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes fadeSlideRightIn {
+  0% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* fade & slide out */
+@-webkit-keyframes fadeSlideLeftOut {
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    opacity: 0; } }
+@keyframes fadeSlideLeftOut {
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+    opacity: 0; } }
+
+@-webkit-keyframes fadeSlideRightOut {
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    opacity: 0; } }
+
+@keyframes fadeSlideRightOut {
+  100% {
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+    opacity: 0; } }

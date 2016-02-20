@@ -1,0 +1,69 @@
+.arrow {
+  width: 50px;
+  height: 50px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  -webkit-transition: .5s;
+          transition: .5s; }
+
+.arrow:hover {
+  background: #ffffff; }
+  .arrow:hover .icon-wrap::before, .arrow:hover .icon-wrap::after {
+    background: black; }
+  .arrow:hover .icon-wrap::before {
+    -webkit-transform: translateX(-50%) rotate(45deg);
+    transform: translateX(-50%) rotate(45deg); }
+  .arrow:hover .icon-wrap::after {
+    -webkit-transform: translateX(-50%) rotate(-45deg);
+    transform: translateX(-50%) rotate(-45deg); }
+
+.arrow .icon-wrap::before {
+  -webkit-transform: translateX(-50%) rotate(30deg);
+  transform: translateX(-50%) rotate(30deg);
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%; }
+
+.arrow .icon-wrap::after {
+  top: 50%;
+  -webkit-transform: translateX(-50%) rotate(-30deg);
+  transform: translateX(-50%) rotate(-30deg);
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0; }
+
+.arrow .icon-wrap::before, .arrow .icon-wrap::after {
+  position: absolute;
+  left: 25%;
+  width: 3px;
+  height: 50%;
+  background: #fff;
+  content: '';
+  -webkit-transition: -webkit-transform 0.3s, background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
+
+.next .arrow {
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1); }
+
+.previous .arrow {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1); }
+
+/************************/
+/** Play/Pause Buttons **/
+/************************/
+.play-icon {
+  width: 0;
+  height: 0;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 12px solid white; }
+
+.pause-icon {
+  height: 16px;
+  width: 12px;
+  margin-bottom: -3px;
+  border-right: 4px solid white;
+  border-left: 4px solid white; }

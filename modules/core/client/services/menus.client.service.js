@@ -170,5 +170,9 @@ angular.module('core').service('Menus', [
     this.addMenu('topbar', {
       roles: ['*']
     });
+    //Adding the sidenav menu
+    this.addMenu('sidenav', {
+      roles: ['*']
+    });
   }
 ]);

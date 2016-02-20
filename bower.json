@@ -1,6 +1,6 @@
 {
-  "name": "meanjs",
-  "description": "Fullstack JavaScript with MongoDB, Express, AngularJS, and Node.js.",
+  "name": "scradio",
+  "description": "Full-Stack JavaScript with MongoDB, Express, AngularJS, and Node.js",
   "homepage": "http://meanjs.org/",
   "license": "MIT",
   "dependencies": {

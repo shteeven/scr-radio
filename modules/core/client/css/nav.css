@@ -11,6 +11,11 @@
   min-height: 44px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.8); }
 
+.navbar-container-top-left {
+  left: 45px;
+  top: 2px;
+  position: absolute; }
+
 .brand-logo {
   width: 35px; }
 
@@ -25,6 +30,9 @@
   padding-left: 0; }
 
 /*END fix*/
+/*-------------------------------*/
+/* Overlay for use w/sidebar     */
+/*-------------------------------*/
 #sidebar-overlay {
   display: none;
   opacity: 0;
@@ -102,7 +110,7 @@
 .sidebar-nav li a:hover {
   text-decoration: none;
   color: #fff;
-  background: #1f2022; }
+  background: rgba(0, 0, 0, 0.4); }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
@@ -124,7 +132,7 @@
 /*HAMBURGER - much complex, very complication*/
 /* Toggle Button Styles */
 #menu-toggle {
-    position: fixed;
+  position: fixed;
   display: inline;
   width: 25px;
   height: 30px;
@@ -227,3 +235,24 @@
   display: block;
   -webkit-transform: translate3d(-100px, 0, 0);
   -webkit-transition: all .35s ease-in-out; }
+
+/*-------------------------------*/
+/*   Side-bar menu items         */
+/*-------------------------------*/
+.menu-dropdown {
+  position: relative;
+  color: rgba(255, 255, 255, 0.8); }
+
+.menu-dropdown-btn {
+  height: 50px; }
+
+.menu-dropdown-btn > * {
+  display: inline-block;
+  max-height: 100%; }
+
+.menu-dropdown-menu {
+  height: 0;
+  overflow: hidden; }
+
+.menu-dropdown-menu.dropped {
+  height: 100%; }

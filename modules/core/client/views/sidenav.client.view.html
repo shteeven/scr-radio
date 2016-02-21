@@ -10,17 +10,35 @@
   <!-- Sidebar -->
   <div id="sidebar-overlay" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()"></div>
   <div id="sidebar-wrapper" ng-class="{toggled: menu_toggled}">
-    <!-- Sidebar Toggle -->
-    <nav>
-      <ul class="sidebar-nav">
-        <li class="sidebar-brand">SCRadio</li>
-        <li role="presentation" ng-click="menuToggle()"><a ui-sref="home">Home</a></li>
-        <li role="presentation" ng-click="menuToggle()">
-          <a ng-if="isLoggedin === ''" type="button" ui-sref="login" class="btn btn-block btn-success ng-cloak">Login or Register</a>
-          <a ng-if="isLoggedin != ''" type="button" ng-click="logout()" class="btn btn-success btn-block ng-cloak">Log Out</a>
-        </li>
-      </ul>
-    </nav>
+
+    <ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">
+      <!-- Home link: TODO: add styling or image here-->
+      <li class="sidebar-brand"><a ui-sref="home">SCRadio</a></li>
+
+      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">
+          <div ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+          </div>
+      </li>
+
+      <!-- Sign-in/out Section: TODO: work on transition and styles -->
+      <li class="btn-group menu-dropdown"  ng-show="false">
+        <div role="button" class="menu-dropdown-btn" ng-click="dropMenu()">
+          <img style="display: inline-block" ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="img-responsive" />
+          <span style="display: inline-block">{{authentication.user.displayName}}</span><b class="caret"></b>
+        </div>
+        <ul role="menu" class="menu-dropdown-menu" ng-class="{ dropped: menu_dropped }">
+          <li role="menuitem" ui-sref-active="active"><a ui-sref="settings.profile">Edit Profile</a></li>
+          <li role="menuitem" ui-sref-active="active"><a ui-sref="settings.picture">Change Profile Picture</a></li>
+          <li role="menuitem" ui-sref-active="active" ng-show="authentication.user.provider === 'local'"><a ui-sref="settings.password">Change Password</a></li>
+          <li role="menuitem" ui-sref-active="active"><a ui-sref="settings.accounts">Manage Social Accounts</a></li>
+          <li class="divider"></li>
+          <li role="menuitem"><a href="/api/auth/signout" target="_self">Signout</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
   </div>
-  <!-- /Sidebar -->
+
 </div>

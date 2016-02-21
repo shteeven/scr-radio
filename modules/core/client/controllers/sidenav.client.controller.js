@@ -1,23 +1,24 @@
 'use strict';
 
-angular.module('core').controller('SidenavController', ['$scope', '$state', 'Authentication', 'Menus',
-  function ($scope, $state, Authentication, Menus) {
+angular.module('core').controller('SidenavController', ['$scope', '$state', 'Authentication', 'Menus', '$log',
+  function ($scope, $state, Authentication, Menus, $log) {
     // Expose view variables
     $scope.$state = $state;
     $scope.authentication = Authentication;
+    $scope.status = {
+      isopen: false
+    };
 
     //toggle side nav
     $scope.menu_toggled = false; // initialize toggle
     $scope.menuToggle = function() { $scope.menu_toggled = !$scope.menu_toggled; };
 
-    // Get the topbar menu
-    $scope.menu = Menus.getMenu('sidenav');
+    //This is for the drop down menu
+    $scope.menu_dropped = false;
+    $scope.dropMenu = function() { $scope.menu_dropped = !$scope.menu_dropped; };
 
-    // Toggle the menu items
-    $scope.isCollapsed = false;
-    $scope.toggleCollapsibleMenu = function () {
-      $scope.isCollapsed = !$scope.isCollapsed;
-    };
+    // Get the topbar menu
+    $scope.menu = Menus.getMenu('topbar');
 
     // Collapsing the menu after navigation
     $scope.$on('$stateChangeSuccess', function () {

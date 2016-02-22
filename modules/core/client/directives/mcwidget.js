@@ -13,9 +13,9 @@ app.directive('mcWidget', function($http, $rootScope, $sce) {
     },
     controller: function($scope, $element) {
       //init state
-      $scope.widgetOpen = true;
-      var mc_url = 'https://www.mixcloud.com/SCR_Radio/apachi-b2b-minii-alter-ego-show-recorded-live-at-pistil-05-02-2016/'
-      $scope.current_mc_track = $sce.trustAsResourceUrl("https://www.mixcloud.com/widget/iframe/?feed=" + mc_url + "&hide_cover=1&mini=1&autoplay=1");
+      $scope.widgetOpen = false;
+      var mc_url = 'https://www.mixcloud.com/SCR_Radio/apachi-b2b-minii-alter-ego-show-recorded-live-at-pistil-05-02-2016/';
+      $scope.current_mc_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + mc_url + '&hide_cover=1&mini=1&autoplay=1');
 
       $rootScope.$on('player.play', function (event, args){
         $scope.current_mc_track = args.track;

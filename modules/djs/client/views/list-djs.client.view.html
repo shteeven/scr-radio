@@ -1,0 +1,21 @@
+<section ng-controller="DjsController" ng-init="find()">
+  <div class="page-header">
+    <h1>Djs</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="dj in djs" ui-sref="djs.view({djId: dj._id})" class="list-group-item">
+      <small class="list-group-item-text">
+        Posted on
+        <span ng-bind="dj.created | date:'mediumDate'"></span>
+        by
+        <span ng-if="dj.user" ng-bind="dj.user.displayName"></span>
+        <span ng-if="!dj.user">Deleted User</span>
+      </small>
+      <h4 class="list-group-item-heading" ng-bind="dj.title"></h4>
+      <p class="list-group-item-text" ng-bind="dj.content"></p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="djs.$resolved && !djs.length">
+    No djs yet, why don't you <a ui-sref="djs.create">create one</a>?
+  </div>
+</section>

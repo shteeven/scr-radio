@@ -1,3 +1,17 @@
 <section ng-controller="HomeController">
   <scr-carousel></scr-carousel>
+
+  <div class="col-sm-6 col-md-4">
+    <h3>DJs</h3>
+    <scr-tiles limit="{{tile_limit}}" data="dj_tiles"></scr-tiles>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <h3>Programs</h3>
+    <scr-tiles limit="{{tile_limit}}" data="program_tiles"></scr-tiles>
+  </div>
+  <!-- this element will be centered on sm screens-->
+  <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
+    <h3>Sessions</h3>
+    <scr-tiles limit="{{tile_limit}}" data="show_tiles"></scr-tiles>
+  </div>
 </section>

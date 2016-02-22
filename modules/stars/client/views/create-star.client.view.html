@@ -1,0 +1,75 @@
+<section ng-controller="StarsController">
+  <div class="page-header">
+    <h1>New Star</h1>
+  </div>
+  <div class="col-md-12">
+    <form name="starForm" class="form-horizontal" ng-submit="create(starForm.$valid)" novalidate>
+      <fieldset>
+
+        <div class="col-sm-6 text-center">
+          <i class="glyphicon glyphicon-user"></i>
+        </div>
+
+        <div class="col-sm-6">
+
+          <div class="form-group" show-errors>
+            <label for="title">Title: <span class="caption text-muted">Stage name</span></label>
+            <input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>
+            <div ng-messages="starForm.title.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Star title is required.</p>
+            </div>
+          </div>
+
+          <div class="form-group" show-errors>
+            <div ng-show="language == 'en'">
+              <label for="description_en">
+                Description: <span class="caption text-muted">English synopsis of you and your style (100~500 Characters)</span>
+                <a ng-click="language = 'kr'" class="button-lang">
+                  EN/<span>KR</span>
+                </a>
+              </label>
+              <textarea name="description_en" type="text" ng-model="description.en" id="description_en" class="form-control" placeholder="Description" required></textarea>
+              <div ng-messages="starForm.description.$error" role="alert">
+                <p class="help-block error-text" ng-message="required">Star description is required.</p>
+              </div>
+            </div>
+
+            <div ng-show="language == 'kr'">
+              <label for="description_kr">
+                Description: <span class="caption text-muted">Korean synopsis of you and your style (100~500 Characters)</span>
+                <a ng-click="language = 'en'" class="button-lang">
+                  <span>EN</span>/KR
+                </a>
+              </label>
+              <textarea name="description_kr" type="text" ng-model="description.kr" id="description_kr" class="form-control" placeholder="Description"></textarea>
+            </div>
+
+          </div>
+
+          <!--<div class="form-group" show-errors>-->
+            <!--<label for="title">Title: <span class="caption text-muted">Stage name</span></label>-->
+            <!--<input name="title" type="text" ng-model="title" id="title" class="form-control" placeholder="Title" required>-->
+            <!--<div ng-messages="starForm.title.$error" role="alert">-->
+              <!--<p class="help-block error-text" ng-message="required">Star title is required.</p>-->
+            <!--</div>-->
+          <!--</div>-->
+
+        </div>
+        
+        <div class="form-group">
+          <label for="profileImageURL">Content: <span class="caption text-muted">Episode name</span></label>
+          <input type="file" id="profileImageURL">
+        </div>
+
+        <div class="form-group">
+          <input type="submit" class="btn btn-default">
+        </div>
+
+        <div ng-show="error" class="text-danger">
+          <strong ng-bind="error"></strong>
+        </div>
+
+      </fieldset>
+    </form>
+  </div>
+</section>

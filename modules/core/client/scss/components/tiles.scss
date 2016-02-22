@@ -1,32 +1,64 @@
-.dynamicTile .col-sm-2.col-xs-4 {
-  padding:5px;
+//.dynamicTile .col-sm-2.col-xs-4 {
+//  padding:5px;
+//}
+//.dynamicTile .col-sm-4.col-xs-8{
+//  padding:5px;
+//}
+//#tile1{
+//  background: rgb(0,172,238);
+//}
+//#tile2{ background: rgb(243,243,243); }
+//#tile3{ background: rgb(71,193,228); }
+//#tile4{
+//  background-image: url('http://handsontek.net/demoimages/tiles/facebook.png');
+//  background-size: cover;
+//}
+//#tile5{ background: rgb(175,26,63); }
+//#tile6{ background: rgb(62,157,215); }
+//#tile7{ background: white; }
+//#tile8{ background: rgb(209,70,37); }
+//#tile9{ background: rgb(0,142,0); }
+//#tile10{ background: rgb(0,93,233); }
+//.tilecaption {
+//  position: relative;
+//  top: 50%;
+//  transform: translateY(-50%);
+//  -webkit-transform: translateY(-50%);
+//  -ms-transform: translateY(-50%);
+//  margin:0!important;
+//  text-align: center;
+//  color:white; font-family: Segoe UI;
+//  font-weight: lighter;
+//}
+
+.tiles-container {
+  background: grey;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 10px;
 }
-.dynamicTile .col-sm-4.col-xs-8{
-  padding:5px;
+
+.tile-title {
+  font-size: 1.3em;
+  font-weight: 800;
 }
-#tile1{
-  background: rgb(0,172,238);
+
+.tile {
+  height: 180px;
+  margin-bottom: 10px;
+  background-color: black;
 }
-#tile2{ background: rgb(243,243,243); }
-#tile3{ background: rgb(71,193,228); }
-#tile4{
-  background-image: url('http://handsontek.net/demoimages/tiles/facebook.png');
+
+.tile-img {
+  height: 100%;
   background-size: cover;
+  background-position: center;
 }
-#tile5{ background: rgb(175,26,63); }
-#tile6{ background: rgb(62,157,215); }
-#tile7{ background: white; }
-#tile8{ background: rgb(209,70,37); }
-#tile9{ background: rgb(0,142,0); }
-#tile10{ background: rgb(0,93,233); }
-.tilecaption {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  margin:0!important;
-  text-align: center;
-  color:white; font-family: Segoe UI;
-  font-weight: lighter;
+.tile-text {
+  display: block;
+}
+
+.tile-info {
+  height: 100%;
+  padding: 15px;
 }

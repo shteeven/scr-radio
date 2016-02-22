@@ -4,12 +4,12 @@
  */
 var app = angular.module('core');
 
-app.directive('scrCarousel', function($rootScope, $http) {
+app.directive('scrCarousel', function($rootScope, $http, $interval) {
   return {
     restrict: 'E',
     scope: {},
-    controller: function($scope, $element, $interval) {
-      $http.get('modules/core/client/directives/data/shows-list.json').then(
+    controller: function($scope, $element) {
+      $http.get('modules/core/client/data/shows-list.json').then(
         function(data){
           $scope.slides = data.data;
         }
@@ -60,7 +60,7 @@ app.directive('scrCarousel', function($rootScope, $http) {
 
     },
 
-    templateUrl: 'modules/core/client/directives/components/carousel.html'
+    templateUrl: 'modules/core/client/views/components/carousel.html'
   };
 });
 

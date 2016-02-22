@@ -1,3 +1,41 @@
+Temporary README; has personal notes of how to establish this app.
+# SCRadio
+
+## Server Set Up 
+
+Server set up follows the steps found [here][1]; and [this][2] was an aid for setting up the reverse proxy, Nginx, and preparing MEAN for production.
+
+IMPORTANT!!! Security considerations for deploying the app in production. [here][3]
+
+Use AWS guide to make policies for buckets, here. [4]
+
+## Models
+
+#### Universal Fields
+- title (string): Self explanatory
+- image (string): Should be a URL to an image; can be left blank for shows
+- images (array): Should be an array of string URLs; may or may not be utilized by some models
+- links (object): Should be an object of key/value pairs, with values being string URLs, or URL partials (like page IDs) to social media, APIs, or embed paths
+- created (datetime): Should be a datetime object; automatically generated... no need to fill in
+- categories (array): Should be an array of strings; the strings should be lower case to facilitate user and staff queries of the DB
+- description (object): Should be an object of key/value pairs, with values being string descriptions of the model, and keys should be 2 character language abbreviations
+
+#### DJ Specific Fields
+- guest (boolean): Should be a boolean value that defaults to false; if true, guest will not show up in djs model queries, except in the admin pages; guests do not need all info filled.
+
+#### Program Specific Fields
+- djs (array): Should be an array of ObjectIds referencing the djs model; primary DJs should go here; can be empty if none
+
+#### Program Specific Fields
+- djs (array): Should be an array of ObjectIds referencing the djs model; should be primary DJs listed here
+- guests (array): Should be an array of ObjectIds referencing the djs model; even if the guests are one-off, add them to the DJs list
+
+
+
+
+
+# MEANJS Default ReadMe
+
 [![MEAN.JS Logo](http://meanjs.org/img/logo-small.png)](http://meanjs.org/)
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/meanjs/mean?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -322,3 +360,14 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
 CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+[1] https://www.codefellows.org/blog/how-to-host-a-nodejs-app-on-an-ec2-ubuntu-server
+[2] https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
+[3] https://devcenter.heroku.com/articles/s3-upload-node#prerequisites
+[4] https://console.aws.amazon.com/s3/
+
+
+
+
+

@@ -1,0 +1,38 @@
+.links {
+}
+
+.links .social-link {
+  display: inline-block;
+  padding: 4px;
+}
+
+.links .icon {
+  color: white;
+  transition: color .15s ease-in-out;
+  background-position: center;
+  background-size: cover;
+}
+
+.links .icon-facebook {
+  background-image: url('/modules/core/client/img/sprites/facebook.png');
+}
+
+.links .icon-mixcloud {
+  background-image: url('/modules/core/client/img/sprites/mixcloud.png');
+}
+
+.links .icon-twitter {
+  background-image: url('/modules/core/client/img/sprites/twitter.png');
+}
+
+.links .icon-instagram {
+  background-image: url('/modules/core/client/img/sprites/instagram.png');
+}
+
+.links .icon-homepage {
+  background-image: url('/modules/core/client/img/sprites/homepage.png');
+}
+
+.links .icon-placeholder {
+
+}

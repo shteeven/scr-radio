@@ -40,6 +40,12 @@ $primary-nav-width: 250px;
   position: absolute;
 }
 
+.navbar-container-top-right {
+  right: 25px;
+  top: 2px;
+  position: absolute;
+}
+
 .brand-logo {
   width: 35px;
 }
@@ -126,11 +132,10 @@ $primary-nav-width: 250px;
   left: 0;
 }
 
-
 /* Sidebar Styles */
 
 .sidebar-nav {
-  position: absolute;
+  position: relative;
   top: 0;
   width: 250px;
   margin: 0;

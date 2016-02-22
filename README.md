@@ -9,6 +9,11 @@ IMPORTANT!!! Security considerations for deploying the app in production. [here]
 
 Use AWS guide to make policies for buckets, here. [4]
 
+## Dev Environment Set Up
+
+REMOVED COMPASS!!!!!!!!!!!!!!!! This section below is unimportant for the time being.
+In older for the gulp-compass (Sass) component to work, you'll need to install Compass on you dev machine. You can find instructions [here][5]. Run `compass init` in the command line to initialize the config file and folders.
+
 ## Models
 
 #### Universal Fields
@@ -366,6 +371,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [2] https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-14-04
 [3] https://devcenter.heroku.com/articles/s3-upload-node#prerequisites
 [4] https://console.aws.amazon.com/s3/
+[5] https://www.npmjs.com/package/gulp-compass
 
 
 

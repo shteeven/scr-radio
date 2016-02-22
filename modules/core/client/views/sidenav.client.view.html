@@ -10,58 +10,57 @@
   <!-- Sidebar -->
   <div id="sidebar-overlay" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()"></div>
   <div id="sidebar-wrapper" ng-class="{toggled: menu_toggled}">
-
     <ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">
       <!-- Home link: TODO: add styling or image here-->
       <li class="sidebar-brand"><a ui-sref="home">SCRadio</a></li>
-
       <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">
-          <div ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-            <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-          </div>
-      </li>
-
-
-    </ul>
-    <ul class="nav navbar-nav navbar-right" data-ng-hide="authentication.user">
-      <li data-ui-sref-active="active">
-        <a data-ui-sref="signup">Sign Up</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li data-ui-sref-active="active">
-        <a data-ui-sref="signin">Sign In</a>
+        <div ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+          <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+        </div>
       </li>
     </ul>
-    <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
-      <li class="dropdown" dropdown>
-        <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
-          <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
-          <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu" role="menu">
-          <li ui-sref-active="active">
-            <a ui-sref="settings.profile">Edit Profile</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a>
-          </li>
-          <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-            <a ui-sref="settings.password">Change Password</a>
-          </li>
-          <li ui-sref-active="active">
-            <a ui-sref="settings.accounts">Manage Social Accounts</a>
-          </li>
-          <li class="divider"></li>
-          <li>
-            <a href="/api/auth/signout" target="_self">Signout</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
   </div>
-
 </div>
+
+
+
+
+<!--<ul class="nav navbar-nav" data-ng-hide="authentication.user">-->
+<!--<li data-ui-sref-active="active">-->
+<!--<a data-ui-sref="signup">Sign Up</a>-->
+<!--</li>-->
+<!--<li class="divider-vertical"></li>-->
+<!--<li data-ui-sref-active="active">-->
+<!--<a data-ui-sref="signin">Sign In</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--<ul class="nav navbar-nav" ng-show="authentication.user">-->
+<!--<li class="dropdown" dropdown>-->
+<!--<a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">-->
+<!--<img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />-->
+<!--<span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>-->
+<!--</a>-->
+<!--<ul class="dropdown-menu" role="menu">-->
+<!--<li ui-sref-active="active">-->
+<!--<a ui-sref="settings.profile">Edit Profile</a>-->
+<!--</li>-->
+<!--<li ui-sref-active="active">-->
+<!--<a ui-sref="settings.picture">Change Profile Picture</a>-->
+<!--</li>-->
+<!--<li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">-->
+<!--<a ui-sref="settings.password">Change Password</a>-->
+<!--</li>-->
+<!--<li ui-sref-active="active">-->
+<!--<a ui-sref="settings.accounts">Manage Social Accounts</a>-->
+<!--</li>-->
+<!--<li class="divider"></li>-->
+<!--<li>-->
+<!--<a href="/api/auth/signout" target="_self">Signout</a>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</li>-->
+<!--</ul>-->
+
 
 
 

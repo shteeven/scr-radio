@@ -140,7 +140,7 @@ gulp.task('cssmin', function () {
 gulp.task('sass', function () {
   return gulp.src(defaultAssets.client.sass)
     .pipe(plugins.sass())
-    .pipe(plugins.autoprefixer())
+    .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
     .pipe(plugins.rename(function (file) {
       file.dirname = file.dirname.replace(path.sep + 'scss', path.sep + 'css');
     }))

@@ -1,5 +1,5 @@
 .items-list-group {
-  padding-bottom: 30px; }
+  padding-bottom: 23px; }
 
 .items-list-group:hover .items-list-group-image-container {
   border: solid 3px white; }
@@ -13,4 +13,8 @@
   background-size: cover; }
 
 .items-list-group-text {
+  height: 65px;
   padding: 5px; }
+
+.items-list-group-text-header {
+  font-size: 1.2em; }

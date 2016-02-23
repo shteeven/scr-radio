@@ -35,9 +35,17 @@ a:hover {
   color: whitesmoke;
   text-decoration: none; }
 
+a:hover {
+  color: whitesmoke;
+  text-decoration: none; }
+
+a:focus {
+  text-decoration: none; }
+
 /***************************/
 /***************************/
 .view {
+  min-height: 100vh;
   padding-top: 55px; }
 
 /***************************/

@@ -50,12 +50,21 @@ a:hover {
   text-decoration: none;
 }
 
+a:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+a:focus {
+  text-decoration: none;
+}
 
 /***************************/
 // View: main ui-views
 /***************************/
 // push views farther down from header
 .view {
+  min-height: 100vh;
   padding-top: 55px;
 }
 

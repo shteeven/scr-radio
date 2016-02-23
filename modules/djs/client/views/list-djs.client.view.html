@@ -1,6 +1,6 @@
 <section class="container" ng-controller="DjsController" ng-init="find()">
   <div>
-    <h1>DJs</h1>
+    <h1>SCRadio DJs</h1>
   </div>
   <div class="items-list row">
     <a ng-repeat="dj in djs" ui-sref="djs.view({djId: dj._id})" class="items-list-group col-xs-6 col-sm-4 col-md-3">
@@ -9,10 +9,13 @@
           <div class="sr-only">Image of {{dj.image}}</div>
         </div>
         <div class="items-list-group-text">
-          <h4 ng-bind="dj.title"></h4>
-          <span>{{dj.schedule.day}}</span>
-          <span>{{dj.schedule.time}}</span>
-          <span>{{dj.schedule.frequency}}</span>
+          <span class="items-list-group-text-header" ng-bind="dj.title"></span>
+          <div ng-if="dj.schedule">
+            <span>{{dj.schedule.frequency | capitalize}}</span>
+            <span>{{dj.schedule.day | capitalize}}s</span>
+            <span>at {{dj.schedule.time}}</span>
+          </div>
+
         </div>
         <!--<h4 class="list-group-item-heading" ng-bind="dj.title"></h4>-->
         <!--<p class="list-group-item-text" ng-bind="dj.content"></p>-->

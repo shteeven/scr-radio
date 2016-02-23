@@ -27,6 +27,16 @@ body {
 
 /***************************/
 /***************************/
+a {
+  color: whitesmoke;
+  text-decoration: none; }
+
+a:hover {
+  color: whitesmoke;
+  text-decoration: none; }
+
+/***************************/
+/***************************/
 .view {
   padding-top: 55px; }
 

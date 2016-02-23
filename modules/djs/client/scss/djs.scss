@@ -1,9 +1,17 @@
 
 .items-list {}
 
-.items-list-group {}
+.items-list-group {
+  padding-bottom: 30px;
+}
 
-.items-list-group-container {}
+.items-list-group:hover .items-list-group-image-container {
+  border: solid 3px white;
+}
+
+.items-list-group-container {
+  background-color: rgba(0, 0, 0, .4);
+}
 
 .items-list-group-image-container {
   height: 160px;
@@ -13,7 +21,9 @@
 
 .items-list-group-image {}
 
-.items-list-group-text {}
+.items-list-group-text {
+  padding: 5px;
+}
 
 
 

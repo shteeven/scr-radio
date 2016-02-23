@@ -39,6 +39,19 @@ body {
 }
 
 /***************************/
+// Site wide element styles
+/***************************/
+a {
+  color: whitesmoke;
+  text-decoration: none;
+}
+a:hover {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+
+/***************************/
 // View: main ui-views
 /***************************/
 // push views farther down from header

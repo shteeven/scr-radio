@@ -38,4 +38,24 @@ body {
   }
 }
 
+/***************************/
+// View: main ui-views
+/***************************/
+// push views farther down from header
+.view {
+  padding-top: 55px;
+}
+
+
+/***************************/
+// Backgrounds
+/***************************/
+.bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-1 {
+  background-image: url('/modules/core/client/data/images/Close quarters.jpg')
+}
 

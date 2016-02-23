@@ -20,7 +20,7 @@ var Djschema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
-  profileImageURL: {
+  image: {
     type: String,
     default: 'modules/users/client/img/profile/default.png'
   },
@@ -30,15 +30,16 @@ var Djschema = new Schema({
     en: String,
     kr: String
   },
-  userID: {
+  user: {
     type: Schema.ObjectId,
     ref: 'User'
   },
-  social: {
+  links: {
     mixcloud: { type: String },
     facebook: { type: String },
     twitter: { type: String },
-    homepage: { type: String }
+    homepage: { type: String },
+    instagram: { type: String }
   }
 });
 

@@ -20,12 +20,11 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       // Create new Dj object
       var dj = new Djs({
         title: this.title,
-        profileImageURL: this.profileImageURL,
+        image: this.image,
         images: this.images,
         categories: this.categories,
         description: this.description,
-        user_id: this.userID,
-        social: this.social
+        links: this.links
       });
 
       // Redirect after save

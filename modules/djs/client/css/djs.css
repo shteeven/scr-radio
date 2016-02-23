@@ -1,7 +1,4 @@
-.button-lang span{
-    font-weight: 200;
-}
-
-/*.button-lang span {*/
-    /*font-weight: 900;*/
-/*}*/
+.items-list-group-image-container {
+  height: 160px;
+  background-position: center;
+  background-size: cover; }

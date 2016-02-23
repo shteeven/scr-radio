@@ -13,6 +13,7 @@ var path = require('path'),
  */
 exports.create = function (req, res) {
   var dj = new Dj(req.body);
+  console.log(req.user);
   dj.user = req.user;
 
   dj.save(function (err) {

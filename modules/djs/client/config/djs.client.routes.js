@@ -8,7 +8,7 @@ angular.module('djs').config(['$stateProvider',
       .state('djs', {
         abstract: true,
         url: '/djs',
-        template: '<ui-view/>'
+        template: '<div class="view bg bg-1"><ui-view/></div>'
       })
       .state('djs.list', {
         url: '',

@@ -2,7 +2,7 @@
   <div class="page-header">
     <h1 ng-bind="dj.title"></h1>
   </div>
-  <div class="pull-right" ng-show="authentication.user._id == dj.userID">
+  <div class="pull-right" ng-show="authentication.user._id == dj.user">
     <a class="btn btn-primary" ui-sref="djs.edit({djId: dj._id})">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
@@ -16,7 +16,7 @@
       {{userID}}
       <span ng-bind="dj.created | date:'mediumDate'"></span>
       by
-      <span ng-if="dj.userID" ng-bind="dj.user.displayName"></span>
+      <span ng-if="dj.user" ng-bind="dj.user.displayName"></span>
       <span ng-if="!dj.user">Deleted User</span>
     </em>
   </small>

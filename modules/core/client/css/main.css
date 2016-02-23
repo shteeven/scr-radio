@@ -24,3 +24,17 @@ body {
 @media screen and (max-width: 767px) {
   .col-xs-hidden {
     display: none; } }
+
+/***************************/
+/***************************/
+.view {
+  padding-top: 55px; }
+
+/***************************/
+/***************************/
+.bg {
+  background-size: cover;
+  background-position: center; }
+
+.bg-1 {
+  background-image: url("/modules/core/client/data/images/Close quarters.jpg"); }

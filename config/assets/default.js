@@ -28,7 +28,8 @@ module.exports = {
       'modules/*/client/less/*.less'
     ],
     sass: [
-      'modules/*/client/scss/**/*.scss'
+      'modules/*/client/scss/**/*.scss',
+      'modules/*/client/scss/*.scss'
       //'modules/*/client/scss/components/*.scss'
     ],
     js: [

@@ -1,0 +1,68 @@
+[
+  {
+    "title": "ALTER EGO",
+    "image": "",
+    "images": [""],
+    "links": {
+      "facebook": "",
+      "twitter": "",
+      "mixcloud": "",
+      "homepage":""
+    },
+    "categories": [""],
+    "description": {
+      "en":"",
+      "kr":""
+    },
+    "djs": [""],
+    "schedule":{
+      "day":"",
+      "time":"",
+      "frequency":""
+    }
+  },
+  {
+    "title": "Second Hand Seoul",
+    "image": "https://thumbnail.mixcloud.com/w/300/h/300/q/85/upload/images/extaudio/9c1f914b-23ea-49b2-b299-230044b54c94",
+    "images": [""],
+    "links": {
+      "facebook": "",
+      "twitter": "",
+      "mixcloud": "",
+      "homepage":""
+    },
+    "categories": [""],
+    "description": {
+      "en":"Second Hand Seoul challenges local + guest DJ’s to go digging in Meyongdong’s famous record shops and come up with an on-the-spot mix using 15 purchases.",
+      "kr":"바이널에 미친사람들 모여라! SCR에서 주기적으로 진행될 새로운쇼는 '세컨핸드서울' 입니다. 로컬 또는 내한한 디제이들이 명동 등의 레코드샵을 디깅하여 대략 15개 정도의 바이널들을 구입합니다. 그리고 그것들을 바로 믹스해 쇼를 진행하는 일종의 도전입니다."
+    },
+    "djs": [""],
+    "schedule":{
+      "day":"",
+      "time":"",
+      "frequency":""
+    }
+  },
+  {
+    "title": "The XL Hour",
+    "image": "https://thumbnail.mixcloud.com/w/600/h/600/q/85/upload/images/extaudio/c1d4b2ad-63a2-4ac6-a6e9-e9d403675140",
+    "images": [""],
+    "links": {
+      "facebook": "",
+      "twitter": "",
+      "mixcloud": "",
+      "homepage":""
+    },
+    "categories": [""],
+    "description": {
+      "en":"",
+      "kr":""
+    },
+    "djs": [""],
+    "schedule":{
+      "day":"",
+      "time":"",
+      "frequency":""
+    }
+  },
+]

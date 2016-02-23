@@ -1,0 +1,36 @@
+[
+  {
+    "title": "J.fitz",
+    "image": "https://scontent.fsnc1-1.fna.fbcdn.net/hphotos-xfp1/t31.0-8/11722155_1026751917342954_132134432418737812_o.jpg",
+    "images": [""],
+    "links": {
+      "facebook": "https://www.facebook.com/jfitzofficial/",
+      "twitter": "",
+      "mixcloud": "",
+      "homepage":""
+    },
+    "categories": [""],
+    "description": {
+      "en":"",
+      "kr":""
+    },
+    "guest": false
+  },
+  {
+    "title": "Big Boy XL",
+    "image": "//thumbnail.mixcloud.com/w/600/h/600/q/85/upload/images/extaudio/c1d4b2ad-63a2-4ac6-a6e9-e9d403675140",
+    "images": [""],
+    "links": {
+      "facebook": "",
+      "twitter": "",
+      "mixcloud": "",
+      "homepage":""
+    },
+    "categories": [""],
+    "description": {
+      "en":"Working behind the scenes at Cakeshop Seoul, Big Boy XL acts as the club's creative director. Curating DJ lineups, conceptualizing fashion and accessory collaborations, and creating the iconic Cakeshop posters, are only a few things XL is responsible for. A very well rounded DJ in his own right, XL has played alongside many Cakeshop guests and is a staple behind the decks at rooftop jams that scatter across Seoul's horizon in the summer. Visual artist, musician, remixer, curator, and the list continues. One third of the elusive Extreme Dream Crew, and loved by crews worldwide, XL is always supplying heat.",
+      "kr":"Big Boy XL은 Cakeshop Seoul에서 Creative Director로 활동중에 있으며 DJ Lineup 선정, 패션 및 악세서리의 콜라보레이션 등을 전두 지휘중에 있으며 또 상징적인 Cakeshop 포스터 제작을 맡고 있습니다. 또 BigBoyXL은 다양한 장르를 어우르는 DJ로서 Cakeshop의 여러 게스트들과 함께 플레이 하였으며 또 여름에는 서울의 여러 루프탑 파티에서 꾸준한 플레이를 보여주었습니다. 비주얼 아티스트, 뮤지션, 리믹서, 큐레이터 등 Big Boy XL은 찾기 힘든 Extreme Dream Crew들중 한명으로서 또 세계에서 여러 Crew들에게 사랑받는 DJ로써 뜨거운 열기를 전해줄 것입니다."
+    },
+    "guest": false
+  }
+]

@@ -4,8 +4,17 @@
 angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Djs',
   function ($scope, $stateParams, $location, Authentication, Djs) {
     $scope.authentication = Authentication;
-    $scope.language = 'en';
 
+    // Clear forms
+    $scope.clear = function(){
+      $scope.dj.title = '';
+      $scope.dj.image = '';
+      $scope.dj.images = [];
+      $scope.dj.links = {};
+      $scope.dj.categories = [];
+      $scope.dj.description = {en:'', kr:''};
+      $scope.dj.guest = false;
+    };
 
     // Create new Dj
     $scope.create = function (isValid) {
@@ -19,12 +28,13 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
 
       // Create new Dj object
       var dj = new Djs({
-        title: this.title,
-        image: this.image,
-        images: this.images,
-        categories: this.categories,
-        description: this.description,
-        links: this.links
+        title: $scope.dj.title,
+        image: $scope.dj.image,
+        images: $scope.dj.images,
+        links: $scope.dj.links,
+        categories: $scope.dj.categories,
+        description: $scope.dj.description,
+        guest: $scope.dj.guest
       });
 
       // Redirect after save
@@ -33,13 +43,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
         $location.path('djs/' + response._id);
 
         // Clear form fields
-        $scope.title = '';
-        $scope.profileImageURL = '';
-        $scope.images = [];
-        $scope.categories = [];
-        $scope.description = {};
-        $scope.userID = '';
-        $scope.social = {};
+        $scope.clear();
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
@@ -78,15 +82,6 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       dj.$update(function () {
 
         $location.path('djs/' + dj._id);
-
-        // Clear form fields
-        $scope.title = '';
-        $scope.profileImageURL = '';
-        $scope.images = [];
-        $scope.categories = [];
-        $scope.description = {};
-        $scope.userID = '';
-        $scope.social = {};
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;

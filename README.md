@@ -44,7 +44,7 @@ In older for the gulp-compass (Sass) component to work, you'll need to install C
 - djs (array): Should be an array of ObjectIds referencing the djs model; primary DJs should go here; can be empty if none
 - schedule: (object): Should be an object of key/value pairs represent information about scheduling; i.e. day, time, frequency 
 
-#### Program Specific Fields
+#### Show Specific Fields
 - djs (array): Should be an array of ObjectIds referencing the djs model; should be primary DJs listed here
 - guests (array): Should be an array of ObjectIds referencing the djs model; even if the guests are one-off, add them to the DJs list
 

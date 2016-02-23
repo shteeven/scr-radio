@@ -12,7 +12,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       $scope.dj.images = [];
       $scope.dj.links = {};
       $scope.dj.categories = [];
-      $scope.dj.description = {en:'', kr:''};
+      $scope.dj.description = {};
       $scope.dj.guest = false;
     };
 

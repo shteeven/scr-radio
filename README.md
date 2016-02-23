@@ -9,7 +9,19 @@ IMPORTANT!!! Security considerations for deploying the app in production. [here]
 
 Use AWS guide to make policies for buckets, here. [4]
 
+//****************************//
+// new instance: bitnami Mean //
+//****************************//
+With the new config, Mongo is defaulted with auth requirements: You must select to ban HTTP connection and enable no-auth for localhost, as well as create users for mongo with root and/or readWrite roles.
+Change in mongod.conf:
+- setParameter = enableLocalhostAuthBypass=1
+- nohttpinterface = true
+And uncomment the port assignment.
+Folowing this tutorial to set up [server][6]
+
 ## Dev Environment Set Up
+
+
 
 REMOVED COMPASS!!!!!!!!!!!!!!!! This section below is unimportant for the time being.
 In older for the gulp-compass (Sass) component to work, you'll need to install Compass on you dev machine. You can find instructions [here][5]. Run `compass init` in the command line to initialize the config file and folders.
@@ -372,6 +384,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [3] https://devcenter.heroku.com/articles/s3-upload-node#prerequisites
 [4] https://console.aws.amazon.com/s3/
 [5] https://www.npmjs.com/package/gulp-compass
+[6] 
 
 
 

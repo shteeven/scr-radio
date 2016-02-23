@@ -384,7 +384,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [3] https://devcenter.heroku.com/articles/s3-upload-node#prerequisites
 [4] https://console.aws.amazon.com/s3/
 [5] https://www.npmjs.com/package/gulp-compass
-[6] 
+[6] https://scotch.io/tutorials/deploying-a-mean-app-to-amazon-ec2-part-2
 
 
 

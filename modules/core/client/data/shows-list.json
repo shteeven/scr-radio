@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Deadboy + Murlo in Seoul",
+    "images":["modules/core/client/data/images/show - deadboy and murlo.jpg"],
+    "category": "SCR Specials",
+    "artist_id": 999666333,
+    "desc": {
+      "en": "London bass heavyweights Deadboy and Murlo step up to deliver an exclusive mix for SCR recorded privately at Cakeshop Seoul during their recent Asia tour",
+      "kr": "런던 베이스의 영향력있는 두 디제이 데드보이 와 멀로 가 SCR을 위해, 그들의 최근 아시아 투어 동안 서울에 위치한 케익샵에서 프라이빗하게 익스클루시브 믹스를 녹음하였다."
+    }
+  },
+  {
+    "name":"Close Quarters",
+    "images":["modules/core/client/data/images/Close quarters.jpg"],
+    "category": "Regulars",
+    "artist_id": 999666334,
+    "dj":["Shins"],
+    "desc": {
+      "en": "Focusing on underground club music, Close Quarters brings you that fresh vibe each and every time. Just like the club night itself, quality music in an intimate and unpretentious setting."
+    }
+  },
+  {
+    "name":"Cerebral Noodles",
+    "images":["modules/core/client/data/images/home slider.jpg"],
+    "category": "Regulars",
+    "artist_id": 999666335,
+    "dj":["Shins"],
+    "desc": {
+      "en": "A savory journey through instant electronic ramen to stimulate those neural tastebuds. Each episode a different flavor."
+    }
+  },
+  {
+    "name":"The Air Up There",
+    "images":["modules/core/client/data/images/home slider.jpg"],
+    "category": "Regulars",
+    "artist_id": 999666336,
+    "dj":["Airbear"],
+    "desc": {
+      "en": "Seoul based record collector and DJ and one half of the TMI crew. Playing a mix of old and future classics from here and there - occasionally the odd guest DJ might swing by and join in…"
+    }
+  }
+]
+
+
+
+
+

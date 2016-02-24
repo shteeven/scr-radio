@@ -1,5 +1,8 @@
 
-.items-list {}
+.items-list {
+  color: whitesmoke;
+  background-color: rgba(0, 0, 0, .4);
+}
 
 .items-list-group {
   padding-bottom: 23px;
@@ -10,7 +13,7 @@
 }
 
 .items-list-group-container {
-  background-color: rgba(0, 0, 0, .4);
+  background-color: rgb(0, 0, 0);
 }
 
 .items-list-group-image-container {

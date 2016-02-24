@@ -23,11 +23,13 @@ module.exports = {
 };
 */
 
+
 // SCRadio implementation of local
 module.exports = {
   MONGO_DB: 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/scradio',
   MONGO_USER: '',
   MONGO_PWD: '',
-  SESSION_SECRET: ''
+  SESSION_SECRET: '',
+  MONGOLABURI: ''
 };
 

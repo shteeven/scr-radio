@@ -1,8 +1,8 @@
 <section class="container" ng-controller="DjsController" ng-init="find()">
-  <div>
-    <h1>SCRadio DJs</h1>
-  </div>
   <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio DJs</h1>
+    </div>
     <a ng-repeat="dj in djs" ui-sref="djs.view({djId: dj._id})" class="items-list-group col-xs-6 col-sm-4 col-md-3">
       <div class="items-list-group-container">
         <div class="items-list-group-image-container" ng-style="{'background-image':'url({{dj.image}})'}">

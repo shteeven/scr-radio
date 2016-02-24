@@ -1,8 +1,8 @@
 'use strict';
 
 // Shows controller
-angular.module('shows').controller('ShowsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shows', 'Djs', 'Programs',
-  function ($scope, $stateParams, $location, Authentication, Shows, Djs, Programs) {
+angular.module('shows').controller('ShowsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shows', 'Djs', 'Programs', '$rootScope',
+  function ($scope, $stateParams, $location, Authentication, Shows, Djs, Programs, $rootScope) {
     // TODO: Add a time picker as well as tracks
     $scope.authentication = Authentication;
 
@@ -48,7 +48,7 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
       $scope.show.description = {};
       $scope.show.djs = [];
       $scope.show.guests = [];
-      $scope.show.aired = {};
+      $scope.show.aired = new Date();
       $scope.program = '';
     };
 
@@ -137,6 +137,11 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
       $scope.show = Shows.get({
         showId: $stateParams.showId
       });
+    };
+
+    // Play Mixcloud plugin on click
+    $scope.playerPlay = function(show) {
+      $rootScope.$broadcast('player.play', { url: show.links.mixcloud });
     };
   }
 ]);

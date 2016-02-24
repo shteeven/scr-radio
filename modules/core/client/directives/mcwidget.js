@@ -14,19 +14,23 @@ app.directive('mcWidget', function($http, $rootScope, $sce) {
     controller: function($scope, $element) {
       //init state
       $scope.widgetOpen = false;
-      var mc_url = 'https://www.mixcloud.com/SCR_Radio/apachi-b2b-minii-alter-ego-show-recorded-live-at-pistil-05-02-2016/';
-      $scope.current_mc_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + mc_url + '&hide_cover=1&mini=1&autoplay=1');
 
+      $scope.close = function() {
+        $scope.widgetOpen = false;
+      };
+
+      // When a show element is clicked, it triggers this.
       $rootScope.$on('player.play', function (event, args){
-        $scope.current_mc_track = args.track;
+        // URL is not safe according to angular
+        $scope.current_mc_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + args.url + '&hide_cover=1&mini=1&autoplay=1');
         $scope.widgetOpen = true;
       });
+
+      // turns off mc widget when other audio element is played
       $rootScope.$on('audio.play', function (){
-        console.log('fired');
         $scope.widgetOpen = false;
       });
 
-      $scope.uuid = '738a63b0-550a-413a-8b08-e856af972010';
     },
     templateUrl: 'modules/core/client/views/components/mcwidget.html'
   };

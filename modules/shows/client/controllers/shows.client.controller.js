@@ -1,8 +1,9 @@
 'use strict';
 
 // Shows controller
-angular.module('shows').controller('ShowsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shows', 'Djs',
-  function ($scope, $stateParams, $location, Authentication, Shows, Djs) {
+angular.module('shows').controller('ShowsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Shows', 'Djs', 'Programs',
+  function ($scope, $stateParams, $location, Authentication, Shows, Djs, Programs) {
+    // TODO: Add a time picker as well as tracks
     $scope.authentication = Authentication;
 
     $scope.days = [
@@ -19,13 +20,21 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
     $scope.getDjs = function() {
       $scope.djs = Djs.query();
     };
+    $scope.getPrograms = function() {
+      $scope.programs = Programs.query();
+    };
 
     // Insert DJ into the DJs list
-    $scope.dj_names = {};
+    // dj arg is a DJ's _id
     $scope.addDj = function(dj) {
-      if ($scope.show.djs.indexOf(dj._id) < 0) {
-        $scope.show.djs.push(dj);
-      }
+      if ($scope.show.djs.indexOf(dj) < 0) { $scope.show.djs.push(dj); }
+    };
+    $scope.removeDj = function(dj) {
+      $scope.show.djs = $scope.show.djs.filter(function (obj) { return obj !== dj; });
+    };
+    $scope.getDjName = function(dj) {
+      var dj_obj = $scope.djs.filter(function (obj) { return obj._id === dj; });
+      return dj_obj[0].title;
     };
 
     // Clear forms
@@ -38,7 +47,9 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
       $scope.show.categories = [];
       $scope.show.description = {};
       $scope.show.djs = [];
-      $scope.show.schedule = {};
+      $scope.show.guests = [];
+      $scope.show.aired = {};
+      $scope.program = '';
     };
 
     // Create new Show
@@ -60,7 +71,9 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
         categories: $scope.show.categories,
         description: $scope.show.description,
         djs: $scope.show.djs,
-        guests: $scope.show.guests
+        guests: $scope.show.guests,
+        aired: $scope.show.aired,
+        program: $scope.program
       });
 
       // Redirect after save

@@ -48,12 +48,10 @@ var Programschema = new Schema({
     type: Schema.ObjectId,
     ref: 'Dj'
   } ],
-  schedule: {
-    day: { type: String },
-    time: { type: Date },
-    frequency: { type: String }
+  program: {
+    type: Schema.ObjectId,
+    ref: 'Program'
   }
-
 });
 
 mongoose.model('Program', Programschema);

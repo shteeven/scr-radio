@@ -74,7 +74,7 @@ exports.delete = function (req, res) {
  * List of Shows
  */
 exports.list = function (req, res) {
-  Show.find().sort('-created').populate('user', 'displayName').exec(function (err, shows) {
+  Show.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').populate('program', 'title').exec(function (err, shows) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -96,7 +96,7 @@ exports.showByID = function (req, res, next, id) {
     });
   }
 
-  Show.findById(id).populate('user', 'displayName').populate('dj', 'title').exec(function (err, show) {
+  Show.findById(id).populate('user', 'displayName').populate('dj', 'title').populate('program', 'title').exec(function (err, show) {
     if (err) {
       return next(err);
     } else if (!show) {

@@ -1,4 +1,4 @@
-<section class="container" ng-controller="ShowsController" ng-init="getDjs(); clear()">
+<section class="container" ng-controller="ShowsController" ng-init="getDjs(); getPrograms(); clear()">
   <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 jumbotron">
     <div class="col-xs-10 col-xs-offset-1">
       <div>
@@ -47,29 +47,11 @@
           </div>
 
           <div class="form-group">
-            <label for="time">
-              Time: <span class="caption text-muted">Start time of your show.</span>
+            <label for="programSelect">
+              Program: <span class="caption text-muted">What program does this show belog to?</span>
             </label>
-            <input type="time" id="time" name="input" ng-model="show.schedule.time" placeholder="HH:mm:ss" />
-          </div>
-
-          <div class="form-group">
-            <label for="daySelect">
-              Day: <span class="caption text-muted">Day the show airs</span>
-            </label>
-            <select name="daySelect" id="daySelect" ng-model="show.schedule.day">
-              <option ng-repeat="option in days" value="{{option}}">{{option | capitalize}}</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="frequencySelect">
-              Frequency: <span class="caption text-muted">Daily, weekly, monthly.</span>
-            </label>
-            <select name="frequencySelect" id="frequencySelect" ng-model="show.schedule.frequency">
-              <option value="daily">Daily</option>
-              <option value="weekly">Weekly</option>
-              <option value="monthly">Monthly</option>
+            <select name="programSelect" id="programSelect" ng-model="selected_program">
+              <option ng-repeat="option in programs | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
             </select>
           </div>
 
@@ -78,19 +60,22 @@
               DJs: <span class="caption text-muted">DJs that host this show.</span>
             </label>
             <select name="djSelect" id="djSelect" ng-model="selected_dj">
-              <option ng-repeat="option in djs" value="{{option}}">{{option.title}}</option>
+              <option ng-repeat="option in djs | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
             </select>
             <span class="glyphicon glyphicon-plus" ng-click="addDj(selected_dj)"></span>
-            <div>{{show.djs}}</div>
+            <div>
+              <span class="text-muted">DJs to add: </span>
+              <div ng-repeat="dj in show.djs" style="display:block; background: rgba(0, 0, 0, 0.1) ">
+                <span>{{getDjName(dj)}}</span>
+                <span class="glyphicon glyphicon-minus-sign" ng-click="removeDj(dj)"></span>
+              </div>
+            </div>
           </div>
-          <!--<uib-timepicker ng-model="mytime" hour-step="1" minute-step="5" show-meridian="false"></uib-timepicker>-->
-          <!--<div class="datepickerdemoBasicUsage">-->
-            <!--<md-content>-->
-              <!--<h4>Standard date-picker</h4>-->
-              <!--<md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>-->
-            <!--</md-content>-->
-          <!--</div>-->
-          <md-datepicker ng-model="birthday"></md-datepicker>
+
+          <div class="form-group">
+            <label for="datePicker">Air-date:</label>
+            <md-datepicker id="datePicker" ng-model="show.aired"></md-datepicker>
+          </div>
 
           <div class="form-group">
             <input type="submit" class="btn btn-default">
@@ -99,6 +84,7 @@
           <div ng-show="error" class="text-danger">
             <strong ng-bind="error"></strong>
           </div>
+
         </fieldset>
       </form>
     </div>

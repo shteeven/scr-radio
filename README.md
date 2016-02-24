@@ -47,6 +47,7 @@ In older for the gulp-compass (Sass) component to work, you'll need to install C
 #### Show Specific Fields
 - djs (array): Should be an array of ObjectIds referencing the djs model; should be primary DJs listed here
 - guests (array): Should be an array of ObjectIds referencing the djs model; even if the guests are one-off, add them to the DJs list
+- aired (datetime): Should be a datetime object with the value set to the day and time the show aired
 
 
 

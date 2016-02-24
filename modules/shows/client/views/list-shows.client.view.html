@@ -1,0 +1,28 @@
+<section class="container" ng-controller="ShowsController" ng-init="find()">
+  <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio Shows</h1>
+    </div>
+    <a ng-repeat="show in shows" ui-sref="shows.view({showId: show._id})" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+      <div class="items-list-group-container">
+        <div class="items-list-group-image-container" ng-style="{'background-image':'url({{show.image}})'}">
+          <div class="sr-only">Image of {{show.image}}</div>
+        </div>
+        <div class="items-list-group-text">
+          <span class="items-list-group-text-header" ng-bind="show.title"></span>
+          <div ng-show="show.schedule.day">
+            <span>{{show.schedule.frequency | capitalize}}</span>
+            <span>{{show.schedule.day | capitalize}}s</span>
+            <span>@ {{show.schedule.time | date: "HH:mm"}}</span>
+          </div>
+
+        </div>
+        <!--<h4 class="list-group-item-heading" ng-bind="show.title"></h4>-->
+        <!--<p class="list-group-item-text" ng-bind="show.content"></p>-->
+      </div>
+    </a>
+  </div>
+  <!--<div class="alert alert-warning text-center" ng-if="shows.$resolved && !shows.length">-->
+    <!--No shows yet, why don't you <a ui-sref="shows.create">create one</a>?-->
+  <!--</div>-->
+</section>

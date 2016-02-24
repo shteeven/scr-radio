@@ -13,16 +13,10 @@
           <div ng-if="dj.schedule">
             <span>{{dj.schedule.frequency | capitalize}}</span>
             <span>{{dj.schedule.day | capitalize}}s</span>
-            <span>at {{dj.schedule.time}}</span>
+            <span>@ {{dj.schedule.time | date: "HH:mm"}}</span>
           </div>
-
         </div>
-        <!--<h4 class="list-group-item-heading" ng-bind="dj.title"></h4>-->
-        <!--<p class="list-group-item-text" ng-bind="dj.content"></p>-->
       </div>
     </a>
   </div>
-  <!--<div class="alert alert-warning text-center" ng-if="djs.$resolved && !djs.length">-->
-    <!--No djs yet, why don't you <a ui-sref="djs.create">create one</a>?-->
-  <!--</div>-->
 </section>

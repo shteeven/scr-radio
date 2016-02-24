@@ -4,6 +4,8 @@
 angular.module('programs').controller('ProgramsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Programs', 'Djs',
   function ($scope, $stateParams, $location, Authentication, Programs, Djs) {
     $scope.authentication = Authentication;
+    $scope.program = {};
+    $scope.program.djs = [];
 
     $scope.days = [
       'monday',
@@ -21,12 +23,18 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
     };
 
     // Insert DJ into the DJs list
-    $scope.dj_names = {};
+    // dj arg is a DJ's _id
     $scope.addDj = function(dj) {
-      if ($scope.program.djs.indexOf(dj._id) < 0) {
-        $scope.program.djs.push(dj);
-      }
+      if ($scope.program.djs.indexOf(dj) < 0) { $scope.program.djs.push(dj); }
     };
+    $scope.removeDj = function(dj) {
+      $scope.program.djs = $scope.program.djs.filter(function (obj) { return obj !== dj; });
+    };
+    $scope.getDjName = function(dj) {
+      var dj_obj = $scope.djs.filter(function (obj) { return obj._id === dj; });
+      return dj_obj[0].title;
+    };
+
 
     // Clear forms
     $scope.clear = function(){

@@ -11,6 +11,12 @@
     </a>
   </div>
   <small>
+    <div>
+      {{program.title}} with
+      <span ng-repeat="dj in program.djs">
+        {{dj.title}}
+      </span>
+    </div>
     <em class="text-muted">
       Posted on
       {{userID}}

@@ -19,6 +19,7 @@ module.exports = {
   //SESSION_SECRET: '',
   //MONGOLABURI: '',
   //PORT: '',
+  //ADDRESS: '',
 
   // vendor specific
   //FACEBOOK_ID: '',

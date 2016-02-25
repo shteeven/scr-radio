@@ -21,8 +21,12 @@ app.directive('mcWidget', function($http, $rootScope, $sce) {
 
       // When a show element is clicked, it triggers this.
       $rootScope.$on('player.play', function (event, args){
+        var new_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + args.url + '&hide_cover=1&mini=1&autoplay=1');
+        if (new_track !== $scope.current_mc_track) {
+          $scope.close();
+          $scope.current_mc_track = new_track;
+        }
         // URL is not safe according to angular
-        $scope.current_mc_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + args.url + '&hide_cover=1&mini=1&autoplay=1');
         $scope.widgetOpen = true;
       });
 

@@ -6,6 +6,7 @@
     <div ng-repeat="show in shows" ng-click="playerPlay(show)" class="items-list-group col-xs-6 col-sm-4 col-md-3">
       <div class="items-list-group-container">
         <div class="items-list-group-image-container" ng-style="{'background-image':'url({{show.image}})'}">
+          <div class="play-container"><i class="glyphicon glyphicon-play-circle"></i></div>
           <div class="sr-only">Image of {{show.image}}</div>
         </div>
         <div class="items-list-group-text">

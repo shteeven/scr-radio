@@ -17,7 +17,7 @@
   "scripts": {
     "start": "grunt",
     "test": "grunt test",
-    "postinstall": "bower install --config.interactive=false"
+    "postinstall": "bower install --config.interactive=false || gulp build || cp ./config/env/local.example.js ./config/env/local.js"
   },
   "dependencies": {
     "acl": "~0.4.4",

@@ -1,15 +1,13 @@
 'use strict';
 
-var local = require('./local.js');
-
 module.exports = {
   app: {
     title: 'Seoul Community Radio',
     description: 'Straight from Itaewon, this app allows you to enjoy the music you love to hear. Build on the power-house: MEAN.js',
     keywords: 'mongodb, express, angularjs, node.js, mongoose, passport, Steven Barnhurst, Richard Price, Seoul, Itaewon, dj, djs, music, radio, online, shows, tracks',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || local.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },
-  port: process.env.PORT || local.PORT || 3000,
+  port: process.env.PORT || 3000,
   templateEngine: 'swig',
   // Session Cookie settings
   sessionCookie: {
@@ -24,7 +22,7 @@ module.exports = {
     secure: false
   },
   // sessionSecret should be changed for security measures and concerns
-  sessionSecret: process.env.SESSION_SECRET || local.SESSION_SECRET || 'MEAN',
+  sessionSecret: process.env.SESSION_SECRET || 'MEAN',
   // sessionKey is set to the generic sessionId key used by PHP applications
   // for obsecurity reasons
   sessionKey: 'sessionId',

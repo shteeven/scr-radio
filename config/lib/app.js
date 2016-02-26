@@ -7,8 +7,7 @@ var config = require('../config'),
   mongoose = require('./mongoose'),
   express = require('./express'),
   chalk = require('chalk'),
-  seed = require('./seed'),
-  local = require('../env/local');
+  seed = require('./seed');
 
 function seedDB() {
   if (config.seedDB && config.seedDB.seed) {
@@ -39,7 +38,7 @@ module.exports.start = function start(callback) {
   _this.init(function (app, db, config) {
 
     // Start the app by listening on <port>
-    app.listen(config.port, local.ADDRESS || '127.0.0.1', function () {
+    app.listen(config.port, function () {
 
       // Logging initialization
       console.log('--');

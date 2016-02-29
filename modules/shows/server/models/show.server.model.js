@@ -52,7 +52,11 @@ var Showschema = new Schema({
     type: Schema.ObjectId,
     ref: 'Dj'
   } ],
-  aired: { type: Date }
+  aired: { type: Date },
+  featured: {
+    type: Boolean,
+    default: false
+  }
 });
 
 mongoose.model('Show', Showschema);

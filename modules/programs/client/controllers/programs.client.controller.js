@@ -47,6 +47,7 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
       $scope.program.description = {};
       $scope.program.djs = [];
       $scope.program.schedule = {};
+      $scope.program.featured = false;
     };
 
     // Create new Program
@@ -68,7 +69,8 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
         categories: $scope.program.categories,
         description: $scope.program.description,
         djs: $scope.program.djs,
-        schedule: $scope.program.schedule
+        schedule: $scope.program.schedule,
+        featured: $scope.program.featured
       });
 
       // Redirect after save

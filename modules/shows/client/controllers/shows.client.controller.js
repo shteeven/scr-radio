@@ -50,6 +50,7 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
       $scope.show.guests = [];
       $scope.show.aired = new Date();
       $scope.program = '';
+      $scope.show.featured = false;
     };
 
     // Create new Show
@@ -73,7 +74,8 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
         djs: $scope.show.djs,
         guests: $scope.show.guests,
         aired: $scope.show.aired,
-        program: $scope.program
+        program: $scope.program,
+        featured: $scope.show.featured
       });
 
       // Redirect after save

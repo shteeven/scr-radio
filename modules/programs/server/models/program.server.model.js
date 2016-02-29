@@ -51,6 +51,10 @@ var Programschema = new Schema({
   program: {
     type: Schema.ObjectId,
     ref: 'Program'
+  },
+  featured: {
+    type: Boolean,
+    default: false
   }
 });
 

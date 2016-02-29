@@ -47,6 +47,10 @@ var Djschema = new Schema({
   guest: {
     type: Boolean,
     default: false
+  },
+  featured: {
+    type: Boolean,
+    default: false
   }
 
 });

@@ -14,6 +14,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       $scope.dj.categories = [];
       $scope.dj.description = {};
       $scope.dj.guest = false;
+      $scope.dj.featured = false;
     };
 
     // Create new Dj
@@ -34,7 +35,8 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
         links: $scope.dj.links,
         categories: $scope.dj.categories,
         description: $scope.dj.description,
-        guest: $scope.dj.guest
+        guest: $scope.dj.guest,
+        featured: $scope.dj.featured
       });
 
       // Redirect after save

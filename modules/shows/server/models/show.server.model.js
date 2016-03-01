@@ -36,7 +36,7 @@ var Showschema = new Schema({
     mixcloud: { type: String },
     facebook: { type: String },
     twitter: { type: String },
-    homepage: { type: String },
+    home: { type: String },
     instagram: { type: String }
   },
   categories: [ String ],

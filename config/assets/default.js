@@ -7,7 +7,8 @@ module.exports = {
         'public/lib/bootstrap/dist/css/bootstrap.css',
         'public/lib/bootstrap/dist/css/bootstrap-theme.css',
         'public/lib/angular-material/angular-material.css',
-        'public/lib/angular-material/angular-material.layout.css'
+        'public/lib/angular-material/angular-material.layout.css',
+        'public/lib/font-awesome/css/font-awesome.css'
       ],
       js: [
         'public/lib/angular/angular.js',

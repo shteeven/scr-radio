@@ -14,21 +14,21 @@ var mongoose = require('mongoose'),
  */
 exports.getFeatured = function (req, res) {
   var featured = [];
-  Dj.find({featured:true}).exec(function(err, result) {
+  Dj.find({ featured:true }).exec(function(err, result) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
       featured.push.apply(featured, result);
-      Program.find({featured:true}).exec(function(err, result) {
+      Program.find({ featured:true }).exec(function(err, result) {
         if (err) {
           return res.status(400).send({
             message: errorHandler.getErrorMessage(err)
           });
         } else {
           featured.push.apply(featured, result);
-          Show.find({featured:true}).exec(function(err, result) {
+          Show.find({ featured:true }).exec(function(err, result) {
             if (err) {
               return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)

@@ -1,6 +1,17 @@
 <section ng-controller="DjsController" ng-init="findOne()">
   <div class="page-header">
     <h1 ng-bind="dj.title"></h1>
+
+    <!-- This should never be removed from this page. -->
+    <div class="" ng-show="authentication.user._id == dj.user._id">
+      <a class="btn btn-primary" ui-sref="djs.edit({djId: dj._id})">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-primary" ng-click="remove();">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+
   </div>
   <div class="pull-right" ng-show="authentication.user._id == dj.user">
     <a class="btn btn-primary" ui-sref="djs.edit({djId: dj._id})">

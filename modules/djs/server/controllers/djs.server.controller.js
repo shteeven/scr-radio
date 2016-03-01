@@ -41,7 +41,13 @@ exports.update = function (req, res) {
   var dj = req.dj;
 
   dj.title = req.body.title;
-  dj.content = req.body.content;
+  dj.image = req.body.image;
+  dj.images = req.body.images;
+  dj.links = req.body.links;
+  dj.categories = req.body.categories;
+  dj.description = req.body.description;
+  dj.guest = req.body.guest;
+  dj.featured = req.body.featured;
 
   dj.save(function (err) {
     if (err) {

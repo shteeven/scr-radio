@@ -14,6 +14,11 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 
 angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
 
+  // Play Mixcloud plugin on click
+  $rootScope.playerPlay = function(url) {
+    $rootScope.$broadcast('player.play', { url: url });
+  };
+
   // Check authentication before changing state
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
     if (toState.data && toState.data.roles && toState.data.roles.length > 0) {

@@ -3,7 +3,7 @@
     <h1 ng-bind="program.title"></h1>
 
     <!-- This should never be removed from this page. -->
-    <div class="" ng-show="authentication.user._id == program.user._id || authentication.user.role == 'admin'">
+    <div class="" ng-show="authentication.user._id == program.user._id || authentication.user.roles.indexOf('admin')!=-1">
       <a class="btn btn-primary" ui-sref="programs.edit({programId: program._id})">
         <i class="glyphicon glyphicon-edit"></i>
       </a>

@@ -3,12 +3,12 @@
     <div class="col-xs-12">
       <h1>SCRadio Programs</h1>
     </div>
-    <a ng-repeat="program in programs" ui-sref="programs.view({programId: program._id})" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+    <div ng-repeat="program in programs" class="items-list-group col-xs-6 col-sm-4 col-md-3">
       <div class="items-list-group-container">
-        <div class="items-list-group-image-container" ng-style="{'background-image':'url({{program.image}})'}">
+        <div ng-click="$root.playerPlay(program.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{program.image}})'}">
           <div class="sr-only">Image of {{program.image}}</div>
         </div>
-        <div class="items-list-group-text">
+        <div ui-sref="programs.view({programId: program._id})" class="items-list-group-text">
           <span class="items-list-group-text-header" ng-bind="program.title"></span>
           <div ng-show="program.schedule.day">
             <span>{{program.schedule.frequency | capitalize}}</span>
@@ -20,7 +20,7 @@
         <!--<h4 class="list-group-item-heading" ng-bind="program.title"></h4>-->
         <!--<p class="list-group-item-text" ng-bind="program.content"></p>-->
       </div>
-    </a>
+    </div>
   </div>
   <!--<div class="alert alert-warning text-center" ng-if="programs.$resolved && !programs.length">-->
     <!--No programs yet, why don't you <a ui-sref="programs.create">create one</a>?-->

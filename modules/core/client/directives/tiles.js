@@ -17,8 +17,8 @@ app.directive('scrTiles', function($rootScope, $http) {
       template: '@'
     },
     controller: function($scope, $element) {
-      $scope.playPlayer = function(track) {
-        $rootScope.$broadcast('player.play', { track: track });
+      $scope.playPlayer = function(url) {
+        $rootScope.$broadcast('player.play', { url: url });
       };
 
       $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';

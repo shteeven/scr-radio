@@ -40,7 +40,14 @@ exports.update = function (req, res) {
   var program = req.program;
 
   program.title = req.body.title;
-  program.content = req.body.content;
+  program.image = req.body.image;
+  program.images = req.body.images;
+  program.links = req.body.links;
+  program.categories = req.body.categories;
+  program.description = req.body.description;
+  program.djs = req.body.djs;
+  program.schedule = req.body.schedule;
+  program.featured = req.body.featured;
 
   program.save(function (err) {
     if (err) {

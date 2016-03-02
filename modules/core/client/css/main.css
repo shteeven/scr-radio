@@ -28,6 +28,9 @@ body {
 
 /***************************/
 /***************************/
+*:focus {
+  outline: none; }
+
 a {
   color: whitesmoke;
   text-decoration: none; }

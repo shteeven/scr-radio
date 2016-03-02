@@ -1,8 +1,8 @@
 <section class="tiles-container">
     <div ng-repeat="tile in tiles | limitTo: limit">
-      <div class="row tile" ng-click="">
-        <div class="col-xs-6 tile-img" ng-style="{'background-image':'url({{tile.image}})'}"></div>
-        <div ui-sref="djs.view({djId: tile._id})" class="col-xs-6 tile-info" >
+      <div class="row tile">
+        <div ng-click="playPlayer(tile.links.mixcloud)" class="col-xs-6 tile-img" ng-style="{'background-image':'url({{tile.image}})'}"></div>
+        <div ui-sref="djs.view({djId: tile._id})" class="col-xs-6 tile-info">
           <div class="tile-text-fading">
             <span class="tile-text tile-title">{{tile.title}}</span>
             <p>{{tile.description.en}}</p>

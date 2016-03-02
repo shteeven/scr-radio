@@ -42,6 +42,10 @@ body {
 /***************************/
 // Site wide element styles
 /***************************/
+*:focus {
+  outline: none;
+}
+
 a {
   color: whitesmoke;
   text-decoration: none;

@@ -40,7 +40,16 @@ exports.update = function (req, res) {
   var show = req.show;
 
   show.title = req.body.title;
-  show.content = req.body.content;
+  show.image = req.body.image;
+  show.images = req.body.images;
+  show.links = req.body.links;
+  show.categories = req.body.categories;
+  show.description = req.body.description;
+  show.djs = req.body.djs;
+  show.guests = req.body.guests;
+  show.aired = req.body.aired;
+  show.program = $scope.program;
+  show.featured = req.body.featured;
 
   show.save(function (err) {
     if (err) {

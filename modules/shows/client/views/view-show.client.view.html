@@ -1,6 +1,17 @@
 <section ng-controller="ShowsController" ng-init="findOne()">
   <div class="page-header">
     <h1 ng-bind="show.title"></h1>
+
+    <!-- This should never be removed from this page. -->
+    <div class="" ng-show="authentication.user._id == show.user._id || authentication.user.role == 'admin'">
+      <a class="btn btn-primary" ui-sref="shows.edit({showId: show._id})">
+        <i class="glyphicon glyphicon-edit"></i>
+      </a>
+      <a class="btn btn-primary" ng-click="remove();">
+        <i class="glyphicon glyphicon-trash"></i>
+      </a>
+    </div>
+
   </div>
   <div class="pull-right" ng-show="authentication.user._id == show.user">
     <a class="btn btn-primary" ui-sref="shows.edit({showId: show._id})">

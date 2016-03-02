@@ -48,7 +48,7 @@ exports.update = function (req, res) {
   show.djs = req.body.djs;
   show.guests = req.body.guests;
   show.aired = req.body.aired;
-  show.program = $scope.program;
+  show.program = req.body.program;
   show.featured = req.body.featured;
 
   show.save(function (err) {

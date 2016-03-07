@@ -1,12 +1,19 @@
 'use strict';
 
-var defaultEnvConfig = require('./default');
+var defaultEnvConfig = require('./default'),
+  fs = require('fs');
+
+// Check if local file is available; if so, apply vars in file
+try {
+  var local = require('./local');
+} catch (e) {
+  var local = {};
+}
 
 module.exports = {
   db: {
-    uri: 'mongodb://richard:scradio2016@ds037415.mlab.com:37415/scradio' || process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/scradio',
+    uri: local.MONGOLAB_URI || process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://' + (process.env.DB_1_PORT_27017_TCP_ADDR || 'localhost') + '/scradio',
     options: {
-      // TODO: undo the hardcoding on these.
       user: '',
       pass: ''
     },

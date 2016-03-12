@@ -14,6 +14,10 @@ angular.module('djs').config(['$stateProvider',
         url: '',
         templateUrl: 'modules/djs/client/views/list-djs.client.view.html'
       })
+      //.state('djs.guests', {
+      //  url: '/guests',
+      //  templateUrl: 'modules/djs/client/views/list-djs.client.view.html'
+      //})
       .state('djs.create', {
         url: '/create',
         templateUrl: 'modules/djs/client/views/create-dj.client.view.html',

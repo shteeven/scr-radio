@@ -13,7 +13,7 @@ angular.module('djs').run(['Menus',
 
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'djs', {
-      title: 'List Djs',
+      title: 'Residents',
       state: 'djs.list'
     });
 
@@ -23,5 +23,13 @@ angular.module('djs').run(['Menus',
       state: 'djs.create',
       roles: ['user']
     });
+    //
+    //
+    //// Add the dropdown list item
+    //Menus.addSubMenuItem('topbar', 'djs', {
+    //  title: 'Residents',
+    //  state: 'djs.guests'
+    //});
+
   }
 ]);

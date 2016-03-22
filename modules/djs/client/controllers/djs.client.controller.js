@@ -5,6 +5,8 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
   function ($scope, $stateParams, $location, Authentication, Djs, Programs, Shows) {
     $scope.authentication = Authentication;
 
+
+
     // Clear forms
     $scope.clear = function(){
       $scope.dj.title = '';
@@ -92,7 +94,10 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
 
     // Find a list of Djs
     $scope.find = function () {
-      $scope.djs = Djs.query();
+      $scope.djs = Djs.query({}, function (data) {
+        var item = data[Math.floor(Math.random()*data.length)];
+        $scope.changeBg(item.image);
+      });
     };
 
     // Find existing Dj
@@ -100,6 +105,8 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
     $scope.findOne = function () {
       $scope.dj = Djs.get({
         djId: $stateParams.djId
+      }, function(data) {
+        $scope.changeBg(data.image);
       });
       $scope.programs = Programs.query({
         djId: $stateParams.djId,
@@ -109,6 +116,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
         djId: $stateParams.djId,
         limit: 10
       });
+
     };
 
   }

@@ -19,6 +19,12 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
     $rootScope.$broadcast('player.play', { url: url });
   };
 
+  // For dynamic backgrounds. Call within findOne() in each module's controller
+  // Set in layout.server.view.html
+  $rootScope.changeBg = function(url) {
+    $rootScope.currentBg = 'url(' + url + ')';
+  };
+
   // Check authentication before changing state
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
     if (toState.data && toState.data.roles && toState.data.roles.length > 0) {

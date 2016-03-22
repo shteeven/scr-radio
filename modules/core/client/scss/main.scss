@@ -7,9 +7,20 @@
 }
 
 body {
+  min-height: 100vh;
   padding: 0;
   background-color: transparent;
   font-family: 'Roboto', sans-serif;
+
+  // To avoid covering the carousel component
+  z-index: -1;
+}
+
+html {
+  background-position: center;
+  background-size: contain;
+  background-image: url('../img/brand/brand-logo.jpg');
+  background-repeat: no-repeat;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -62,8 +73,10 @@ a:focus {
 // View: main ui-views
 /***************************/
 // push views farther down from header
+//.view {
+//  min-height: 100vh;
+//}
 .view {
-  min-height: 100vh;
   padding-top: 55px;
 }
 
@@ -73,10 +86,7 @@ a:focus {
 .bg {
   background-size: cover;
   background-position: center;
-}
-
-.bg-1 {
-  background-image: url('/modules/core/client/data/images/Close quarters.jpg')
+  background-repeat: no-repeat;
 }
 
 /***************************/

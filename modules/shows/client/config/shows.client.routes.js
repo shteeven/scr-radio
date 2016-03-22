@@ -8,7 +8,7 @@ angular.module('shows').config(['$stateProvider',
       .state('shows', {
         abstract: true,
         url: '/shows',
-        template: '<div class="view bg bg-1"><ui-view/></div>'
+        template: '<div class="view"><ui-view/></div>'
       })
       .state('shows.list', {
         url: '',

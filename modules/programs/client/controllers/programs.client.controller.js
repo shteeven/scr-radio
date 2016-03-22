@@ -126,13 +126,18 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
 
     // Find a list of Programs
     $scope.find = function () {
-      $scope.programs = Programs.query();
+      $scope.programs = Programs.query({}, function (data) {
+        var item = data[Math.floor(Math.random()*data.length)];
+        $scope.changeBg(item.image);
+      });
     };
 
     // Find existing Program
     $scope.findOne = function () {
       $scope.program = Programs.get({
         programId: $stateParams.programId
+      }, function(data) {
+        $scope.changeBg(data.image);
       });
     };
   }

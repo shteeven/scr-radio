@@ -131,13 +131,18 @@ angular.module('shows').controller('ShowsController', ['$scope', '$stateParams',
 
     // Find a list of Shows
     $scope.find = function () {
-      $scope.shows = Shows.query();
+      $scope.shows = Shows.query({}, function (data) {
+        var item = data[Math.floor(Math.random()*data.length)];
+        $scope.changeBg(item.image);
+      });
     };
 
     // Find existing Show
     $scope.findOne = function () {
       $scope.show = Shows.get({
         showId: $stateParams.showId
+      }, function(data) {
+        $scope.changeBg(data.image);
       });
     };
 

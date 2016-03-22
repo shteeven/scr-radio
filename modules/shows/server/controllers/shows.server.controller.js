@@ -83,15 +83,27 @@ exports.delete = function (req, res) {
  * List of Shows
  */
 exports.list = function (req, res) {
-  Show.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').populate('program', 'title').exec(function (err, shows) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(shows);
-    }
-  });
+  if (req.query.djId) {
+    Show.find({djs: req.query.djId}, {title: 1, aired: 1, links: 1, image: 1}).sort('-created').populate('program', 'title').exec(function (err, shows) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(shows);
+      }
+    });
+  } else {
+    Show.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').populate('program', 'title').exec(function (err, shows) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(shows);
+      }
+    });
+  }
 };
 
 /**

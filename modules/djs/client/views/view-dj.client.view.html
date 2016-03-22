@@ -2,6 +2,18 @@
   <div class="page-header">
     <h1 ng-bind="dj.title"></h1>
 
+    <div class="jumbotron">
+      YO NEVEN, here is the data for for the DJ:
+      <br>
+      DJ info: {{dj}}
+      <br>
+      <br>
+      DJ Programs: {{programs}}
+      <br>
+      <br>
+      DJ shows: {{shows}}
+    </div>
+
     <!-- This should never be removed from this page. -->
     <div class="" ng-show="authentication.user._id == dj.user._id || authentication.user.roles.indexOf('admin')!=-1">
       <a class="btn btn-primary" ui-sref="djs.edit({djId: dj._id})">
@@ -24,7 +36,6 @@
   <small>
     <em class="text-muted">
       Posted on
-      {{userID}}
       <span ng-bind="dj.created | date:'mediumDate'"></span>
       by
       <span ng-if="dj.user" ng-bind="dj.user.displayName"></span>

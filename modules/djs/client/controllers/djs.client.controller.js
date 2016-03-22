@@ -1,8 +1,8 @@
 'use strict';
 
 // Djs controller
-angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Djs',
-  function ($scope, $stateParams, $location, Authentication, Djs) {
+angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Djs', 'Programs', 'Shows',
+  function ($scope, $stateParams, $location, Authentication, Djs, Programs, Shows) {
     $scope.authentication = Authentication;
 
     // Clear forms
@@ -96,10 +96,20 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
     };
 
     // Find existing Dj
+    // TODO: this is a bit ridiculous
     $scope.findOne = function () {
       $scope.dj = Djs.get({
         djId: $stateParams.djId
       });
+      $scope.programs = Programs.query({
+        djId: $stateParams.djId,
+        limit: 5
+      });
+      $scope.shows = Shows.query({
+        djId: $stateParams.djId,
+        limit: 10
+      });
     };
+
   }
 ]);

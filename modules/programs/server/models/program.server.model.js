@@ -48,10 +48,10 @@ var Programschema = new Schema({
     type: Schema.ObjectId,
     ref: 'Dj'
   } ],
-  program: {
-    type: Schema.ObjectId,
-    ref: 'Program'
-  },
+  //program: {
+  //  type: Schema.ObjectId,
+  //  ref: 'Program'
+  //},
   featured: {
     type: Boolean,
     default: false

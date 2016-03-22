@@ -81,15 +81,27 @@ exports.delete = function (req, res) {
  * List of Programs
  */
 exports.list = function (req, res) {
-  Program.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').exec(function (err, programs) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      res.json(programs);
-    }
-  });
+  if (req.query.djId) {
+    Program.find({ djs: req.query.djId }, { title: 1, image: 1 }).limit(5).sort('-created').exec(function (err, programs) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(programs);
+      }
+    });
+  } else {
+    Program.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').exec(function (err, programs) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(programs);
+      }
+    });
+  }
 };
 
 /**
@@ -115,3 +127,26 @@ exports.programByID = function (req, res, next, id) {
     next();
   });
 };
+
+//exports.programByDjID = function (req, res, next, id) {
+//
+//  console.log(reg);
+//
+//  if (!mongoose.Types.ObjectId.isValid(id)) {
+//    return res.status(400).send({
+//      message: 'Program is invalid'
+//    });
+//  }
+//
+//  Program.find({djs: id}, {title: 1, image: 1, links: 1}).exec(function (err, program) {
+//    if (err) {
+//      return next(err);
+//    } else if (!program) {
+//      return res.status(404).send({
+//        message: 'No program with that identifier has been found'
+//      });
+//    }
+//    req.program = program;
+//    next();
+//  });
+//};

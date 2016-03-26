@@ -50,7 +50,7 @@
             <label for="programSelect">
               Program: <span class="caption text-muted">What program does this show belog to?</span>
             </label>
-            <select name="programSelect" id="programSelect" ng-model="selected_program">
+            <select name="programSelect" id="programSelect" ng-model="program">
               <option ng-repeat="option in programs | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
             </select>
           </div>

@@ -48,6 +48,10 @@ var Showschema = new Schema({
     type: Schema.ObjectId,
     ref: 'Dj'
   } ],
+  program: {
+    type: Schema.ObjectId,
+    ref: 'Program'
+  },
   guests: [ {
     type: Schema.ObjectId,
     ref: 'Dj'

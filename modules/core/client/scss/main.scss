@@ -11,6 +11,7 @@ body {
   padding: 0;
   background-color: transparent;
   font-family: 'Roboto', sans-serif;
+  color: rgb(255, 255, 255);
 
   // To avoid covering the carousel component
   z-index: -1;
@@ -23,25 +24,12 @@ html {
   background-repeat: no-repeat;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
-
-@media screen and (max-width: 767px) {
-  .col-xs-hidden{
-    display: none;
-  }
+/***************************/
+// Site wide helpers
+/***************************/
+.no-gutter > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
 }
 
 /***************************/
@@ -55,6 +43,7 @@ a {
   color: whitesmoke;
   text-decoration: none;
 }
+
 a:hover {
   color: whitesmoke;
   text-decoration: none;
@@ -69,13 +58,22 @@ a:focus {
   text-decoration: none;
 }
 
+///* Bootstrap over-riding */
+.row-table {
+  display: table;
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.row-table [class*="col-sm"] {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}
+
 /***************************/
 // View: main ui-views
 /***************************/
-// push views farther down from header
-//.view {
-//  min-height: 100vh;
-//}
 .view {
   padding-top: 55px;
 }
@@ -89,8 +87,12 @@ a:focus {
   background-repeat: no-repeat;
 }
 
+.bg-revealer {
+  min-height: 50vh;
+}
+
 /***************************/
-// List and individual model pages
+// List model pages
 /***************************/
 .items-list {
   color: whitesmoke;
@@ -125,4 +127,86 @@ a:focus {
 .items-list-group-text-header {
   font-size: 1.2em;
 }
+.item span {
+  position: relative;
+  display: block;
+}
 
+/***************************/
+// Individual model pages
+/***************************/
+.admin-crud {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.item {
+  position: relative;
+}
+.item-info {
+  display: inline-block;
+  padding-top: 8px;
+}
+
+.item-info p {
+  padding-right: 15px;
+  padding-left: 15px;
+
+  text-align: justify;
+}
+
+/* item top section */
+.item-top {
+  position: relative;
+}
+.item-header {
+  height: 60px;
+  background-color: rgb(40, 40, 40);
+}
+.item-play {
+  display: inline-block;
+  &.right {
+    position: absolute;
+    right: 0;
+    top: 12px;
+  }
+}
+.item-title {
+  font-size: 1.5em;
+}
+
+/* item bottom section */
+.item-bottom {
+  position: relative;
+  background-color: rgb(40, 40, 40);
+  color: rgb(195, 195, 195);
+  a {
+    color: rgb(195, 195, 195);
+  }
+}
+.item-bottom ul {
+  border-bottom-color: rgba(255,255,255,0.05);
+  border-top-color: rgba(0,0,0,0.2);
+  padding-left: 0;
+  list-style: none;
+}
+.item-bottom li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 50px;
+
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.item-left {
+  position: relative;
+}
+.item-middle {
+  background-color: rgb(24, 24, 24);
+}
+.item-right {
+
+}

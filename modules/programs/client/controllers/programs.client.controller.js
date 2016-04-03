@@ -1,11 +1,11 @@
 'use strict';
 
 // Programs controller
-angular.module('programs').controller('ProgramsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Programs', 'Djs',
-  function ($scope, $stateParams, $location, Authentication, Programs, Djs) {
+angular.module('programs').controller('ProgramsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Programs', 'Residents',
+  function ($scope, $stateParams, $location, Authentication, Programs, Residents) {
     $scope.authentication = Authentication;
     $scope.program = {};
-    $scope.program.djs = [];
+    $scope.program.residents = [];
 
     $scope.days = [
       'monday',
@@ -18,20 +18,20 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
     ];
 
     // This will fire when the create or edit page load
-    $scope.getDjs = function() {
-      $scope.djs = Djs.query();
+    $scope.getResidents = function() {
+      $scope.residents = Residents.query();
     };
 
-    // Insert DJ into the DJs list
-    // dj arg is a DJ's _id
-    $scope.addDj = function(title) { // use of title instead of id is due to the object being passed as a string literal
-      var dj = $scope.djs.filter(function(dj) {
-        return dj.title === title;
+    // Insert RESIDENT into the RESIDENTs list
+    // resident arg is a RESIDENT's _id
+    $scope.addResident = function(title) { // use of title instead of id is due to the object being passed as a string literal
+      var resident = $scope.residents.filter(function(resident) {
+        return resident.title === title;
       })[0];
-      if ($scope.program.djs.indexOf(dj) < 0) { $scope.program.djs.push(dj); }
+      if ($scope.program.residents.indexOf(resident) < 0) { $scope.program.residents.push(resident); }
     };
-    $scope.removeDj = function(dj) {
-      $scope.program.djs = $scope.program.djs.filter(function (obj) { return obj !== dj; });
+    $scope.removeResident = function(resident) {
+      $scope.program.residents = $scope.program.residents.filter(function (obj) { return obj !== resident; });
     };
 
     // Clear forms
@@ -43,7 +43,7 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
       $scope.program.links = {};
       $scope.program.categories = [];
       $scope.program.description = {};
-      $scope.program.djs = [];
+      $scope.program.residents = [];
       $scope.program.schedule = {};
       $scope.program.featured = false;
     };
@@ -66,7 +66,7 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
         links: $scope.program.links,
         categories: $scope.program.categories,
         description: $scope.program.description,
-        djs: $scope.program.djs,
+        residents: $scope.program.residents,
         schedule: $scope.program.schedule,
         featured: $scope.program.featured
       });

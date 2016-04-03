@@ -16,7 +16,7 @@
   background-image: -webkit-linear-gradient(top, transparent, black);
   background-image: linear-gradient(to bottom, transparent, black); }
 
-.djs .tile-text-fading {
+.residents .tile-text-fading {
   padding: 10px;
   bottom: 15px;
   top: 0;

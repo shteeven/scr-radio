@@ -19,7 +19,7 @@ app.directive('mcWidget', function($http, $rootScope, $sce) {
         $scope.widgetOpen = false;
       };
 
-      // When a show element is clicked, it triggers this.
+      // When a episode element is clicked, it triggers this.
       $rootScope.$on('player.play', function (event, args){
         var new_track = $sce.trustAsResourceUrl('https://www.mixcloud.com/widget/iframe/?feed=' + args.url + '&hide_cover=1&mini=1&autoplay=1');
         if (new_track !== $scope.current_mc_track) {

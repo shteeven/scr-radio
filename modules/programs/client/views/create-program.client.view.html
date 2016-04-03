@@ -1,4 +1,4 @@
-<section class="container" ng-controller="ProgramsController" ng-init="getDjs(); clear()">
+<section class="container" ng-controller="ProgramsController" ng-init="getResidents(); clear()">
   <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 jumbotron">
     <div class="col-xs-10 col-xs-offset-1">
       <div>
@@ -74,18 +74,18 @@
           </div>
 
           <div class="form-group">
-            <label for="djSelect">
-              DJs: <span class="caption text-muted">DJs that host this program.</span>
+            <label for="residentSelect">
+              RESIDENTs: <span class="caption text-muted">RESIDENTs that host this program.</span>
             </label>
-            <select name="djSelect" id="djSelect" ng-model="selected_dj">
-              <option ng-repeat="option in djs | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
+            <select name="residentSelect" id="residentSelect" ng-model="selected_resident">
+              <option ng-repeat="option in residents | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
             </select>
-            <span class="glyphicon glyphicon-plus" ng-click="addDj(selected_dj)"></span>
+            <span class="glyphicon glyphicon-plus" ng-click="addResident(selected_resident)"></span>
             <div>
-              <span class="text-muted">DJs to add: </span>
-              <div ng-repeat="dj in program.djs" style="display:block; background: rgba(0, 0, 0, 0.1) ">
-                <span>{{dj.title}}</span>
-                <span class="glyphicon glyphicon-minus-sign" ng-click="removeDj(dj)"></span>
+              <span class="text-muted">RESIDENTs to add: </span>
+              <div ng-repeat="resident in program.residents" style="display:block; background: rgba(0, 0, 0, 0.1) ">
+                <span>{{resident.title}}</span>
+                <span class="glyphicon glyphicon-minus-sign" ng-click="removeResident(resident)"></span>
               </div>
             </div>
           </div>

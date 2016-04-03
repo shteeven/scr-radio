@@ -44,9 +44,9 @@ var Programschema = new Schema({
     en: String,
     kr: String
   },
-  djs: [ {
+  residents: [ {
     type: Schema.ObjectId,
-    ref: 'Dj'
+    ref: 'Resident'
   } ],
   featured: {
     type: Boolean,

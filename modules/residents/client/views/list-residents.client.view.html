@@ -1,0 +1,22 @@
+<section class="container" ng-controller="ResidentsController" ng-init="find()">
+  <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio Residents</h1>
+    </div>
+    <div ng-repeat="resident in residents" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+      <div class="items-list-group-container">
+        <div ng-click="$root.playerPlay(resident.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{resident.image}})'}">
+          <div class="sr-only">Image of {{resident.image}}</div>
+        </div>
+        <div class="items-list-group-text" ui-sref="residents.view({residentId: resident._id})">
+          <span class="items-list-group-text-header" ng-bind="resident.title"></span>
+          <div ng-if="resident.schedule">
+            <span>{{resident.schedule.frequency | capitalize}}</span>
+            <span>{{resident.schedule.day | capitalize}}s</span>
+            <span>@ {{resident.schedule.time | date: "HH:mm"}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

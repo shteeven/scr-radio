@@ -1,0 +1,22 @@
+<section class="container" ng-controller="EpisodesController" ng-init="find()">
+  <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio Episodes</h1>
+    </div>
+    <div ng-repeat="episode in episodes" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+      <div class="items-list-group-container">
+        <div ng-click="$root.playerPlay(episode.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{episode.image}})'}">
+          <div class="play-container"><i class="glyphicon glyphicon-play-circle"></i></div>
+          <div class="sr-only">Image of {{episode.image}}</div>
+        </div>
+        <div class="items-list-group-text" ui-sref="episodes.view({episodeId: episode._id})">
+          <span class="items-list-group-text-header" ng-bind="episode.title"></span>
+          <div ng-show="episode.aired">
+            Aired: <span>{{episode.aired | date:''}}</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

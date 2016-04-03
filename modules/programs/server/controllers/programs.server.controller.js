@@ -45,7 +45,7 @@ exports.update = function (req, res) {
   program.links = req.body.links;
   program.categories = req.body.categories;
   program.description = req.body.description;
-  program.djs = req.body.djs;
+  program.residents = req.body.residents;
   program.schedule = req.body.schedule;
   program.featured = req.body.featured;
 
@@ -81,8 +81,8 @@ exports.delete = function (req, res) {
  * List of Programs
  */
 exports.list = function (req, res) {
-  if (req.query.djId) {
-    Program.find({ djs: req.query.djId }, { title: 1, image: 1 }).limit(5).sort('-created').exec(function (err, programs) {
+  if (req.query.residentId) {
+    Program.find({ residents: req.query.residentId }, { title: 1, image: 1 }).limit(5).sort('-created').exec(function (err, programs) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -92,7 +92,7 @@ exports.list = function (req, res) {
       }
     });
   } else {
-    Program.find().sort('-created').populate('user', 'displayName').populate('djs', 'title').exec(function (err, programs) {
+    Program.find().sort('-created').populate('user', 'displayName').populate('residents', 'title').exec(function (err, programs) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -115,7 +115,7 @@ exports.programByID = function (req, res, next, id) {
     });
   }
 
-  Program.findById(id).populate('user', 'displayName').populate('djs', 'title').exec(function (err, program) {
+  Program.findById(id).populate('user', 'displayName').populate('residents', 'title').exec(function (err, program) {
     if (err) {
       return next(err);
     } else if (!program) {
@@ -128,7 +128,7 @@ exports.programByID = function (req, res, next, id) {
   });
 };
 
-//exports.programByDjID = function (req, res, next, id) {
+//exports.programByResidentID = function (req, res, next, id) {
 //
 //  console.log(reg);
 //
@@ -138,7 +138,7 @@ exports.programByID = function (req, res, next, id) {
 //    });
 //  }
 //
-//  Program.find({djs: id}, {title: 1, image: 1, links: 1}).exec(function (err, program) {
+//  Program.find({residents: id}, {title: 1, image: 1, links: 1}).exec(function (err, program) {
 //    if (err) {
 //      return next(err);
 //    } else if (!program) {

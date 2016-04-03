@@ -1,0 +1,22 @@
+<section class="tiles-container">
+    <div ng-repeat="tile in tiles | limitTo: limit">
+      <div class="row tile">
+        <div ng-click="playPlayer(tile.links.mixcloud)" class="col-xs-6 tile-img" ng-style="{'background-image':'url({{tile.image}})'}"></div>
+        <div ui-sref="residents.view({residentId: tile._id})" class="col-xs-6 tile-info">
+          <div class="tile-text-fading">
+            <span class="tile-text tile-title">{{tile.title}}</span>
+            <p>{{tile.description.en}}</p>
+            <p class="read-more">
+              <!--<a ui-sref="residents.view({residentId: tile._id})" class="button">Read More</a>-->
+            </p>
+          </div>
+
+
+          <!--TODO: add filter to time to show in hours and minutes-->
+          <!--<span class="tile-text text-muted">Duration: {{tile.length}}</span>-->
+          <!--<span class="tile-text text-muted">Aired: {{tile.date | date: 'dd-MM-yy'}}</span>-->
+          <!--<span class="tile-text text-muted">At: {{tile.date | date: 'HH:mm'}}</span>-->
+        </div>
+      </div>
+    </div>
+</section>

@@ -1,0 +1,98 @@
+<section class="container" ng-controller="EpisodesController" ng-init="getResidents(); getPrograms(); clear()">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 jumbotron">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div>
+        <h2>New Episode</h2>
+      </div>
+      <form name="episodeForm" class="form-horizontal" ng-submit="create(episodeForm.$valid)" novalidate>
+        <fieldset>
+
+          <div class="form-group" show-errors>
+            <label for="title">Title:</label>
+            <input name="title" type="text" ng-model="episode.title" id="title" class="form-control" placeholder="Title" required>
+            <div ng-messages="episodeForm.title.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Episode title is required.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input name="image" type="text" ng-model="episode.image" id="image" class="form-control" placeholder="Image URL">
+          </div>
+
+          <div class="form-group">
+            <label>Links: <span class="caption text-muted">Fill in applicable; these are used as social media links</span></label>
+            <input name="links" type="text" ng-model="episode.links.facebook" class="form-control" placeholder="Facebook Page URL">
+            <input name="links" type="text" ng-model="episode.links.twitter" class="form-control" placeholder="Twitter Page URL">
+            <input name="links" type="text" ng-model="episode.links.mixcloud" class="form-control" placeholder="Mixcloud Page URL">
+            <input name="links" type="text" ng-model="episode.links.home" class="form-control" placeholder="Home Page URL">
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="description_en">
+                Description: <span class="caption text-muted">English synopsis of your episode (100~500 Characters)</span>
+              </label>
+              <textarea name="description_en" type="text" ng-model="episode.description.en" id="description_en" class="form-control" placeholder="English description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="description_kr">
+                Description: <span class="caption text-muted">Korean synopsis of you and your style (100~500 Characters)</span>
+              </label>
+              <textarea name="description_kr" type="text" ng-model="episode.description.kr" id="description_kr" class="form-control" placeholder="Korean description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="programSelect">
+              Program: <span class="caption text-muted">What program does this episode belog to?</span>
+            </label>
+            <select name="programSelect" id="programSelect" ng-model="program">
+              <option ng-repeat="option in programs | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="residentSelect">
+              RESIDENTs: <span class="caption text-muted">RESIDENTs that host this episode.</span>
+            </label>
+            <select name="residentSelect" id="residentSelect" ng-model="selected_resident">
+              <option ng-repeat="option in residents | orderBy:'title'" value="{{option._id}}">{{option.title}}</option>
+            </select>
+            <span class="glyphicon glyphicon-plus" ng-click="addResident(selected_resident)"></span>
+            <div>
+              <span class="text-muted">RESIDENTs to add: </span>
+              <div ng-repeat="resident in episode.residents" style="display:block; background: rgba(0, 0, 0, 0.1) ">
+                <span>{{getResidentName(resident)}}</span>
+                <span class="glyphicon glyphicon-minus-sign" ng-click="removeResident(resident)"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="datePicker">Air-date:</label>
+            <md-datepicker id="datePicker" ng-model="episode.aired"></md-datepicker>
+          </div>
+
+          <div class="form-group">
+            <label>Featured: <span class="caption text-muted">Is this episode featured</span></label>
+            <input name="featured" placeholder="Is this episode featured" type="checkbox" ng-model="episode.featured">
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-default">
+          </div>
+
+          <div ng-show="error" class="text-danger">
+            <strong ng-bind="error"></strong>
+          </div>
+
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+

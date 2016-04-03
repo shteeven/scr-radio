@@ -24,17 +24,15 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
 
     // Insert DJ into the DJs list
     // dj arg is a DJ's _id
-    $scope.addDj = function(dj) {
+    $scope.addDj = function(title) { // use of title instead of id is due to the object being passed as a string literal
+      var dj = $scope.djs.filter(function(dj) {
+        return dj.title === title;
+      })[0];
       if ($scope.program.djs.indexOf(dj) < 0) { $scope.program.djs.push(dj); }
     };
     $scope.removeDj = function(dj) {
       $scope.program.djs = $scope.program.djs.filter(function (obj) { return obj !== dj; });
     };
-    $scope.getDjName = function(dj) {
-      var dj_obj = $scope.djs.filter(function (obj) { return obj._id === dj; });
-      return dj_obj[0].title;
-    };
-
 
     // Clear forms
     $scope.clear = function(){

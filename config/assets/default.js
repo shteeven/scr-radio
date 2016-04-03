@@ -27,7 +27,6 @@ module.exports = {
     },
     css: [
       'modules/*/client/css/**/*.css'
-      //'modules/*/client/css/components/*.css'
     ],
     less: [
       'modules/*/client/less/*.less'
@@ -35,7 +34,6 @@ module.exports = {
     sass: [
       'modules/*/client/scss/**/*.scss',
       'modules/*/client/scss/*.scss'
-      //'modules/*/client/scss/components/*.scss'
     ],
     js: [
       'modules/core/client/app/config.js',
@@ -43,9 +41,6 @@ module.exports = {
       'modules/*/client/*.js',
       'modules/*/client/**/*.js'
     ],
-    //sprites: [
-    //  'modules/*/client/img/sprites/*.*'
-    //],
     views: ['modules/*/client/views/**/*.html'],
     templates: ['build/templates.js']
   },

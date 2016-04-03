@@ -84,7 +84,7 @@
             <div>
               <span class="text-muted">DJs to add: </span>
               <div ng-repeat="dj in program.djs" style="display:block; background: rgba(0, 0, 0, 0.1) ">
-                <span>{{getDjName(dj)}}</span>
+                <span>{{dj.title}}</span>
                 <span class="glyphicon glyphicon-minus-sign" ng-click="removeDj(dj)"></span>
               </div>
             </div>

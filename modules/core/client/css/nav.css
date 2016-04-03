@@ -30,6 +30,9 @@
   float: left;
   margin: 4px; }
 
+.links {
+  display: inline-block; }
+
 /*END fix*/
 /*-------------------------------*/
 /* Overlay for use w/sidebar     */

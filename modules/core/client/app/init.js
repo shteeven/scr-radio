@@ -15,8 +15,14 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
 
   // Play Mixcloud plugin on click
+  // TODO: move events to service for media players
   $rootScope.playerPlay = function(url) {
     $rootScope.$broadcast('player.play', { url: url });
+  };
+
+  // Language toggling
+  $rootScope.toggleLanguage = function() {
+    $rootScope.lang = $rootScope.lang === 'kr' ? 'en' : 'kr';
   };
 
   // For dynamic backgrounds. Call within findOne() in each module's controller

@@ -9,7 +9,7 @@ var mongoose = require('mongoose'),
 /**
  * Dj Schema
  */
-var Djschema = new Schema({
+var Residentschema = new Schema({
   // admin data
   created: {
     type: Date,
@@ -55,4 +55,4 @@ var Djschema = new Schema({
 
 });
 
-mongoose.model('Dj', Djschema);
+mongoose.model('Dj', Residentschema);

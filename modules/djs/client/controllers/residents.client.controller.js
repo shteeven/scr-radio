@@ -1,8 +1,8 @@
 'use strict';
 
-// Djs controller
-angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Djs', 'Programs', 'Shows',
-  function ($scope, $stateParams, $location, Authentication, Djs, Programs, Shows) {
+// Residents controller
+angular.module('residents').controller('ResidentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Residents', 'Programs', 'Shows',
+  function ($scope, $stateParams, $location, Authentication, Residents, Programs, Shows) {
     $scope.authentication = Authentication;
 
 
@@ -30,7 +30,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       }
 
       // Create new Dj object
-      var dj = new Djs({
+      var dj = new Residents({
         title: $scope.dj.title,
         image: $scope.dj.image,
         images: $scope.dj.images,
@@ -44,7 +44,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       // Redirect after save
       dj.$save(function (response) {
 
-        $location.path('djs/' + response._id);
+        $location.path('residents/' + response._id);
 
         // Clear form fields
         $scope.clear();
@@ -59,14 +59,14 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
       if (dj) {
         dj.$remove();
 
-        for (var i in $scope.djs) {
-          if ($scope.djs[i] === dj) {
-            $scope.djs.splice(i, 1);
+        for (var i in $scope.residents) {
+          if ($scope.residents[i] === dj) {
+            $scope.residents.splice(i, 1);
           }
         }
       } else {
         $scope.dj.$remove(function () {
-          $location.path('djs');
+          $location.path('residents');
         });
       }
     };
@@ -85,16 +85,16 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
 
       dj.$update(function () {
 
-        $location.path('djs/' + dj._id);
+        $location.path('residents/' + dj._id);
 
       }, function (errorResponse) {
         $scope.error = errorResponse.data.message;
       });
     };
 
-    // Find a list of Djs
+    // Find a list of Residents
     $scope.find = function () {
-      $scope.djs = Djs.query({}, function (data) {
+      $scope.residents = Residents.query({}, function (data) {
         var item = data[Math.floor(Math.random()*data.length)];
         $scope.changeBg(item.image);
       });
@@ -103,7 +103,7 @@ angular.module('djs').controller('DjsController', ['$scope', '$stateParams', '$l
     // Find existing Dj
     // TODO: this is a bit ridiculous
     $scope.findOne = function () {
-      $scope.dj = Djs.get({
+      $scope.dj = Residents.get({
         djId: $stateParams.djId
       }, function(data) {
         $scope.changeBg(data.image);

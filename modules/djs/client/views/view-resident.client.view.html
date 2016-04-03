@@ -1,4 +1,4 @@
-<section ng-controller="DjsController" ng-init="findOne()">
+<section ng-controller="ResidentsController" ng-init="findOne()">
 
   <div class="bg-revealer">
   </div>
@@ -23,7 +23,7 @@
       </div>
 
       <div class="admin-crud" ng-show="authentication.user._id == dj.user._id || authentication.user.roles.indexOf('admin')">
-        <a class="btn btn-primary" ui-sref="djs.edit({djId: dj._id})">
+        <a class="btn btn-primary" ui-sref="residents.edit({djId: dj._id})">
           <i class="glyphicon glyphicon-edit"></i>
         </a>
         <a class="btn btn-primary" ng-click="remove();">

@@ -77,16 +77,16 @@ exports.delete = function (req, res) {
 };
 
 /**
- * List of Djs
+ * List of Residents
  */
 exports.list = function (req, res) {
-  Dj.find().sort('-created').populate('user', 'displayName').exec(function (err, djs) {
+  Dj.find().sort('-created').populate('user', 'displayName').exec(function (err, residents) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      res.json(djs);
+      res.json(residents);
     }
   });
 };

@@ -1,16 +1,16 @@
 'use strict';
 
 (function () {
-  // Djs Controller Spec
-  describe('Djs Controller Tests', function () {
+  // Residents Controller Spec
+  describe('Residents Controller Tests', function () {
     // Initialize global variables
-    var DjsController,
+    var ResidentsController,
       scope,
       $httpBackend,
       $stateParams,
       $location,
       Authentication,
-      Djs,
+      Residents,
       mockDj;
 
     // The $resource service augments the response object with methods for updating and deleting the resource.
@@ -38,7 +38,7 @@
     // The injector ignores leading and trailing underscores here (i.e. _$httpBackend_).
     // This allows us to inject a service but then attach it to a variable
     // with the same name as the service.
-    beforeEach(inject(function ($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _Authentication_, _Djs_) {
+    beforeEach(inject(function ($controller, $rootScope, _$location_, _$stateParams_, _$httpBackend_, _Authentication_, _Residents_) {
       // Set a new global scope
       scope = $rootScope.$new();
 
@@ -47,10 +47,10 @@
       $httpBackend = _$httpBackend_;
       $location = _$location_;
       Authentication = _Authentication_;
-      Djs = _Djs_;
+      Residents = _Residents_;
 
       // create mock dj
-      mockDj = new Djs({
+      mockDj = new Residents({
         _id: '525a8422f6d0f87f0e407a33',
         title: 'An Dj about MEAN',
         content: 'MEAN rocks!'
@@ -61,33 +61,33 @@
         roles: ['user']
       };
 
-      // Initialize the Djs controller.
-      DjsController = $controller('DjsController', {
+      // Initialize the Residents controller.
+      ResidentsController = $controller('ResidentsController', {
         $scope: scope
       });
     }));
 
-    it('$scope.find() should create an array with at least one dj object fetched from XHR', inject(function (Djs) {
-      // Create a sample djs array that includes the new dj
-      var sampleDjs = [mockDj];
+    it('$scope.find() should create an array with at least one dj object fetched from XHR', inject(function (Residents) {
+      // Create a sample residents array that includes the new dj
+      var sampleResidents = [mockDj];
 
       // Set GET response
-      $httpBackend.expectGET('api/djs').respond(sampleDjs);
+      $httpBackend.expectGET('api/residents').respond(sampleResidents);
 
       // Run controller functionality
       scope.find();
       $httpBackend.flush();
 
       // Test scope value
-      expect(scope.djs).toEqualData(sampleDjs);
+      expect(scope.residents).toEqualData(sampleResidents);
     }));
 
-    it('$scope.findOne() should create an array with one dj object fetched from XHR using a djId URL parameter', inject(function (Djs) {
+    it('$scope.findOne() should create an array with one dj object fetched from XHR using a djId URL parameter', inject(function (Residents) {
       // Set the URL parameter
       $stateParams.djId = mockDj._id;
 
       // Set GET response
-      $httpBackend.expectGET(/api\/djs\/([0-9a-fA-F]{24})$/).respond(mockDj);
+      $httpBackend.expectGET(/api\/residents\/([0-9a-fA-F]{24})$/).respond(mockDj);
 
       // Run controller functionality
       scope.findOne();
@@ -102,7 +102,7 @@
 
       beforeEach(function () {
         // Create a sample dj object
-        sampleDjPostData = new Djs({
+        sampleDjPostData = new Residents({
           title: 'An Dj about MEAN',
           content: 'MEAN rocks!'
         });
@@ -114,9 +114,9 @@
         spyOn($location, 'path');
       });
 
-      it('should send a POST request with the form input values and then locate to new object URL', inject(function (Djs) {
+      it('should send a POST request with the form input values and then locate to new object URL', inject(function (Residents) {
         // Set POST response
-        $httpBackend.expectPOST('api/djs', sampleDjPostData).respond(mockDj);
+        $httpBackend.expectPOST('api/residents', sampleDjPostData).respond(mockDj);
 
         // Run controller functionality
         scope.create(true);
@@ -127,12 +127,12 @@
         expect(scope.content).toEqual('');
 
         // Test URL redirection after the dj was created
-        expect($location.path.calls.mostRecent().args[0]).toBe('djs/' + mockDj._id);
+        expect($location.path.calls.mostRecent().args[0]).toBe('residents/' + mockDj._id);
       }));
 
       it('should set scope.error if save error', function () {
         var errorMessage = 'this is an error message';
-        $httpBackend.expectPOST('api/djs', sampleDjPostData).respond(400, {
+        $httpBackend.expectPOST('api/residents', sampleDjPostData).respond(400, {
           message: errorMessage
         });
 
@@ -149,21 +149,21 @@
         scope.dj = mockDj;
       });
 
-      it('should update a valid dj', inject(function (Djs) {
+      it('should update a valid dj', inject(function (Residents) {
         // Set PUT response
-        $httpBackend.expectPUT(/api\/djs\/([0-9a-fA-F]{24})$/).respond();
+        $httpBackend.expectPUT(/api\/residents\/([0-9a-fA-F]{24})$/).respond();
 
         // Run controller functionality
         scope.update(true);
         $httpBackend.flush();
 
         // Test URL location to new object
-        expect($location.path()).toBe('/djs/' + mockDj._id);
+        expect($location.path()).toBe('/residents/' + mockDj._id);
       }));
 
-      it('should set scope.error to error response message', inject(function (Djs) {
+      it('should set scope.error to error response message', inject(function (Residents) {
         var errorMessage = 'error';
-        $httpBackend.expectPUT(/api\/djs\/([0-9a-fA-F]{24})$/).respond(400, {
+        $httpBackend.expectPUT(/api\/residents\/([0-9a-fA-F]{24})$/).respond(400, {
           message: errorMessage
         });
 
@@ -176,18 +176,18 @@
 
     describe('$scope.remove(dj)', function () {
       beforeEach(function () {
-        // Create new djs array and include the dj
-        scope.djs = [mockDj, {}];
+        // Create new residents array and include the dj
+        scope.residents = [mockDj, {}];
 
         // Set expected DELETE response
-        $httpBackend.expectDELETE(/api\/djs\/([0-9a-fA-F]{24})$/).respond(204);
+        $httpBackend.expectDELETE(/api\/residents\/([0-9a-fA-F]{24})$/).respond(204);
 
         // Run controller functionality
         scope.remove(mockDj);
       });
 
-      it('should send a DELETE request with a valid djId and remove the dj from the scope', inject(function (Djs) {
-        expect(scope.djs.length).toBe(1);
+      it('should send a DELETE request with a valid djId and remove the dj from the scope', inject(function (Residents) {
+        expect(scope.residents.length).toBe(1);
       }));
     });
 
@@ -196,14 +196,14 @@
         spyOn($location, 'path');
         scope.dj = mockDj;
 
-        $httpBackend.expectDELETE(/api\/djs\/([0-9a-fA-F]{24})$/).respond(204);
+        $httpBackend.expectDELETE(/api\/residents\/([0-9a-fA-F]{24})$/).respond(204);
 
         scope.remove();
         $httpBackend.flush();
       });
 
-      it('should redirect to djs', function () {
-        expect($location.path).toHaveBeenCalledWith('djs');
+      it('should redirect to residents', function () {
+        expect($location.path).toHaveBeenCalledWith('residents');
       });
     });
   });

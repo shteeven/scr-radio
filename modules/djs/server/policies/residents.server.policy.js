@@ -9,41 +9,41 @@ var acl = require('acl');
 acl = new acl(new acl.memoryBackend());
 
 /**
- * Invoke Djs Permissions
+ * Invoke Residents Permissions
  */
 exports.invokeRolesPolicies = function () {
   acl.allow([{
     roles: ['admin'],
     allows: [{
-      resources: '/api/djs',
+      resources: '/api/residents',
       permissions: '*'
     }, {
-      resources: '/api/djs/:djId',
+      resources: '/api/residents/:djId',
       permissions: '*'
     }]
   }, {
     roles: ['user'],
     allows: [{
-      resources: '/api/djs',
+      resources: '/api/residents',
       permissions: ['get', 'post']
     }, {
-      resources: '/api/djs/:djId',
+      resources: '/api/residents/:djId',
       permissions: ['get']
     }]
   }, {
     roles: ['guest'],
     allows: [{
-      resources: '/api/djs',
+      resources: '/api/residents',
       permissions: ['get']
     }, {
-      resources: '/api/djs/:djId',
+      resources: '/api/residents/:djId',
       permissions: ['get']
     }]
   }]);
 };
 
 /**
- * Check If Djs Policy Allows
+ * Check If Residents Policy Allows
  */
 exports.isAllowed = function (req, res, next) {
   var roles = (req.user) ? req.user.roles : ['guest'];

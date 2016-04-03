@@ -1,14 +1,14 @@
-<section class="container" ng-controller="DjsController" ng-init="find()">
+<section class="container" ng-controller="ResidentsController" ng-init="find()">
   <div class="items-list row">
     <div class="col-xs-12">
       <h1>SCRadio Residents</h1>
     </div>
-    <div ng-repeat="dj in djs" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+    <div ng-repeat="dj in residents" class="items-list-group col-xs-6 col-sm-4 col-md-3">
       <div class="items-list-group-container">
         <div ng-click="$root.playerPlay(dj.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{dj.image}})'}">
           <div class="sr-only">Image of {{dj.image}}</div>
         </div>
-        <div class="items-list-group-text" ui-sref="djs.view({djId: dj._id})">
+        <div class="items-list-group-text" ui-sref="residents.view({djId: dj._id})">
           <span class="items-list-group-text-header" ng-bind="dj.title"></span>
           <div ng-if="dj.schedule">
             <span>{{dj.schedule.frequency | capitalize}}</span>

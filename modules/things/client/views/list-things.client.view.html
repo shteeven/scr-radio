@@ -1,0 +1,22 @@
+<section class="container" ng-controller="ThingsController" ng-init="find()">
+  <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio Things</h1>
+    </div>
+    <div ng-repeat="thing in things" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+      <div class="items-list-group-container">
+        <div ng-click="$root.playerPlay(thing.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{thing.image}})'}">
+          <div class="sr-only">Image of {{thing.image}}</div>
+        </div>
+        <div class="items-list-group-text" ui-sref="things.view({thingId: thing._id})">
+          <span class="items-list-group-text-header" ng-bind="thing.title"></span>
+          <div ng-if="thing.schedule">
+            <span>{{thing.schedule.frequency | capitalize}}</span>
+            <span>{{thing.schedule.day | capitalize}}s</span>
+            <span>@ {{thing.schedule.time | date: "HH:mm"}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

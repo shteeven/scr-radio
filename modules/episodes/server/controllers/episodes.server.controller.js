@@ -93,6 +93,16 @@ exports.list = function (req, res) {
         res.json(episodes);
       }
     });
+  } else if (req.query.programId) {
+    Episode.find({ program: req.query.programId }).sort('-created').populate('residents', 'title').exec(function (err, episodes) {
+      if (err) {
+        return res.status(400).send({
+          message: errorHandler.getErrorMessage(err)
+        });
+      } else {
+        res.json(episodes);
+      }
+    });
   } else {
     Episode.find().sort('-created').populate('user', 'displayName').populate('residents', 'title').populate('program', 'title').exec(function (err, episodes) {
       if (err) {

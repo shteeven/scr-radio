@@ -1,41 +1,72 @@
 <section ng-controller="ProgramsController" ng-init="findOne()">
-  <div class="page-header">
-    <h1 ng-bind="program.title"></h1>
+  <div class="bg-revealer">
+  </div>
 
-    <!-- This should never be removed from this page. -->
-    <div class="" ng-show="authentication.user._id == program.user._id || authentication.user.roles.indexOf('admin')!=-1">
-      <a class="btn btn-primary" ui-sref="programs.edit({programId: program._id})">
-        <i class="glyphicon glyphicon-edit"></i>
-      </a>
-      <a class="btn btn-primary" ng-click="remove();">
-        <i class="glyphicon glyphicon-trash"></i>
-      </a>
+  <div class="item container-fluid">
+
+    <div class="item-top row no-gutter">
+
+      <div class="item-header col-sm-4">
+        <div class="item-play">
+          <i ng-click="$root.playerPlay(program.links.mixcloud)" class="fa fa-play fa-3x fa-fw"></i>
+        </div>
+        <div class="item-info">
+          <span class="item-title">{{program.title}}</span>
+          <small>
+            <em class="text-muted">
+              <span class="item-headline" ng-show="program.headline">{{program.headline}}</span>
+              <span class="item-headline" ng-hide="program.headline">A filler headline till you input your own.</span>
+            </em>
+          </small>
+        </div>
+      </div>
+
+      <div class="admin-crud" ng-show="authentication.user._id == program.user._id || authentication.user.roles.indexOf('admin')">
+        <a class="btn btn-primary" ui-sref="programs.edit({programId: program._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="remove();">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </div>
+
     </div>
 
-  </div>
-  <div class="pull-right" ng-show="authentication.user._id == program.user">
-    <a class="btn btn-primary" ui-sref="programs.edit({programId: program._id})">
-      <i class="glyphicon glyphicon-edit"></i>
-    </a>
-    <a class="btn btn-primary" ng-click="remove();">
-      <i class="glyphicon glyphicon-trash"></i>
-    </a>
-  </div>
-  <small>
-    <div>
-      {{program.title}} with
-      <span ng-repeat="resident in program.residents">
-        {{resident.title}}
-      </span>
+    <div class="item-bottom row no-gutter">
+
+      <div class="item-left hidden-xs col-sm-4">
+        <div class="item-desc">
+          <p ng-if="$root.lang == 'kr'">{{program.description.kr || program.description.en}}</p>
+          <p ng-if="$root.lang == 'en' || !$root.lang">{{program.description.en}}</p>
+        </div>
+      </div>
+
+      <div class="item-right col-xs-12 col-sm-4">
+        <ul>
+          <li ng-repeat="item in episodes">
+            <div class="item-play">
+              <i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>
+            </div>
+            <div class="item-info">
+              <a ui-sref="episodes.view({episodeId: item._id})">{{item.title}}</a>
+              <small>
+                <em class="text-muted">
+                  <span class="item-headline" ng-show="item.residents">
+                    <span ng-repeat="resident in item.residents">{{resident.title}}</span>
+                    <a ui-sref="programs.view({programId: item.program._id})">
+                      <i class="fa fa-play-circle fa-fw"></i>
+                    </a>
+                  </span>
+                  <span class="item-headline" ng-hide="item.program.title"></span>
+                </em>
+              </small>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    <em class="text-muted">
-      Posted on
-      {{userID}}
-      <span ng-bind="program.created | date:'mediumDate'"></span>
-      by
-      <span ng-if="program.user" ng-bind="program.user.displayName"></span>
-      <span ng-if="!program.user">Deleted User</span>
-    </em>
-  </small>
-  <p class="lead" ng-bind="program.description.en"></p>
+
+
+
+  </div>
 </section>

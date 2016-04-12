@@ -144,6 +144,12 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
       }, function(data) {
         $scope.changeBg(data.image);
       });
+      $scope.resident = Residents.get({
+        episodeId: $stateParams.episodeId
+      });
+      $scope.programs = Programs.query({
+        episodeId: $stateParams.episodeId
+      });
     };
 
   }

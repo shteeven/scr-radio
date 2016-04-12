@@ -1,8 +1,8 @@
 'use strict';
 
 // Programs controller
-angular.module('programs').controller('ProgramsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Programs', 'Residents',
-  function ($scope, $stateParams, $location, Authentication, Programs, Residents) {
+angular.module('programs').controller('ProgramsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Programs', 'Residents', 'Episodes',
+  function ($scope, $stateParams, $location, Authentication, Programs, Residents, Episodes) {
     $scope.authentication = Authentication;
     $scope.program = {};
     $scope.program.residents = [];
@@ -137,6 +137,11 @@ angular.module('programs').controller('ProgramsController', ['$scope', '$statePa
       }, function(data) {
         $scope.changeBg(data.image);
       });
+      $scope.episodes = Episodes.query({
+        programId: $stateParams.programId,
+        limit: 10
+      });
     };
   }
 ]);
+

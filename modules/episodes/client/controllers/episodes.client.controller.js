@@ -49,7 +49,7 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
       $scope.episode.residents = [];
       $scope.episode.guests = [];
       $scope.episode.aired = new Date();
-      $scope.program = '';
+      $scope.program = null;
       $scope.episode.featured = false;
     };
 

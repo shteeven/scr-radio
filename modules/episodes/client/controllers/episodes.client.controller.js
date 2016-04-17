@@ -1,8 +1,8 @@
 'use strict';
 
 // Episodes controller
-angular.module('episodes').controller('EpisodesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Episodes', 'Residents', 'Programs',
-  function ($scope, $stateParams, $location, Authentication, Episodes, Residents, Programs) {
+angular.module('episodes').controller('EpisodesController', ['$scope', '$stateParams', '$location', 'Authentication', 'Episodes', 'Regulars', 'Specials',
+  function ($scope, $stateParams, $location, Authentication, Episodes, Regulars, Specials) {
     // TODO: Add a time picker as well as tracks
     $scope.authentication = Authentication;
 
@@ -17,24 +17,24 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
     ];
 
     // This will fire when the create or edit page load
-    $scope.getResidents = function() {
-      $scope.residents = Residents.query();
+    $scope.getRegulars = function() {
+      $scope.regulars = Regulars.query();
     };
-    $scope.getPrograms = function() {
-      $scope.programs = Programs.query();
+    $scope.getSpecials = function() {
+      $scope.specials = Specials.query();
     };
 
-    // Insert RESIDENT into the RESIDENTs list
-    // resident arg is a RESIDENT's _id
-    $scope.addResident = function(resident) {
-      if ($scope.episode.residents.indexOf(resident) < 0) { $scope.episode.residents.push(resident); }
+    // Insert REGULAR into the REGULARs list
+    // regular arg is a REGULAR's _id
+    $scope.addRegular = function(regular) {
+      if ($scope.episode.regulars.indexOf(regular) < 0) { $scope.episode.regulars.push(regular); }
     };
-    $scope.removeResident = function(resident) {
-      $scope.episode.residents = $scope.episode.residents.filter(function (obj) { return obj !== resident; });
+    $scope.removeRegular = function(regular) {
+      $scope.episode.regulars = $scope.episode.regulars.filter(function (obj) { return obj !== regular; });
     };
-    $scope.getResidentName = function(resident) {
-      var resident_obj = $scope.residents.filter(function (obj) { return obj._id === resident; });
-      return resident_obj[0].title;
+    $scope.getRegularName = function(regular) {
+      var regular_obj = $scope.regulars.filter(function (obj) { return obj._id === regular; });
+      return regular_obj[0].title;
     };
 
     // Clear forms
@@ -46,10 +46,10 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
       $scope.episode.links = {};
       $scope.episode.categories = [];
       $scope.episode.description = {};
-      $scope.episode.residents = [];
+      $scope.episode.regulars = [];
       $scope.episode.guests = [];
       $scope.episode.aired = new Date();
-      $scope.program = null;
+      $scope.special = null;
       $scope.episode.featured = false;
     };
 
@@ -71,10 +71,10 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
         links: $scope.episode.links,
         categories: $scope.episode.categories,
         description: $scope.episode.description,
-        residents: $scope.episode.residents,
+        regulars: $scope.episode.regulars,
         guests: $scope.episode.guests,
         aired: $scope.episode.aired,
-        program: $scope.program,
+        special: $scope.special,
         featured: $scope.episode.featured
       });
 
@@ -144,10 +144,10 @@ angular.module('episodes').controller('EpisodesController', ['$scope', '$statePa
       }, function(data) {
         $scope.changeBg(data.image);
       });
-      $scope.resident = Residents.get({
+      $scope.regular = Regulars.get({
         episodeId: $stateParams.episodeId
       });
-      $scope.programs = Programs.query({
+      $scope.specials = Specials.query({
         episodeId: $stateParams.episodeId
       });
     };

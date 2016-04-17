@@ -39,11 +39,10 @@
   <div  class="bg" ng-style="{ 'background-image': $root.currentBg }"></div>
   <div ng-include="'/modules/core/client/views/sidenav.client.view.html'" ></div>
   <header ng-include="'/modules/core/client/views/header.client.view.html'" class="navbar navbar-fixed-top"></header>
-  <section>
+
     <!--<section class="container-fluid">-->
       {% block content %}{% endblock %}
     <!--</section>-->
-  </section>
 
   <!--Embedding The User Object-->
   <script type="text/javascript">

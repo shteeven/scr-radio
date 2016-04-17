@@ -1,0 +1,22 @@
+<section class="container" ng-controller="RegularsController" ng-init="find()">
+  <div class="items-list row">
+    <div class="col-xs-12">
+      <h1>SCRadio Regulars</h1>
+    </div>
+    <div ng-repeat="regular in regulars" class="items-list-group col-xs-6 col-sm-4 col-md-3">
+      <div class="items-list-group-container">
+        <div ng-click="$root.playerPlay(regular.links.mixcloud)" class="items-list-group-image-container" ng-style="{'background-image':'url({{regular.image}})'}">
+          <div class="sr-only">Image of {{regular.image}}</div>
+        </div>
+        <div class="items-list-group-text" ui-sref="regulars.view({regularId: regular._id})">
+          <span class="items-list-group-text-header" ng-bind="regular.title"></span>
+          <div ng-if="regular.schedule">
+            <span>{{regular.schedule.frequency | capitalize}}</span>
+            <span>{{regular.schedule.day | capitalize}}s</span>
+            <span>@ {{regular.schedule.time | date: "HH:mm"}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

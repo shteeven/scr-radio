@@ -1,0 +1,72 @@
+<section ng-controller="SpecialsController" ng-init="findOne()">
+  <div class="bg-revealer">
+  </div>
+
+  <div class="item container-fluid">
+
+    <div class="item-top row no-gutter">
+
+      <div class="item-header col-sm-4">
+        <div class="item-play">
+          <i ng-click="$root.playerPlay(special.links.mixcloud)" class="fa fa-play fa-3x fa-fw"></i>
+        </div>
+        <div class="item-info">
+          <span class="item-title">{{special.title}}</span>
+          <small>
+            <em class="text-muted">
+              <span class="item-headline" ng-show="special.headline">{{special.headline}}</span>
+              <span class="item-headline" ng-hide="special.headline">A filler headline till you input your own.</span>
+            </em>
+          </small>
+        </div>
+      </div>
+
+      <div class="admin-crud" ng-show="authentication.user._id == special.user._id || authentication.user.roles.indexOf('admin')">
+        <a class="btn btn-primary" ui-sref="specials.edit({specialId: special._id})">
+          <i class="glyphicon glyphicon-edit"></i>
+        </a>
+        <a class="btn btn-primary" ng-click="remove();">
+          <i class="glyphicon glyphicon-trash"></i>
+        </a>
+      </div>
+
+    </div>
+
+    <div class="item-bottom row no-gutter">
+
+      <div class="item-left hidden-xs col-sm-4">
+        <div class="item-desc">
+          <p ng-if="$root.lang == 'kr'">{{special.description.kr || special.description.en}}</p>
+          <p ng-if="$root.lang == 'en' || !$root.lang">{{special.description.en}}</p>
+        </div>
+      </div>
+
+      <div class="item-right col-xs-12 col-sm-4" ng-if="episodes.length">
+        <ul>
+          <li ng-repeat="item in episodes">
+            <div class="item-play">
+              <i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>
+            </div>
+            <div class="item-info">
+              <a ui-sref="episodes.view({episodeId: item._id})">{{item.title}}</a>
+              <small>
+                <em class="text-muted">
+                  <span class="item-headline" ng-show="item.regulars">
+                    <span ng-repeat="regular in item.regulars">{{regular.title}}</span>
+                    <a ui-sref="specials.view({specialId: item.special._id})">
+                      <i class="fa fa-angle-double-right fa-fw"></i>
+                    </a>
+                  </span>
+                  <span class="item-headline" ng-hide="item.special.title"></span>
+                </em>
+              </small>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>

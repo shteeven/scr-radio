@@ -1,9 +1,9 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Resident = mongoose.model('Resident'),
+  Regular = mongoose.model('Regular'),
   Episode = mongoose.model('Episode'),
-  Program = mongoose.model('Program'),
+  Special = mongoose.model('Special'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
@@ -14,14 +14,14 @@ var mongoose = require('mongoose'),
  */
 exports.getFeatured = function (req, res) {
   var featured = [];
-  Resident.find({ featured:true }).exec(function(err, result) {
+  Regular.find({ featured:true }).exec(function(err, result) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
       featured.push.apply(featured, result);
-      Program.find({ featured:true }).exec(function(err, result) {
+      Special.find({ featured:true }).exec(function(err, result) {
         if (err) {
           return res.status(400).send({
             message: errorHandler.getErrorMessage(err)

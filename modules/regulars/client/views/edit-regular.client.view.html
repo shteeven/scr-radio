@@ -1,0 +1,70 @@
+<section class="container" ng-controller="RegularsController" ng-init="findOne()">
+  <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 jumbotron">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div>
+        <h2>Edit REGULAR: {{regular.title}}</h2>
+      </div>
+      <form name="regularForm" class="form-horizontal" ng-submit="update(regularForm.$valid)" novalidate>
+        <fieldset>
+
+          <div class="form-group" show-errors>
+            <label for="title">Title: <span class="caption text-muted">Stage name</span></label>
+            <input name="title" type="text" ng-model="regular.title" id="title" class="form-control" placeholder="Title" required>
+            <div ng-messages="regularForm.title.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Regular title is required.</p>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image:</label>
+            <input name="image" type="text" ng-model="regular.image" id="image" class="form-control" placeholder="Image URL">
+          </div>
+
+          <div class="form-group">
+            <label>Links: <span class="caption text-muted">Fill in applicable; these are used as social media links</span></label>
+            <input name="links" type="text" ng-model="regular.links.facebook" class="form-control" placeholder="Facebook Page URL">
+            <input name="links" type="text" ng-model="regular.links.twitter" class="form-control" placeholder="Twitter Page URL">
+            <input name="links" type="text" ng-model="regular.links.mixcloud" class="form-control" placeholder="Mixcloud Page URL">
+            <input name="links" type="text" ng-model="regular.links.home" class="form-control" placeholder="Home Page URL">
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="description_en">
+                Description: <span class="caption text-muted">English synopsis of you and your style (100~500 Characters)</span>
+              </label>
+              <textarea name="description_en" type="text" ng-model="regular.description.en" id="description_en" class="form-control" placeholder="English description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="description_kr">
+                Description: <span class="caption text-muted">Korean synopsis of you and your style (100~500 Characters)</span>
+              </label>
+              <textarea name="description_kr" type="text" ng-model="regular.description.kr" id="description_kr" class="form-control" placeholder="Korean description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Guest: <span class="caption text-muted">Is this REGULAR a guest to SCRadio</span></label>
+            <input name="guest" placeholder="Is this REGULAR a guest" type="checkbox" ng-model="regular.guest">
+          </div>
+
+          <div class="form-group">
+            <label>Featured: <span class="caption text-muted">Is this REGULAR featured</span></label>
+            <input name="featured" placeholder="Is this REGULAR a featured" type="checkbox" ng-model="regular.featured">
+          </div>
+
+          <div class="form-group">
+            <input type="submit" class="btn btn-default">
+          </div>
+
+          <div ng-show="error" class="text-danger">
+            <strong ng-bind="error"></strong>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>

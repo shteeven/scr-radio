@@ -27,11 +27,25 @@ var Thingschema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
+  heading: {
+    type: String,
+    trim: true
+  },
+  description: {
+    en: String,
+    kr: String
+  },
+  resourceType: {
+    type: String,
+    trim: true
+  },
+  resource: {
+    type: Schema.ObjectId
+  },
   image: {
     type: String,
     default: 'modules/users/client/img/profile/default.png'
   },
-  images: [ String ],
   links: {
     mixcloud: { type: String },
     facebook: { type: String },
@@ -39,20 +53,10 @@ var Thingschema = new Schema({
     home: { type: String },
     instagram: { type: String }
   },
-  categories: [ String ],
-  description: {
-    en: String,
-    kr: String
-  },
-  guest: {
-    type: Boolean,
-    default: false
-  },
-  featured: {
-    type: Boolean,
-    default: false
+  category: {
+    type: String,
+    trim: true
   }
-
 });
 
 mongoose.model('Thing', Thingschema);

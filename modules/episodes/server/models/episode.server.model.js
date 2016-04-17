@@ -44,23 +44,19 @@ var Episodeschema = new Schema({
     en: String,
     kr: String
   },
-  residents: [ {
+  regulars: [ {
     type: Schema.ObjectId,
-    ref: 'Resident'
+    ref: 'Regular'
   } ],
-  program: {
+  special: {
     type: Schema.ObjectId,
-    ref: 'Program'
+    ref: 'Special'
   },
   guests: [ {
     type: Schema.ObjectId,
-    ref: 'Resident'
+    ref: 'Regular'
   } ],
-  aired: { type: Date },
-  featured: {
-    type: Boolean,
-    default: false
-  }
+  aired: { type: Date }
 });
 
 mongoose.model('Episode', Episodeschema);

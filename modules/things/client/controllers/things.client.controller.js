@@ -1,8 +1,8 @@
 'use strict';
 
 // Things controller
-angular.module('things').controller('ThingsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Things', 'Programs', 'Episodes',
-  function ($scope, $stateParams, $location, Authentication, Things, Programs, Episodes) {
+angular.module('things').controller('ThingsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Things', 'Specials', 'Episodes',
+  function ($scope, $stateParams, $location, Authentication, Things, Specials, Episodes) {
     $scope.authentication = Authentication;
 
 
@@ -108,7 +108,7 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
       }, function(data) {
         $scope.changeBg(data.image);
       });
-      $scope.programs = Programs.query({
+      $scope.specials = Specials.query({
         thingId: $stateParams.thingId,
         limit: 5
       });

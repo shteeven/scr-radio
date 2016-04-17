@@ -43,17 +43,17 @@
 
       <!--<div class="item-middle col-xs-12 col-sm-4">-->
         <!--<ul>-->
-          <!--<li ng-hide="programs.length">-->
+          <!--<li ng-hide="specials.length">-->
             <!--<small>-->
-              <!--{{episode.title}} is part of no program.-->
+              <!--{{episode.title}} is part of no special.-->
             <!--</small>-->
           <!--</li>-->
-          <!--<li ng-show="programs.length" ng-repeat="item in programs">-->
+          <!--<li ng-show="specials.length" ng-repeat="item in specials">-->
             <!--<div class="item-play">-->
               <!--<i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>-->
             <!--</div>-->
             <!--<div class="item-info">-->
-              <!--<a ui-sref="programs.view({programId: item._id})">{{item.title}}</a>-->
+              <!--<a ui-sref="specials.view({specialId: item._id})">{{item.title}}</a>-->
               <!--<small>-->
                 <!--<em class="text-muted">-->
                   <!--<span class="item-headline" ng-show="item.headline">{{item.headline}}</span>-->
@@ -65,23 +65,23 @@
         <!--</ul>-->
       <!--</div>-->
 
-      <div class="item-right col-xs-12 col-sm-4" ng-if="residents.length">
+      <div class="item-right col-xs-12 col-sm-4" ng-if="regulars.length">
         <ul>
-          <li ng-repeat="item in residents">
+          <li ng-repeat="item in regulars">
             <div class="item-play">
               <i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>
             </div>
             <div class="item-info">
-              <a ui-sref="residents.view({residentId: item._id})">{{item.title}}</a>
+              <a ui-sref="regulars.view({regularId: item._id})">{{item.title}}</a>
               <small>
                 <em class="text-muted">
-                  <span class="item-headline" ng-show="item.program.title">
-                    {{item.program.title}}
-                    <a ui-sref="programs.view({programId: item.program._id})">
-                      <i class="fa fa-play-circle fa-fw"></i>
+                  <span class="item-headline" ng-show="item.special.title">
+                    {{item.special.title}}
+                    <a ui-sref="specials.view({specialId: item.special._id})">
+                      <i class="fa fa-angle-double-right fa-fw"></i>
                     </a>
                   </span>
-                  <span class="item-headline" ng-hide="item.program.title"></span>
+                  <span class="item-headline" ng-hide="item.special.title"></span>
                 </em>
               </small>
             </div>

@@ -44,18 +44,18 @@
 
       <div class="item-middle col-xs-12 col-sm-4">
         <ul>
-          <li ng-hide="programs.length">
+          <li ng-hide="specials.length">
             <small>
-              A host, a title {{thing.title}} can not boast; for a program they are in want the most.
-              (TL;DR, {{thing.title}} doesn't have a program)
+              A host, a title {{thing.title}} can not boast; for a special they are in want the most.
+              (TL;DR, {{thing.title}} doesn't have a special)
             </small>
           </li>
-          <li ng-show="programs.length" ng-repeat="item in programs">
+          <li ng-show="specials.length" ng-repeat="item in specials">
             <div class="item-play">
               <i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>
             </div>
             <div class="item-info">
-              <a ui-sref="programs.view({programId: item._id})">{{item.title}}</a>
+              <a ui-sref="specials.view({specialId: item._id})">{{item.title}}</a>
               <small>
                 <em class="text-muted">
                   <span class="item-headline" ng-show="item.headline">{{item.headline}}</span>
@@ -77,13 +77,13 @@
               <a ui-sref="episodes.view({episodeId: item._id})">{{item.title}}</a>
               <small>
                 <em class="text-muted">
-                  <span class="item-headline" ng-show="item.program.title">
-                    {{item.program.title}}
-                    <a ui-sref="programs.view({programId: item.program._id})">
+                  <span class="item-headline" ng-show="item.special.title">
+                    {{item.special.title}}
+                    <a ui-sref="specials.view({specialId: item.special._id})">
                       <i class="fa fa-play-circle fa-fw"></i>
                     </a>
                   </span>
-                  <span class="item-headline" ng-hide="item.program.title"></span>
+                  <span class="item-headline" ng-hide="item.special.title"></span>
                 </em>
               </small>
             </div>

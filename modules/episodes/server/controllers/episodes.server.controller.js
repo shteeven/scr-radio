@@ -45,10 +45,10 @@ exports.update = function (req, res) {
   episode.links = req.body.links;
   episode.categories = req.body.categories;
   episode.description = req.body.description;
-  episode.residents = req.body.residents;
+  episode.regulars = req.body.regulars;
   episode.guests = req.body.guests;
   episode.aired = req.body.aired;
-  episode.program = req.body.program;
+  episode.special = req.body.special;
   episode.featured = req.body.featured;
 
   episode.save(function (err) {
@@ -83,8 +83,8 @@ exports.delete = function (req, res) {
  * List of Episodes
  */
 exports.list = function (req, res) {
-  if (req.query.residentId) {
-    Episode.find({ residents: req.query.residentId }).sort('-created').populate('program', 'title').exec(function (err, episodes) {
+  if (req.query.regularId) {
+    Episode.find({ regulars: req.query.regularId }).sort('-created').populate('special', 'title').exec(function (err, episodes) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -93,8 +93,8 @@ exports.list = function (req, res) {
         res.json(episodes);
       }
     });
-  } else if (req.query.programId) {
-    Episode.find({ program: req.query.programId }).sort('-created').populate('residents', 'title').exec(function (err, episodes) {
+  } else if (req.query.specialId) {
+    Episode.find({ special: req.query.specialId }).sort('-created').populate('regulars', 'title').exec(function (err, episodes) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -104,7 +104,7 @@ exports.list = function (req, res) {
       }
     });
   } else {
-    Episode.find().sort('-created').populate('user', 'displayName').populate('residents', 'title').populate('program', 'title').exec(function (err, episodes) {
+    Episode.find().sort('-created').populate('user', 'displayName').populate('regulars', 'title').populate('special', 'title').exec(function (err, episodes) {
       if (err) {
         return res.status(400).send({
           message: errorHandler.getErrorMessage(err)
@@ -127,7 +127,7 @@ exports.episodeByID = function (req, res, next, id) {
     });
   }
 
-  Episode.findById(id).populate('user', 'displayName').populate('resident', 'title').populate('program', 'title').exec(function (err, episode) {
+  Episode.findById(id).populate('user', 'displayName').populate('regular', 'title').populate('special', 'title').exec(function (err, episode) {
     if (err) {
       return next(err);
     } else if (!episode) {

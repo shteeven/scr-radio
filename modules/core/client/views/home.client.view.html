@@ -1,17 +1,23 @@
-<section ng-controller="HomeController">
+<div ng-controller="HomeController">
   <scr-carousel></scr-carousel>
   <!--<scr-carousel-controls></scr-carousel-controls>-->
-  <div class="col-sm-6 col-md-4">
-    <h3>RESIDENTs</h3>
-    <scr-tiles limit="{{tile_limit}}" template="residents" tiles="resident_tiles"></scr-tiles>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-6 col-md-4">
+        <h3>REGULARs</h3>
+        <scr-tiles limit="{{tile_limit}}" template="regulars" tiles="regular_tiles"></scr-tiles>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <h3>Specials</h3>
+        <scr-tiles limit="{{tile_limit}}" template="specials" tiles="special_tiles"></scr-tiles>
+      </div>
+      <!-- this element will be centered on sm screens-->
+      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
+        <h3>Episodes</h3>
+        <scr-tiles limit="{{tile_limit}}" template="episodes" tiles="episode_tiles"></scr-tiles>
+      </div>
+    </div>
+
   </div>
-  <div class="col-sm-6 col-md-4">
-    <h3>Programs</h3>
-    <scr-tiles limit="{{tile_limit}}" template="programs" tiles="program_tiles"></scr-tiles>
-  </div>
-  <!-- this element will be centered on sm screens-->
-  <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
-    <h3>Episodes</h3>
-    <scr-tiles limit="{{tile_limit}}" template="episodes" tiles="episode_tiles"></scr-tiles>
-  </div>
-</section>
+</div>

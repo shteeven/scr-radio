@@ -42,15 +42,9 @@ x<section ng-controller="ResidentsController" ng-init="findOne()">
         </div>
       </div>
 
-      <div class="item-middle col-xs-12 col-sm-4">
+      <div class="item-middle col-xs-12 col-sm-4" ng-if="programs.length">
         <ul>
-          <li ng-hide="programs.length">
-            <small>
-              A host, a title {{resident.title}} can not boast; for a program they are in want the most.
-              (TL;DR, {{resident.title}} doesn't have a program)
-            </small>
-          </li>
-          <li ng-show="programs.length" ng-repeat="item in programs">
+          <li ng-repeat="item in programs">
             <div class="item-play">
               <i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>
             </div>
@@ -67,7 +61,7 @@ x<section ng-controller="ResidentsController" ng-init="findOne()">
         </ul>
       </div>
 
-      <div class="item-right col-xs-12 col-sm-4">
+      <div class="item-right col-xs-12 col-sm-4" ng-if="episodes.length">
         <ul>
           <li ng-repeat="item in episodes">
             <div class="item-play">

@@ -192,7 +192,8 @@ a:focus {
   position: relative;
 
   height: 500px;
-  background-color: rgb(40, 40, 40);
+  background-color: transparent;
+  //background-color: rgb(40, 40, 40);
   color: rgb(195, 195, 195);
   a {
     color: rgb(195, 195, 195);
@@ -217,11 +218,14 @@ a:focus {
 
 .item-left {
   position: relative;
+  height: 100%;
+  background-color: rgb(40, 40, 40);
 }
 .item-middle {
   height: 100%;
   background-color: rgb(24, 24, 24);
 }
 .item-right {
-
+  height: 100%;
+  background-color: rgb(40, 40, 40);
 }

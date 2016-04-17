@@ -151,7 +151,7 @@ a:focus {
 .item-bottom {
   position: relative;
   height: 500px;
-  background-color: #282828;
+  background-color: transparent;
   color: #c3c3c3; }
   .item-bottom a {
     color: #c3c3c3; }
@@ -172,8 +172,14 @@ a:focus {
   border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
 .item-left {
-  position: relative; }
+  position: relative;
+  height: 100%;
+  background-color: #282828; }
 
 .item-middle {
   height: 100%;
   background-color: #181818; }
+
+.item-right {
+  height: 100%;
+  background-color: #282828; }

@@ -80,7 +80,15 @@ exports.delete = function (req, res) {
  * List of Things
  */
 exports.list = function (req, res) {
-  Thing.find().sort('-created').populate('user', 'displayName').exec(function (err, things) {
+
+  var query = {};
+
+  var type = req.query.type || null;
+  if (type) {
+    query.type = type;
+  }
+
+  Thing.find(query).sort([['created', -1], ['priority', 1]]).populate('user', 'displayName').exec(function (err, things) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)

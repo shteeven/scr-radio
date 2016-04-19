@@ -1,8 +1,8 @@
 'use strict';
 
 // Things controller
-angular.module('things').controller('ThingsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Things', 'Specials', 'Episodes',
-  function ($scope, $stateParams, $location, Authentication, Things, Specials, Episodes) {
+angular.module('things').controller('ThingsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Things', 'Specials', 'Episodes', 'Regulars',
+  function ($scope, $stateParams, $location, Authentication, Things, Specials, Episodes, Regulars) {
     $scope.authentication = Authentication;
 
 
@@ -10,13 +10,14 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
     // Clear forms
     $scope.clear = function(){
       $scope.thing.title = '';
-      $scope.thing.image = '';
-      $scope.thing.images = [];
-      $scope.thing.links = {};
-      $scope.thing.categories = [];
+      $scope.thing.heading = undefined;
       $scope.thing.description = {};
-      $scope.thing.guest = false;
-      $scope.thing.featured = false;
+      $scope.thing.resourceType = undefined;
+      $scope.thing.resource = undefined;
+      $scope.thing.image = undefined;
+      $scope.thing.links = {};
+      $scope.thing.category = undefined;
+      $scope.thing.priority = undefined;
     };
 
     // Create new Thing
@@ -32,13 +33,14 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
       // Create new Thing object
       var thing = new Things({
         title: $scope.thing.title,
+        heading: $scope.thing.heading,
         image: $scope.thing.image,
-        images: $scope.thing.images,
+        resourceType: $scope.thing.resourceType,
+        resource: $scope.thing.resource,
         links: $scope.thing.links,
-        categories: $scope.thing.categories,
+        category: $scope.thing.category,
         description: $scope.thing.description,
-        guest: $scope.thing.guest,
-        featured: $scope.thing.featured
+        priority: $scope.thing.priority
       });
 
       // Redirect after save
@@ -108,15 +110,9 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
       }, function(data) {
         $scope.changeBg(data.image);
       });
-      $scope.specials = Specials.query({
-        thingId: $stateParams.thingId,
-        limit: 5
-      });
-      $scope.episodes = Episodes.query({
-        thingId: $stateParams.thingId,
-        limit: 10
-      });
-
+      $scope.specials = Specials.query();
+      $scope.episodes = Episodes.query();
+      $scope.regulars = Regulars.query();
     };
 
   }

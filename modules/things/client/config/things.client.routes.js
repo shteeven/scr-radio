@@ -12,7 +12,10 @@ angular.module('things').config(['$stateProvider',
       })
       .state('things.list', {
         url: '',
-        templateUrl: 'modules/things/client/views/list-things.client.view.html'
+        templateUrl: 'modules/things/client/views/list-things.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       //.state('things.guests', {
       //  url: '/guests',
@@ -27,7 +30,10 @@ angular.module('things').config(['$stateProvider',
       })
       .state('things.view', {
         url: '/:thingId',
-        templateUrl: 'modules/things/client/views/view-thing.client.view.html'
+        templateUrl: 'modules/things/client/views/view-thing.client.view.html',
+        data: {
+          roles: ['user', 'admin']
+        }
       })
       .state('things.edit', {
         url: '/:thingId/edit',

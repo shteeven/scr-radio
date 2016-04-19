@@ -56,6 +56,10 @@ var Thingschema = new Schema({
   category: {
     type: String,
     trim: true
+  },
+  priority: {
+    type: Number,
+    default: 99
   }
 });
 

@@ -14,7 +14,8 @@ angular.module('things').run(['Menus',
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'things', {
       title: 'Things',
-      state: 'things.list'
+      state: 'things.list',
+      roles: ['user']
     });
 
     // Add the dropdown create item

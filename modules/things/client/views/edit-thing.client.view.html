@@ -8,11 +8,51 @@
         <fieldset>
 
           <div class="form-group" show-errors>
-            <label for="title">Title: <span class="caption text-muted">Stage name</span></label>
+            <label for="title">Title: <span class="caption text-muted"></span></label>
             <input name="title" type="text" ng-model="thing.title" id="title" class="form-control" placeholder="Title" required>
             <div ng-messages="thingForm.title.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Thing title is required.</p>
             </div>
+          </div>
+
+          <div class="form-group" show-errors>
+            <label for="headline">Headline: <span class="caption text-muted">Eye-catching one-liner</span></label>
+            <input name="headline" type="text" ng-model="thing.headline" id="headline" class="form-control" placeholder="Headline">
+          </div>
+
+          <div class="form-group">
+            <div>
+              <label for="description_en">
+                Description: <span class="caption text-muted">English synopsis of you and your style (100~500 Characters)</span>
+              </label>
+              <textarea name="description_en" type="text" ng-model="thing.description.en" id="description_en" class="form-control" placeholder="English description"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div>
+              <label for="description_kr">
+                Description: <span class="caption text-muted">Korean synopsis of you and your style (100~500 Characters)</span>
+              </label>
+              <textarea name="description_kr" type="text" ng-model="thing.description.kr" id="description_kr" class="form-control" placeholder="Korean description"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="resourceTypeSelect">
+              Resource type: <span class="caption text-muted">What does this belong to?</span>
+            </label>
+            <select ng-change="getResourceList(thing.resourceType)" name="resourceTypeSelect" id="resourceTypeSelect" ng-model="thing.resourceType">
+              <option ng-repeat="option in resourceOptions" value="{{option}}">{{option}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="resourceSelect">
+              Resource: <span class="caption text-muted">Which item is it?</span>
+            </label>
+            <select name="resourceSelect" id="resourceSelect" ng-model="thing.resourceId">
+              <option ng-repeat="option in resourceList" value="{{option._id}}">{{option.title}}</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -29,32 +69,16 @@
           </div>
 
           <div class="form-group">
-            <div>
-              <label for="description_en">
-                Description: <span class="caption text-muted">English synopsis of you and your style (100~500 Characters)</span>
-              </label>
-              <textarea name="description_en" type="text" ng-model="thing.description.en" id="description_en" class="form-control" placeholder="English description"></textarea>
-            </div>
+            <label for="categorySelect">
+              Category: <span class="caption text-muted">Where will we put this?</span>
+            </label>
+            <select name="categorySelect" id="categorySelect" ng-model="thing.category">
+              <option ng-repeat="option in categories" value="{{option}}">{{option}}</option>
+            </select>
           </div>
 
-          <div class="form-group">
-            <div>
-              <label for="description_kr">
-                Description: <span class="caption text-muted">Korean synopsis of you and your style (100~500 Characters)</span>
-              </label>
-              <textarea name="description_kr" type="text" ng-model="thing.description.kr" id="description_kr" class="form-control" placeholder="Korean description"></textarea>
-            </div>
-          </div>
 
-          <div class="form-group">
-            <label>Guest: <span class="caption text-muted">Is this THING a guest to SCRadio</span></label>
-            <input name="guest" placeholder="Is this THING a guest" type="checkbox" ng-model="thing.guest">
-          </div>
 
-          <div class="form-group">
-            <label>Featured: <span class="caption text-muted">Is this THING featured</span></label>
-            <input name="featured" placeholder="Is this THING a featured" type="checkbox" ng-model="thing.featured">
-          </div>
 
           <div class="form-group">
             <input type="submit" class="btn btn-default">

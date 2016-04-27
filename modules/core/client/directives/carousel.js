@@ -4,18 +4,17 @@
  */
 var app = angular.module('core');
 
-app.directive('scrCarousel', function($rootScope, $http, $interval) {
+app.directive('scrCarousel', function($rootScope, $http, $interval, Things) {
   return {
     restrict: 'E',
     scope: {},
     controller: function($scope, $element) {
-      $http.get('modules/core/client/data/shows-list.json').then(
-        function(data){
-          $scope.slides = data.data;
-        }
-      );
-
-      $scope.slides = [];
+      $scope.slides = Things.query({ category: 'carousel' });
+      // $http.get('modules/core/client/data/shows-list.json').then(
+      //   function(data){
+      //     $scope.slides = data.data;
+      //   }
+      // );
       $scope.currentIndex = 0;
 
       $scope.isCurrentSlideIndex = function (index) {

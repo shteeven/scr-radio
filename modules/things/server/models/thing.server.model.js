@@ -27,9 +27,8 @@ var Thingschema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
-  heading: {
-    type: String,
-    trim: true
+  headline: {
+    type: String
   },
   description: {
     en: String,
@@ -39,7 +38,7 @@ var Thingschema = new Schema({
     type: String,
     trim: true
   },
-  resource: {
+  resourceId: {
     type: Schema.ObjectId
   },
   image: {

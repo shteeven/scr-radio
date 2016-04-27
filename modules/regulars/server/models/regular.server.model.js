@@ -27,6 +27,9 @@ var Regularschema = new Schema({
     trim: true,
     required: 'Title cannot be blank'
   },
+  headline: {
+    type: String
+  },
   image: {
     type: String,
     default: 'modules/users/client/img/profile/default.png'

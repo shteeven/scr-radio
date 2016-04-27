@@ -40,13 +40,14 @@ exports.update = function (req, res) {
   var thing = req.thing;
 
   thing.title = req.body.title;
-  thing.image = req.body.image;
-  thing.images = req.body.images;
-  thing.links = req.body.links;
-  thing.categories = req.body.categories;
+  thing.headline = req.body.headline;
   thing.description = req.body.description;
-  thing.guest = req.body.guest;
-  thing.featured = req.body.featured;
+  thing.resourceType = req.body.resourceType;
+  thing.resourceId = req.body.resourceId;
+  thing.image = req.body.image;
+  thing.links = req.body.links;
+  thing.category = req.body.category;
+  thing.priority = req.body.priority;
 
   thing.save(function (err) {
     if (err) {

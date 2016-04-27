@@ -4,9 +4,25 @@
 angular.module('things').controller('ThingsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Things', 'Specials', 'Episodes', 'Regulars',
   function ($scope, $stateParams, $location, Authentication, Things, Specials, Episodes, Regulars) {
     $scope.authentication = Authentication;
+    $scope.thing = {};
+    $scope.resourceOptions = ['episodes', 'regulars', 'specials', 'things'];
+    $scope.resourceList = [];
+    $scope.categories = ['tiles', 'carousel', 'news'];
 
-
-
+    // get a list of the selected resource
+    $scope.getResourceList = function (type) {
+      if (type === 'specials') {
+        $scope.resourceList = Specials.query();
+      } else if (type === 'regulars') {
+        $scope.resourceList = Regulars.query();
+      } else if (type === 'episodes') {
+        $scope.resourceList = Episodes.query();
+      } else {
+        $scope.resourceList = [];
+        $scope.thing.resource = null;
+      }
+    };
+    
     // Clear forms
     $scope.clear = function(){
       $scope.thing.title = '';
@@ -110,9 +126,6 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
       }, function(data) {
         $scope.changeBg(data.image);
       });
-      $scope.specials = Specials.query();
-      $scope.episodes = Episodes.query();
-      $scope.regulars = Regulars.query();
     };
 
   }

@@ -32,14 +32,14 @@ app.directive('scrCarousel', function($rootScope, $http, $interval, Things) {
 
       // Set slides to auto rotate
       // initialize rotation
-      var rotateSlide = $interval(function(){$scope.next();}, 5000);
+      var rotateSlide = $interval(function(){$scope.next();}, 6800);
 
       $scope.startRotation = function(){
         if(rotateSlide) {
           $interval.cancel(rotateSlide);
           rotateSlide = undefined;
         }
-        rotateSlide = $interval(function(){$scope.next();}, 5000);
+        rotateSlide = $interval(function(){$scope.next();}, 6800);
       };
       $scope.stopRotation = function(){
         if(rotateSlide) {

@@ -24,6 +24,15 @@
       <div ng-if="slide.resourceType == 'episodes'">
         <h2 ui-sref="episodes.view({episodeId: slide.resourceId})">{{slide.title}}</h2>
       </div>
+      <div ng-if="slide.resourceType == 'regulars'">
+        <h2 ui-sref="regulars.view({episodeId: slide.resourceId})">{{slide.title}}</h2>
+      </div>
+      <div ng-if="slide.resourceType == 'specials'">
+        <h2 ui-sref="specials.view({episodeId: slide.resourceId})">{{slide.title}}</h2>
+      </div>
+      <div ng-if="slide.resourceType == 'things'">
+        <h2 ui-sref="things.view({episodeId: slide.resourceId})">{{slide.title}}</h2>
+      </div>
       <h4>{{slide.headline}}</h4>
       <p ng-if="$root.lang == 'kr'">{{slide.description.kr || slide.description.en}}</p>
       <p ng-if="$root.lang == 'en' || !$root.lang">{{slide.description.en}}</p>

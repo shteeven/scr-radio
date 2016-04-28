@@ -22,7 +22,7 @@
   <div class="info" ng-mouseover="stopRotation()" ng-mouseleave="startRotation()">
     <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)" ng-repeat="slide in slides">
       <div ng-if="slide.resourceType == 'episodes'">
-        <h2 ui-sref="episodes.view({episodeId: slide.resourceId})">{{slide.name}}</h2>
+        <h2 ui-sref="episodes.view({episodeId: slide.resourceId})">{{slide.title}}</h2>
       </div>
       <h4>{{slide.headline}}</h4>
       <p ng-if="$root.lang == 'kr'">{{slide.description.kr || slide.description.en}}</p>

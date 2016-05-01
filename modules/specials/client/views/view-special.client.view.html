@@ -15,7 +15,6 @@
           <small>
             <em class="text-muted">
               <span class="item-headline" ng-show="special.headline">{{special.headline}}</span>
-              <span class="item-headline" ng-hide="special.headline">A filler headline till you input your own.</span>
             </em>
           </small>
         </div>
@@ -41,7 +40,7 @@
         </div>
       </div>
 
-      <div class="item-right col-xs-12 col-sm-4" ng-if="episodes.length">
+      <div class="item-middle col-xs-12 col-sm-4" ng-if="episodes.length">
         <ul>
           <li ng-repeat="item in episodes">
             <div class="item-play">
@@ -52,10 +51,12 @@
               <small>
                 <em class="text-muted">
                   <span class="item-headline" ng-show="item.regulars">
-                    <span ng-repeat="regular in item.regulars">{{regular.title}}</span>
-                    <a ui-sref="specials.view({specialId: item.special._id})">
-                      <i class="fa fa-angle-double-right fa-fw"></i>
-                    </a>
+                    <span ng-repeat="regular in item.regulars">
+                      {{regular.title}}
+                      <a ui-sref="specials.view({specialId: item.special._id})">
+                        <i class="fa fa-angle-double-right fa-fw"></i>
+                      </a>
+                    </span>
                   </span>
                   <span class="item-headline" ng-hide="item.special.title"></span>
                 </em>

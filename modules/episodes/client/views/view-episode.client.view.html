@@ -15,7 +15,6 @@
           <small>
             <em class="text-muted">
               <span class="item-headline" ng-show="episode.headline">{{episode.headline}}</span>
-              <span class="item-headline" ng-hide="episode.headline">A filler headline till you input your own.</span>
             </em>
           </small>
         </div>
@@ -65,7 +64,7 @@
         <!--</ul>-->
       <!--</div>-->
 
-      <div class="item-right col-xs-12 col-sm-4" ng-if="regulars.length">
+      <div class="item-middle col-xs-12 col-sm-4" ng-if="regulars.length">
         <ul>
           <li ng-repeat="item in regulars">
             <div class="item-play">

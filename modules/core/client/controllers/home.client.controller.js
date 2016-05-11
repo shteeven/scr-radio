@@ -4,7 +4,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
   function ($scope, Authentication, Episodes, Specials, Regulars, $http) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
-    $scope.tile_limit = 3;
+    $scope.tile_limit = 9;
 
     $scope.episode_tiles = Episodes.query();
     $scope.special_tiles = Specials.query();

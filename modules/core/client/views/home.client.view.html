@@ -1,23 +1,5 @@
 <div ng-controller="HomeController">
-  <scr-carousel></scr-carousel>
-  <!--<scr-carousel-controls></scr-carousel-controls>-->
-  <div class="container">
-    <div class="row">
-
-      <div class="col-sm-6 col-md-4">
-        <h3>REGULARs</h3>
-        <scr-tiles limit="{{tile_limit}}" template="regulars" tiles="regular_tiles"></scr-tiles>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <h3>Specials</h3>
-        <scr-tiles limit="{{tile_limit}}" template="specials" tiles="special_tiles"></scr-tiles>
-      </div>
-      <!-- this element will be centered on sm screens-->
-      <div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0">
-        <h3>Episodes</h3>
-        <scr-tiles limit="{{tile_limit}}" template="episodes" tiles="episode_tiles"></scr-tiles>
-      </div>
-    </div>
-
-  </div>
+    <scr-carousel></scr-carousel>
+    <!--<scr-carousel-controls></scr-carousel-controls>-->
+    <scr-tiles limit="{{tile_limit}}" template="regulars" tiles="regular_tiles"></scr-tiles>
 </div>

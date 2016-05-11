@@ -21,7 +21,8 @@ app.directive('scrTiles', function($rootScope, $http) {
         $rootScope.$broadcast('player.play', { url: url });
       };
 
-      $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';
+      $scope.contentUrl = 'modules/core/client/views/components/tiles-home.html';
+      // $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';
     },
     template: '<div ng-include="contentUrl" ng-class="[template]"></div>'
   };

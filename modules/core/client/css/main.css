@@ -183,3 +183,8 @@ a:focus {
 .item-right {
   height: 100%;
   background-color: #282828; }
+
+/***************************/
+/***************************/
+md-content.md-scr-main-theme {
+  background-color: transparent; }

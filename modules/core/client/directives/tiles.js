@@ -20,9 +20,11 @@ app.directive('scrTiles', function($rootScope, $http) {
       $scope.playPlayer = function(url) {
         $rootScope.$broadcast('player.play', { url: url });
       };
+      $scope.template = $scope.template || 'home';
 
-      $scope.contentUrl = 'modules/core/client/views/components/tiles-home.html';
-      // $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';
+      $scope.rowLength = 4;
+
+      $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';
     },
     template: '<div ng-include="contentUrl" ng-class="[template]"></div>'
   };

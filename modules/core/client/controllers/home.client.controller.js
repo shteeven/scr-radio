@@ -1,17 +1,18 @@
 'use strict';
 
-angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Episodes', 'Specials', 'Regulars', '$http',
-  function ($scope, Authentication, Episodes, Specials, Regulars, $http) {
+angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Episodes', 'Specials', 'Regulars', 'Things', '$http',
+  function ($scope, Authentication, Episodes, Specials, Regulars, Things, $http) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
-    $scope.tile_limit = 9;
+    $scope.tile_limit = 12;
 
-    $scope.episode_tiles = Episodes.query();
-    $scope.special_tiles = Specials.query();
-    $scope.regular_tiles = Regulars.query();
+    // $scope.episode_tiles = Episodes.query();
+    // $scope.special_tiles = Specials.query();
+    $scope.tiles = Regulars.query();
 
-    $http.get('api/getfeatured').then(function(data) {
-      console.log(data);
-    });
+    // $scope.tiles = Things.query({type: 'tiles'}, function (data) {
+    //   console.log(data);
+    // });
+
   }
 ]);

@@ -8,23 +8,25 @@ angular.module('core').directive('audioPlayer', function($rootScope) {
   return {
     restrict: 'E',
     scope: {},
-    controller: function($scope, $element) {
-      $scope.audio = new Audio();
-
-      $scope.radio = $element.find('.radioplayer').radiocoPlayer();
+    link: function($scope, $element) {
+      
+      var radio = document.getElementById('radio');
+      $scope.isPlaying = false;
 
       $scope.playPause = function () {
-        if ($scope.radio.isPlaying()) {
-          $scope.radio.pause();
+        if (!$scope.isPlaying) {
+          radio.pause();
+          $scope.isPlaying = true;
         } else {
-          $scope.radio.play();
+          radio.play();
+          $scope.isPlaying = false;
           $rootScope.$broadcast('audio.play', this);
         }
       };
 
       // Pause HTML audio on the instantiation of a player
       $scope.$on('player.play', function (){
-        $scope.radio.pause();
+        radio.pause();
       });
     },
     templateUrl: 'modules/core/client/views/components/audio-player.html'

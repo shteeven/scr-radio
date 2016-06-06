@@ -1,23 +1,25 @@
 
 <div class="form-inline">
-  <audio id="radio" src="https://mixlr.com/users/4603148/embed"></audio>
-  <!--<div class="form-group play-pause" ng-click="playPause()" ng-class="{paused: isPlaying}">-->
-    <!--<div class="sr-only">Play/pause Button</div>-->
-    <!--&lt;!&ndash;<i class="fa fa-play play-text"></i>&ndash;&gt;-->
-    <!--<div class="play-icon play-text"></div>-->
-    <!--<div class="pause-icon pause-text"></div>-->
-    <!--&lt;!&ndash;<i class="fa fa-pause pause-text"></i>&ndash;&gt;-->
-  <!--</div>-->
 
-  <!--<div class="form-group vol-control col-xs-hidden">-->
-    <!--<input min="0" max="100" step="5" type="range" ng-change="radio.volume(volume)" ng-model="volume" placeholder="volume"/>-->
-  <!--</div>-->
+  <!--<audio id="radio" src="vpr.streamguys.net/vpr96.mp3"></audio>-->
 
-  <!--<div class="form-group meta-data marquee">-->
-    <!--&lt;!&ndash;<span class="radioplayer" data-src="http://streaming.radio.co/s8ca94767c/listen"&ndash;&gt;-->
-          <!--&lt;!&ndash;data-playbutton="false" data-volumeslider="false" data-elapsedtime="false"&ndash;&gt;-->
-          <!--&lt;!&ndash;data-nowplaying="true" data-showplayer="false">&ndash;&gt;-->
-    <!--&lt;!&ndash;</span>&ndash;&gt;-->
-  <!--</div>-->
+  <div class="form-group play-pause" ng-click="player.playPause()" ng-class="{paused: player.isPlaying}">
+    <div class="sr-only">Play/pause Button</div>
+    <!--<i class="fa fa-play play-text"></i>-->
+    <div class="play-icon play-text"></div>
+    <div class="pause-icon pause-text"></div>
+    <!--<i class="fa fa-pause pause-text"></i>-->
+  </div>
+
+  <div class="form-group vol-control col-xs-hidden">
+    <input min="0" max="100" step="5" type="range" ng-change="player.volumeChange(volume)" ng-model="volume" placeholder="volume"/>
+  </div>
+
+  <div class="form-group meta-data marquee">
+    <!--<span class="radioplayer" data-src="http://streaming.radio.co/s8ca94767c/listen"-->
+          <!--data-playbutton="false" data-volumeslider="false" data-elapsedtime="false"-->
+          <!--data-nowplaying="true" data-showplayer="false">-->
+    <!--</span>-->
+  </div>
 </div>
 

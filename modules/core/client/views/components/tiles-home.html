@@ -17,7 +17,10 @@
     <md-content md-theme="scr-main" layout="row" flex layout-wrap>
         <div layout="column" flex="{{100/rowLength}}" ng-repeat="tile in tiles | limitTo: limit">
             <md-card flex>
-                <img ng-src="{{tile.image}}" class="md-card-image" alt="{{tile.title}} image">
+                <div class="md-card-image" ng-style="{'background-image': 'url(' + tile.image + ')'}">
+                    <img ng-src="{{placeholder}}" class="md-card-image" alt="{{tile.title}} image">
+                </div>
+
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">{{tile.title}}</span>
@@ -32,14 +35,18 @@
                         <!--<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>-->
                         <!--</md-button>-->
                     </md-card-icon-actions>
-                    <md-button>Action 1</md-button>
-                    <md-button>Action 2</md-button>
+                    <md-button ng-click="playPlayer()">
+                        <i class="fa fa-play-circle-o fa-3x"></i>
+                    </md-button>
+                    <md-button>
+                        <i class="fa fa-link fa-3x"></i>
+                    </md-button>
                 </md-card-actions>
-                <md-card-content>
-                    <p>
-                        {{tile.description[$root.lang] || tile.description.en}}
-                    </p>
-                </md-card-content>
+                <!--<md-card-content>-->
+                    <!--<p>-->
+                        <!--{{tile.description[$root.lang] || tile.description.en}}-->
+                    <!--</p>-->
+                <!--</md-card-content>-->
             </md-card>
         </div>
     </md-content>

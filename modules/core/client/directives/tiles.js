@@ -23,6 +23,8 @@ app.directive('scrTiles', function($rootScope, $http) {
       $scope.template = $scope.template || 'home';
 
       $scope.rowLength = 4;
+      
+      $scope.placeholder = 'modules/core/client/img/resources/placeholder-square.png';
 
       $scope.contentUrl = 'modules/core/client/views/components/tiles-' + $scope.template + '.html';
     },

@@ -4,34 +4,151 @@
  * TODO: Add a buffering icon to the play/pause button cycle
  */
 
-angular.module('core').directive('audioPlayer', function($rootScope) {
+angular.module('core').directive('audioPlayer', function ($rootScope, $document) {
   return {
     restrict: 'E',
     scope: {},
-    link: function($scope, $element) {
-      
-      var radio = document.getElementById('radio');
-      $scope.isPlaying = false;
+    link: function ($scope, $element) {
+      // var radio = document.getElementById('radio');
+      var radio = $document[0].createElement('audio');
+      console.log(radio);
+      radio.src = 'http://vpr.streamguys.net/vpr96.mp3';
+      var player = {};
+      player.isPlaying = false;
 
-      $scope.playPause = function () {
-        if (!$scope.isPlaying) {
+      player.volumeChange = function (volume) {
+        radio.volume = volume / 100.0;
+      };
+
+      player.playPause = function () {
+        if (player.isPlaying) {
           radio.pause();
-          $scope.isPlaying = true;
+          player.isPlaying = false;
         } else {
           radio.play();
-          $scope.isPlaying = false;
+          player.isPlaying = true;
           $rootScope.$broadcast('audio.play', this);
         }
       };
 
       // Pause HTML audio on the instantiation of a player
-      $scope.$on('player.play', function (){
+      $scope.$on('player.play', function () {
         radio.pause();
       });
+      $scope.player = player;
     },
     templateUrl: 'modules/core/client/views/components/audio-player.html'
   };
 });
+
+
+//
+// (function(window) {
+//
+//   var tunesApp = angular.module('tunesApp', []);
+//
+//   window.TunesCtrl = function($scope, $http, player) {
+//     $scope.player = player;
+//     $http.get('albums.json').success(function(data) {
+//       $scope.albums = data;
+//     });
+//   };
+//
+//
+//   tunesApp.factory('player', function(audio, $rootScope) {
+//     var player,
+//       playlist = [],
+//       paused = false,
+//       current = {
+//         album: 0,
+//         track: 0
+//       };
+//
+//     player = {
+//       playlist: playlist,
+//
+//       current: current,
+//
+//       playing: false,
+//
+//       play: function(track, album) {
+//         if (!playlist.length) return;
+//
+//         if (angular.isDefined(track)) current.track = track;
+//         if (angular.isDefined(album)) current.album = album;
+//
+//         if (!paused) audio.src = playlist[current.album].tracks[current.track].url;
+//         audio.play();
+//         player.playing = true;
+//         paused = false;
+//       },
+//
+//       pause: function() {
+//         if (player.playing) {
+//           audio.pause();
+//           player.playing = false;
+//           paused = true;
+//         }
+//       },
+//
+//       reset: function() {
+//         player.pause();
+//         current.album = 0;
+//         current.track = 0;
+//       },
+//
+//       next: function() {
+//         if (!playlist.length) return;
+//         paused = false;
+//         if (playlist[current.album].tracks.length > (current.track + 1)) {
+//           current.track++;
+//         } else {
+//           current.track = 0;
+//           current.album = (current.album + 1) % playlist.length;
+//         }
+//         if (player.playing) player.play();
+//       },
+//
+//       previous: function() {
+//         if (!playlist.length) return;
+//         paused = false;
+//         if (current.track > 0) {
+//           current.track--;
+//         } else {
+//           current.album = (current.album - 1 + playlist.length) % playlist.length;
+//           current.track = playlist[current.album].tracks.length - 1;
+//         }
+//         if (player.playing) player.play();
+//       }
+//     };
+//
+//     playlist.add = function(album) {
+//       if (playlist.indexOf(album) != -1) return;
+//       playlist.push(album);
+//     };
+//
+//     playlist.remove = function(album) {
+//       var index = playlist.indexOf(album);
+//       if (index == current.album) player.reset();
+//       playlist.splice(index, 1);
+//     };
+//
+//     audio.addEventListener('ended', function() {
+//       $rootScope.$apply(player.next);
+//     }, false);
+//
+//     return player;
+//   });
+//
+//
+//   // extract the audio for making the player easier to test
+//   tunesApp.factory('audio', function($document) {
+//     var audio = $document[0].createElement('audio');
+//     return audio;
+//   });
+//
+// })(window);
+//
 
 
 // tell audio element to play/pause, you can also use $scope.audio.play() or $scope.audio.pause();

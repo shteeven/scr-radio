@@ -29,3 +29,10 @@
 .tile-info {
   height: 100%;
   padding: 15px; }
+
+.md-card-image[ng-style] {
+  background-size: cover;
+  background-position: center; }
+
+md-card md-card-title {
+  padding: 8px; }

@@ -3,6 +3,7 @@
   height: 50px;
   outline: none;
   cursor: pointer;
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   -webkit-transition: .5s;
           transition: .5s; }

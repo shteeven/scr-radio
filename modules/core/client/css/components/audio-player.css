@@ -98,7 +98,6 @@ audio-player input {
     border-radius: 50%;
     height: 10px;
     width: 10px;
-    border-radius: 50%px;
     background: #e00;
     opacity: 0; }
   audio-player input::-ms-fill-lower {

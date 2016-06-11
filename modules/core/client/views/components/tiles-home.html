@@ -15,7 +15,7 @@
 
 <div layout="column">
     <md-content md-theme="scr-main" layout="row" flex layout-wrap>
-        <div layout="column" flex="{{100/rowLength}}" ng-repeat="tile in tiles | limitTo: limit">
+        <div layout="column" flex-gt-sm="{{100/rowLength}}" ng-repeat="tile in tiles | limitTo: limit">
             <md-card flex>
                 <div class="md-card-image" ng-style="{'background-image': 'url(' + tile.image + ')'}">
                     <img ng-src="{{placeholder}}" class="md-card-image" alt="{{tile.title}} image">
@@ -27,19 +27,19 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="start center">
-                    <md-card-icon-actions>
-                        <!--<md-button class="md-icon-button" aria-label="Favorite">-->
-                        <!--<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>-->
-                        <!--</md-button>-->
-                        <!--<md-button class="md-icon-button" aria-label="Share">-->
-                        <!--<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>-->
-                        <!--</md-button>-->
-                    </md-card-icon-actions>
-                    <md-button ng-click="playPlayer()">
-                        <i class="fa fa-play-circle-o fa-3x"></i>
+                    <!--<md-card-icon-actions>-->
+                        <!--&lt;!&ndash;<md-button class="md-icon-button" aria-label="Favorite">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<md-button class="md-icon-button" aria-label="Share">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
+                    <!--</md-card-icon-actions>-->
+                    <md-button ng-click="playPlayer()" aria-label="Play media for {{tile.title}}">
+                        <i class="fa fa-play-circle-o fa-lg"></i>
                     </md-button>
-                    <md-button>
-                        <i class="fa fa-link fa-3x"></i>
+                    <md-button aria-label="Link to {{tile.title}} page">
+                        <i class="fa fa-link fa-lg"></i>
                     </md-button>
                 </md-card-actions>
                 <!--<md-card-content>-->

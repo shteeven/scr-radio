@@ -22,7 +22,7 @@ app.directive('scrTiles', function($rootScope, $http) {
       };
       $scope.template = $scope.template || 'home';
 
-      $scope.rowLength = 4;
+      $scope.rowLength = 5;
       
       $scope.placeholder = 'modules/core/client/img/resources/placeholder-square.png';
 

@@ -15,9 +15,42 @@ $transition-duration: .9s;
   top: 46%; // Has knowledge of top-nav placement; must be set to push it below the nav
   z-index: 1;
 }
-.info{
+
+.carousel-container h2 {
+
+}
+
+
+.carousel-container .emp {
+  position: relative;
+  left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.carousel-container .emp:before {
   position: absolute;
-  padding-left: 20px;
+  top: 0;
+  right: 100%;
+  content: '';
+  width: 20px;
+  height: 100%;
+  bottom: 0;
+  background-color: inherit;
+}
+
+.carousel-container .emp>span {
+  position: relative;
+  left: -15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+
+.carousel-container .info{
+  position: absolute;
   height: 50%;
   min-height: 250px;
   width: 28%;
@@ -25,9 +58,9 @@ $transition-duration: .9s;
   top: 15%;
   left: 10%;
   overflow: hidden;
-  background: rgba(0, 0, 0, .5);
+  //background: rgba(0, 0, 0, .5);
   @media screen and (max-width: 767px) {
-    background: none;
+    //background: none;
     width: 80%;
 
     height: 80%;

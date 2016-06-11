@@ -36,3 +36,11 @@
 
 md-card md-card-title {
   padding: 8px; }
+
+.tiles md-chips.md-scr-main-theme .md-chips {
+  position: absolute;
+  right: 0;
+  box-shadow: none; }
+
+.tiles .md-card-image {
+  position: relative; }

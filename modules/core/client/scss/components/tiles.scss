@@ -106,38 +106,12 @@ md-card md-card-title {
   padding: 8px;
 }
 
-//.tiles-container {
-//  //background: grey;
-//  width: 90%;
-//  margin-left: 5%;
-//  margin-top: 10px;
-//}
-//
-//.tile-title {
-//  font-size: 1.3em;
-//  font-weight: 800;
-//}
-//
-//.tile {
-//  color: whitesmoke;
-//  height: 180px;
-//  margin-bottom: 10px;
-//  background-color: black;
-//}
-//
-//.tile-img {
-//  height: 100%;
-//  background-size: cover;
-//  background-position: center;
-//}
-//.tile-text {
-//  display: block;
-//}
-//
-//.tile-info {
-//  height: 100%;
-//  padding: 15px;
-//}
-
-
+.tiles md-chips.md-scr-main-theme .md-chips {
+  position: absolute;
+  right: 0;
+  box-shadow: none;
+}
+.tiles .md-card-image {
+  position: relative;
+}
 

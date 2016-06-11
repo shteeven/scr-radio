@@ -13,11 +13,21 @@
 <!--</div>-->
 <!--</section>-->
 
-<div layout="column">
+<div layout="column" class="tiles">
     <md-content md-theme="scr-main" layout="row" flex layout-wrap>
         <div layout="column" flex-gt-sm="{{100/rowLength}}" ng-repeat="tile in tiles | limitTo: limit">
             <md-card flex>
                 <div class="md-card-image" ng-style="{'background-image': 'url(' + tile.image + ')'}">
+                    <md-chips>
+                        <md-chip>
+                            <span ng-if="tile.resourceType">
+                                {{tile.resourceType | capitalize}}
+                            </span>
+                            <span ng-if="!tile.resourceType">
+                                Featured
+                            </span>
+                        </md-chip>
+                    </md-chips>
                     <img ng-src="{{placeholder}}" class="md-card-image" alt="{{tile.title}} image">
                 </div>
 

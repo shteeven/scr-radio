@@ -17,14 +17,16 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
         $scope.resourceList = Regulars.query();
       } else if (type === 'episodes') {
         $scope.resourceList = Episodes.query();
+      } else if (type === 'things') {
+        $scope.resourceList = Things.query({ resource: null });
       } else {
         $scope.resourceList = [];
         $scope.thing.resource = null;
       }
     };
-    
+
     // Clear forms
-    $scope.clear = function(){
+    $scope.clear = function () {
       $scope.thing.title = '';
       $scope.thing.heading = undefined;
       $scope.thing.description = {};
@@ -113,7 +115,7 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
     // Find a list of Things
     $scope.find = function () {
       $scope.things = Things.query({}, function (data) {
-        var item = data[Math.floor(Math.random()*data.length)];
+        var item = data[Math.floor(Math.random() * data.length)];
         $scope.changeBg(item.image);
       });
     };
@@ -123,7 +125,7 @@ angular.module('things').controller('ThingsController', ['$scope', '$stateParams
     $scope.findOne = function () {
       $scope.thing = Things.get({
         thingId: $stateParams.thingId
-      }, function(data) {
+      }, function (data) {
         $scope.changeBg(data.image);
       });
     };

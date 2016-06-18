@@ -20,10 +20,10 @@
                 <div class="md-card-image" ng-style="{'background-image': 'url(' + tile.image + ')'}">
                     <md-chips>
                         <md-chip>
-                            <span ng-if="tile.resourceType">
-                                {{tile.resourceType | capitalize}}
+                            <span ng-if="tile.type">
+                                {{tile.type | capitalize}}
                             </span>
-                            <span ng-if="!tile.resourceType">
+                            <span ng-if="!tile.type">
                                 Featured
                             </span>
                         </md-chip>
@@ -36,7 +36,7 @@
                         <span class="md-headline">{{tile.title}}</span>
                     </md-card-title-text>
                 </md-card-title>
-                <md-card-actions layout="row" layout-align="start center">
+                <md-card-actions layout="row" layout-align="end center">
                     <!--<md-card-icon-actions>-->
                         <!--&lt;!&ndash;<md-button class="md-icon-button" aria-label="Favorite">&ndash;&gt;-->
                         <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>&ndash;&gt;-->
@@ -45,12 +45,13 @@
                         <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>&ndash;&gt;-->
                         <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
                     <!--</md-card-icon-actions>-->
-                    <md-button ng-click="playPlayer()" aria-label="Play media for {{tile.title}}">
-                        <i class="fa fa-play-circle-o fa-lg"></i>
+
+                    <md-button class="md-icon-button md-raised md-primary" ng-click="tile.go()" aria-label="Link to {{tile.title}} page">
+                        <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
                     </md-button>
-                    <md-button aria-label="Link to {{tile.title}} page">
-                        <i class="fa fa-link fa-lg"></i>
-                    </md-button>
+                  <md-button class="md-icon-button md-raised md-primary"  ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">
+                    <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
+                  </md-button>
                 </md-card-actions>
                 <!--<md-card-content>-->
                     <!--<p>-->

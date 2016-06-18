@@ -49,7 +49,7 @@
                     <md-button class="md-icon-button md-raised md-primary" ng-click="tile.go()" aria-label="Link to {{tile.title}} page">
                         <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
                     </md-button>
-                  <md-button class="md-icon-button md-raised md-primary"  ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">
+                  <md-button class="md-icon-button md-raised md-primary"  ng-if="tile.links.mixcloud" ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">
                     <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
                   </md-button>
                 </md-card-actions>

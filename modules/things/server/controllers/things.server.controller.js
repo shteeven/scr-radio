@@ -85,8 +85,12 @@ exports.list = function (req, res) {
   var query = {};
 
   var type = req.query.type || null;
+  var category = req.query.category || null;
   if (type) {
     query.type = type;
+  }
+  if (category) {
+    query.category = category;
   }
 
   Thing.find(query).sort([['created', -1], ['priority', 1]]).populate('user', 'displayName').exec(function (err, things) {

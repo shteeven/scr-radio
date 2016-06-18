@@ -4,12 +4,13 @@
  */
 var app = angular.module('core');
 
-app.directive('scrCarousel', function($rootScope, $http, $interval, Things) {
+app.directive('scrCarousel', function($rootScope, $http, $interval) {
   return {
     restrict: 'E',
-    scope: {},
+    scope: {
+      slides: '='
+    },
     controller: function($scope, $element) {
-      $scope.slides = Things.query({ category: 'carousel' });
 
       $scope.currentIndex = 0;
 

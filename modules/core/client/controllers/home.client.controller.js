@@ -11,7 +11,8 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
     $scope.tiles = Things.query({category: 'tiles'}, function (data) {
       //console.log(data);
     });
-    
+
+    $scope.slides = Things.query({ category: 'carousel' });
     
 
     // $scope.tiles = Things.query({type: 'tiles'}, function (data) {

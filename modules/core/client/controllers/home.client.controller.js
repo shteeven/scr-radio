@@ -8,12 +8,10 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
     // $scope.episode_tiles = Episodes.query();
     // $scope.special_tiles = Specials.query();
-    $scope.tiles = Things.query({category: 'tiles'}, function (data) {
-      //console.log(data);
-    });
+
+    $scope.tiles = Things.query({category: 'tiles'});
 
     $scope.slides = Things.query({ category: 'carousel' });
-    
 
     // $scope.tiles = Things.query({type: 'tiles'}, function (data) {
     //   console.log(data);

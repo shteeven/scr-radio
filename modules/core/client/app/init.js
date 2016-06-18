@@ -45,7 +45,8 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
     // });
     $mdThemingProvider.theme('scr-main')
       .primaryPalette('grey')
-      .accentPalette('blue-grey');
+      .accentPalette('blue-grey')
+      .dark();
 
     // $mdThemingProvider.theme('default').primaryPalette('red').dark();
 

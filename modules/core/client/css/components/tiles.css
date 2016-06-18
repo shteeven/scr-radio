@@ -35,7 +35,10 @@
   background-position: center; }
 
 md-card md-card-title {
-  padding: 8px; }
+  padding: 8px 8px 0 8px; }
+
+md-card md-card-actions {
+  margin: 0 8px 8px 8px; }
 
 .tiles md-chips.md-scr-main-theme .md-chips {
   position: absolute;

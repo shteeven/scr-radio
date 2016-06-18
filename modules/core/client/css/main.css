@@ -61,6 +61,9 @@ a:focus {
 
 /***************************/
 /***************************/
+.app-body {
+  padding-bottom: 70px; }
+
 .view {
   padding-top: 55px; }
 

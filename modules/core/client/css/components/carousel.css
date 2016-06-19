@@ -29,12 +29,11 @@
   bottom: 0;
   background-color: inherit; }
 
-.carousel-container .emp > span {
+.carousel-container h2, .carousel-container h4 {
   position: relative;
   left: -15px;
   padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.26); }
+  padding-bottom: 10px; }
 
 .carousel-container .info {
   position: absolute;

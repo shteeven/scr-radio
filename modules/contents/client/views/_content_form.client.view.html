@@ -1,0 +1,132 @@
+<fieldset>
+    <div class="form-group text-muted" show-errors>
+        <label for="title">Title:</label>
+        <input name="title" type="text" ng-model="content.title" id="title" class="form-control"
+               placeholder="Title" required>
+        <div ng-messages="contentForm.title.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Content title is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group text-muted">
+        <label for="headline_en">
+            Headline: <span class="caption ">Catchy one-liner (<80 Characters; English)</span>
+        </label>
+        <input name="headline_en" type="text" ng-model="content.headline.en"
+               id="headline_en" class="form-control" placeholder="English headline">
+
+        <label for="headline_kr">
+            Headline: <span class="caption ">Catchy one-liner (<80 Characters; Korean)</span>
+        </label>
+        <input name="headline_kr" type="text" ng-model="content.headline.kr"
+               id="headline_kr" class="form-control" placeholder="Korean headline">
+    </div>
+
+    <div class="form-group text-muted">
+        <label for="description_en">
+            Description: <span class="caption ">English synopsis of your content (100~500 Characters)</span>
+        </label>
+        <textarea name="description_en" type="text" ng-model="content.description.en"
+                  id="description_en" class="form-control" placeholder="English description"></textarea>
+
+        <label for="description_kr">
+            Description: <span class="caption ">Korean synopsis of you and your style (100~500 Characters)</span>
+        </label>
+        <textarea name="description_kr" type="text" ng-model="content.description.kr"
+                  id="description_kr" class="form-control" placeholder="Korean description"></textarea>
+    </div>
+
+    <div class="form-group text-muted">
+        <label for="image">Image:</label>
+        <input name="image" type="text" ng-model="content.image" id="image" class="form-control"
+               placeholder="Image URL">
+    </div>
+
+    <div class="form-group text-muted">
+        <label>Links: <span>Fill in applicable; these are used as social media links</span></label>
+        <input name="links" type="text" ng-model="content.links.facebook" class="form-control"
+               placeholder="Facebook Page URL">
+        <input name="links" type="text" ng-model="content.links.twitter" class="form-control"
+               placeholder="Twitter Page URL">
+        <input name="links" type="text" ng-model="content.links.mixcloud" class="form-control"
+               placeholder="Mixcloud Page URL">
+        <input name="links" type="text" ng-model="content.links.home" class="form-control"
+               placeholder="Home Page URL">
+    </div>
+
+    <div class="form-group text-muted">
+        <label for="featuredSelect">
+            Featured: <span>Where will this content be featured?</span>
+        </label>
+        <select name="featuredSelect" id="featuredSelect" ng-model="featured" ng-change="add(featured, 'featured')">
+            <option ng-repeat="option in features" value="{{option}}">{{option}}</option>
+        </select>
+        <div>
+            Will be featured on:
+            <span class="badge" ng-repeat="item in content.featured">
+                    {{item | capitalize}}
+                    <span class="glyphicon glyphicon-minus-sign" ng-click="remove(item, 'featured')"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group text-muted">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12">
+                <label for="datePicker">Air-date and Time:</label>
+                <md-content id="datePicker">
+                    <mdp-date-picker ng-model="content.aired"></mdp-date-picker>
+                    <mdp-time-picker ng-model="content.aired"></mdp-time-picker>
+                </md-content>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group text-muted">
+        <label for="specialSelect">
+            Special: <span class="caption ">What special does this content belog to?</span>
+        </label>
+        <select name="specialSelect" id="specialSelect" ng-model="special">
+            <option ng-repeat="option in specials | orderBy:'title'" value="{{option._id}}">
+                {{option.title}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-group text-muted">
+        <label for="regularSelect">
+            REGULARs: <span class="caption ">REGULARs that host this content.</span>
+        </label>
+        <select name="regularSelect" id="regularSelect" ng-model="selected_regular">
+            <option ng-repeat="option in regulars | orderBy:'title'" value="{{option._id}}">
+                {{option.title}}
+            </option>
+        </select>
+        <span class="glyphicon glyphicon-plus" ng-click="addRegular(selected_regular)"></span>
+        <div>
+            <span class="">REGULARs to add: </span>
+            <div ng-repeat="regular in content.regulars"
+                 style="display:block; background: rgba(0, 0, 0, 0.1) ">
+                <span>{{getRegularName(regular)}}</span>
+                <span class="glyphicon glyphicon-minus-sign" ng-click="removeRegular(regular)"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-group text-muted">
+        <label>Featured: <span class="caption ">Is this content featured</span></label>
+        <input name="featured" placeholder="Is this content featured" type="checkbox"
+               ng-model="content.featured">
+    </div>
+
+    <div class="form-group text-muted">
+        <input type="submit" class="btn btn-default">
+    </div>
+
+    <div ng-show="error" class="text-danger">
+        <strong ng-bind="error"></strong>
+    </div>
+
+</fieldset>

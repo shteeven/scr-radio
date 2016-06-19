@@ -1,0 +1,11 @@
+<section class="container well content-form" ng-controller="ContentsController" ng-init="clear();">
+    <div class="col-xs-10 col-xs-offset-1">
+        <div>
+            <h2>New Content</h2>
+        </div>
+        <form name="contentForm" class="form-horizontal" ng-submit="create(contentForm.$valid)" novalidate>
+            <div ng-include="'/modules/contents/client/views/_content_form.client.view.html'"></div>
+        </form>
+    </div>
+</section>
+

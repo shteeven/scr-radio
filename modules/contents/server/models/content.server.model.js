@@ -1,0 +1,68 @@
+'use strict';
+/* HOSTS AND CONTENT CREATORS */
+/**
+ * Module dependencies.
+ */
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema;
+
+/**
+ * Content Schema
+ */
+var Contentschema = new Schema({
+  // admin data
+  created: {
+    type: Date,
+    default: Date.now
+  },
+  user: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
+
+  // display data
+  title: {
+    type: String,
+    default: '',
+    trim: true,
+    required: 'Title cannot be blank'
+  },
+  headline: {
+    en: String,
+    kr: String
+  },
+  description: {
+    en: String,
+    kr: String
+  },
+  image: {
+    type: String,
+    default: 'modules/users/client/img/profile/default.png'
+  },
+  category: { // what type of entity is this model
+    type: String
+  }, 
+  featured: [ String ], // where it will be featured
+  links: {
+    mixcloud: { type: String },
+    facebook: { type: String },
+    twitter: { type: String },
+    home: { type: String },
+    external: { type: String },
+    instagram: { type: String }
+  },
+  
+  belongsTo: [ // what is this object a child of 
+    {
+      type: Schema.ObjectId,
+      ref: 'Content'
+    }
+  ],
+  guests: [ { // 
+    type: Schema.ObjectId,
+    ref: 'Content'
+  } ],
+  air: { type: Date }
+});
+
+mongoose.model('Content', Contentschema);

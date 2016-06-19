@@ -41,12 +41,12 @@ $transition-duration: .9s;
   background-color: inherit;
 }
 
-.carousel-container .emp>span {
+.carousel-container h2, .carousel-container h4 {
   position: relative;
   left: -15px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.26);
+  //background-color: rgba(0, 0, 0, 0.26);
 }
 
 .carousel-container .info{
@@ -62,7 +62,6 @@ $transition-duration: .9s;
   @media screen and (max-width: 767px) {
     //background: none;
     width: 80%;
-
     height: 80%;
   }
 }

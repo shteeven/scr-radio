@@ -17,8 +17,8 @@
     "angular-material": "^1.0.9",
     "angular-aria": "~1.5",
     "font-awesome": "fontawesome#^4.5.0",
-    "mdPickers": "^0.7.5",
-    "moment": "^2.13.0"
+    "moment": "^2.13.0",
+    "sc-date-time": "^1.1.6"
   },
   "resolutions": {
     "angular": "~1.5",

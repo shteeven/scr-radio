@@ -41,7 +41,10 @@ var Contentschema = new Schema({
   },
   category: { // what type of entity is this model
     type: String
-  }, 
+  },
+  guest: {
+    type: Boolean
+  },
   featured: [ String ], // where it will be featured
   links: {
     mixcloud: { type: String },
@@ -51,18 +54,25 @@ var Contentschema = new Schema({
     external: { type: String },
     instagram: { type: String }
   },
-  
-  belongsTo: [ // what is this object a child of 
+  aired: {
+    type: Date
+  },
+  belongsToRegular: [ // what is this object a child of 
     {
       type: Schema.ObjectId,
       ref: 'Content'
     }
   ],
-  guests: [ { // 
+  belongsToSpecial: [ // what is this object a child of 
+    {
+      type: Schema.ObjectId,
+      ref: 'Content'
+    }
+  ],
+  guests: [ { // what regulars/guests made a guest appearance on this epidsode
     type: Schema.ObjectId,
     ref: 'Content'
-  } ],
-  air: { type: Date }
+  } ]
 });
 
 mongoose.model('Content', Contentschema);

@@ -1,4 +1,5 @@
 <fieldset>
+    <!-- TITLE -->
     <div class="form-group text-muted" show-errors>
         <label for="title">Title:</label>
         <input name="title" type="text" ng-model="content.title" id="title" class="form-control"
@@ -7,7 +8,9 @@
             <p class="help-block error-text" ng-message="required">Content title is required.</p>
         </div>
     </div>
+    <!-- End TITLE -->
 
+    <!-- HEADLINE -->
     <div class="form-group text-muted">
         <label for="headline_en">
             Headline: <span class="caption ">Catchy one-liner (<80 Characters; English)</span>
@@ -21,7 +24,9 @@
         <input name="headline_kr" type="text" ng-model="content.headline.kr"
                id="headline_kr" class="form-control" placeholder="Korean headline">
     </div>
+    <!-- End HEADLINE -->
 
+    <!-- DESCRIPTION -->
     <div class="form-group text-muted">
         <label for="description_en">
             Description: <span class="caption ">English synopsis of your content (100~500 Characters)</span>
@@ -35,25 +40,41 @@
         <textarea name="description_kr" type="text" ng-model="content.description.kr"
                   id="description_kr" class="form-control" placeholder="Korean description"></textarea>
     </div>
+    <!-- End DESCRIPTION -->
 
+    <!-- IMAGE -->
     <div class="form-group text-muted">
         <label for="image">Image:</label>
         <input name="image" type="text" ng-model="content.image" id="image" class="form-control"
                placeholder="Image URL">
     </div>
+    <!-- End IMAGE -->
 
+    <!-- CATEGORY -->
     <div class="form-group text-muted">
-        <label>Links: <span>Fill in applicable; these are used as social media links</span></label>
-        <input name="links" type="text" ng-model="content.links.facebook" class="form-control"
-               placeholder="Facebook Page URL">
-        <input name="links" type="text" ng-model="content.links.twitter" class="form-control"
-               placeholder="Twitter Page URL">
-        <input name="links" type="text" ng-model="content.links.mixcloud" class="form-control"
-               placeholder="Mixcloud Page URL">
-        <input name="links" type="text" ng-model="content.links.home" class="form-control"
-               placeholder="Home Page URL">
+        <label for="categorySelect">
+            Category: <span>What is the category of this content?</span>
+        </label>
+        <select name="categorySelect" id="categorySelect" ng-model="category" ng-change="select(category, 'category')">
+            <option value=""></option>
+            <option ng-repeat="option in categories" value="{{option}}">{{option | capitalize}}</option>
+        </select>
     </div>
+    <!-- End CATEGORY -->
 
+    <!-- GUEST -->
+    <div class="form-group text-muted" ng-if="category === 'regular'">
+        <label for="guestSelect">
+            Guest: <span>Is this person a guest?</span>
+        </label>
+        <select name="guestSelect" id="guestSelect" ng-model="guest" ng-change="select(guest, 'guest')" ng-required="category === 'regular'">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+    <!-- End GUEST -->
+
+    <!-- FEATURED -->
     <div class="form-group text-muted">
         <label for="featuredSelect">
             Featured: <span>Where will this content be featured?</span>
@@ -69,60 +90,69 @@
             </span>
         </div>
     </div>
+    <!-- End FEATURED -->
 
+    <!-- LINKS -->
     <div class="form-group text-muted">
-        <div class="row">
-            <div class="col-sm-6 col-xs-12">
-                <label for="datePicker">Air-date and Time:</label>
-                <md-content id="datePicker">
-                    <mdp-date-picker ng-model="content.aired"></mdp-date-picker>
-                    <mdp-time-picker ng-model="content.aired"></mdp-time-picker>
-                </md-content>
-            </div>
-        </div>
+        <label>Links: <span>Fill in applicable; these are used as social media links</span></label>
+        <input name="links" type="text" ng-model="content.links.facebook" class="form-control"
+               placeholder="Facebook Page URL">
+        <input name="links" type="text" ng-model="content.links.twitter" class="form-control"
+               placeholder="Twitter Page URL">
+        <input name="links" type="text" ng-model="content.links.mixcloud" class="form-control"
+               placeholder="Mixcloud Page URL">
+        <input name="links" type="text" ng-model="content.links.home" class="form-control"
+               placeholder="Home Page URL">
     </div>
+    <!-- End LINKS -->
 
-
+    <!-- DATETIME -->
     <div class="form-group text-muted">
-        <label for="specialSelect">
-            Special: <span class="caption ">What special does this content belog to?</span>
-        </label>
-        <select name="specialSelect" id="specialSelect" ng-model="special">
-            <option ng-repeat="option in specials | orderBy:'title'" value="{{option._id}}">
-                {{option.title}}
-            </option>
-        </select>
+            <label for="datePicker">Air-date and Time: <span>When was this originally aired?</span></label>
+            <time-date-picker id="datePicker" display-twentyfour="true" autosave="true"
+                              ng-model="content.aired"></time-date-picker>
     </div>
+    <!-- End DATETIME -->
 
+    <!-- BELONGS-TO-REGULAR -->
     <div class="form-group text-muted">
-        <label for="regularSelect">
-            REGULARs: <span class="caption ">REGULARs that host this content.</span>
+        <label for="belongsToRegularSelect">
+            Child of Regular: <span>What Regulars are involved with this Special or Episode?</span>
         </label>
-        <select name="regularSelect" id="regularSelect" ng-model="selected_regular">
-            <option ng-repeat="option in regulars | orderBy:'title'" value="{{option._id}}">
-                {{option.title}}
-            </option>
+        <select name="belongsToRegularSelect" id="belongsToRegularSelect" ng-model="belongsToRegular" ng-change="add(belongsToRegular, 'belongsToRegular')">
+            <option ng-repeat="option in regulars" value="{{option._id}}">{{option.title | capitalize}}</option>
         </select>
-        <span class="glyphicon glyphicon-plus" ng-click="addRegular(selected_regular)"></span>
         <div>
-            <span class="">REGULARs to add: </span>
-            <div ng-repeat="regular in content.regulars"
-                 style="display:block; background: rgba(0, 0, 0, 0.1) ">
-                <span>{{getRegularName(regular)}}</span>
-                <span class="glyphicon glyphicon-minus-sign" ng-click="removeRegular(regular)"></span>
-            </div>
+            Will be featured on:
+            <span class="badge" ng-repeat="item in content.belongsToRegular">
+                    {{getTitleFromId(item)}}
+                    <span class="glyphicon glyphicon-minus-sign" ng-click="remove(item, 'belongsToRegular')"></span>
+            </span>
         </div>
     </div>
+    <!-- End BELONGS-TO-REGULAR -->
 
-
+    <!-- BELONGS-TO-SPECIAL -->
     <div class="form-group text-muted">
-        <label>Featured: <span class="caption ">Is this content featured</span></label>
-        <input name="featured" placeholder="Is this content featured" type="checkbox"
-               ng-model="content.featured">
+        <label for="belongsToSpecialSelect">
+            Child of Special: <span>What Specials are involved with this Episode?</span>
+        </label>
+        <select name="belongsToSpecialSelect" id="belongsToSpecialSelect" ng-model="belongsToSpecial" ng-change="add(belongsToSpecial, 'belongsToSpecial')">
+            <option ng-repeat="option in specials" value="{{option._id}}">{{option.title | capitalize}}</option>
+        </select>
+        <div>
+            Will be featured on:
+            <span class="badge" ng-repeat="item in content.belongsToSpecial">
+                    {{getTitleFromId(item)}}
+                    <span class="glyphicon glyphicon-minus-sign" ng-click="remove(item, 'belongsToSpecial')"></span>
+            </span>
+        </div>
     </div>
+    <!-- End BELONGS-TO-SPECIAL -->
+
 
     <div class="form-group text-muted">
-        <input type="submit" class="btn btn-default">
+        <input type="submit" class="btn btn-success">
     </div>
 
     <div ng-show="error" class="text-danger">

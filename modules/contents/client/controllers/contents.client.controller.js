@@ -1,73 +1,64 @@
 'use strict';
 
 // Contents controller
-angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents', 'Regulars', 'Specials',
-  function ($scope, $stateParams, $location, Authentication, Contents, Regulars, Specials) {
+angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
+  function ($scope, $stateParams, $location, Authentication, Contents) {
     // TODO: Add a time picker as well as tracks
     $scope.authentication = Authentication;
 
-    $scope.days = [
-      'monday',
-      'tuesday',
-      'wednesday',
-      'thursday',
-      'friday',
-      'saturday',
-      'sunday'
-    ];
+    $scope.contents = Contents.query({ guest: false });
+    $scope.regulars = Contents.query({ category: 'regular', guest: false });
+    $scope.specials = Contents.query({ category: 'special'});
+    $scope.allRegulars = Contents.query({ category: 'regular' });
+    
     $scope.features = [
       'carousel',
       'tiles'
+    ];
+    $scope.categories = [
+      'regular',
+      'special',
+      'episode',
+      'event'
     ];
 
     $scope.add = function (item, field) {
       if (!($scope.content[field] instanceof Array)) {
         $scope.content[field] = [];
       }
-
       $scope.content[field].push(item);
-      console.log($scope.content[field]);
     };
 
     $scope.remove = function (item, field) {
       $scope.content[field] = $scope.content[field].filter(function (obj) { return obj !== item; });
     };
 
-    // This will fire when the create or edit page load
-    // $scope.getRegulars = function() {
-    //   $scope.regulars = Regulars.query();
-    // };
-    // $scope.getSpecials = function() {
-    //   $scope.specials = Specials.query();
-    // };
+    $scope.select = function (item, field) {
+      $scope.content[field] = item;
+    };
 
-    // Insert REGULAR into the REGULARs list
-    // regular arg is a REGULAR's _id
-    // $scope.addRegular = function(regular) {
-    //   if ($scope.content.regulars.indexOf(regular) < 0) { $scope.content.regulars.push(regular); }
-    // };
-    // $scope.removeRegular = function(regular) {
-    //   $scope.content.regulars = $scope.content.regulars.filter(function (obj) { return obj !== regular; });
-    // };
-    // $scope.getRegularName = function(regular) {
-    //   var regular_obj = $scope.regulars.filter(function (obj) { return obj._id === regular; });
-    //   return regular_obj[0].title;
-    // };
+    $scope.getTitleFromId = function(id) {
+      var obj = $scope.contents.filter(function (obj) { return obj._id === id; });
+      if (obj[0]) {
+        return obj[0].title;
+      }
+    };
 
     // Clear forms
     $scope.clear = function(){
       $scope.content = {};
       $scope.content.title = '';
-      $scope.content.image = '';
-      $scope.content.images = [];
-      $scope.content.links = {};
-      $scope.content.categories = [];
+      $scope.content.headline = {};
       $scope.content.description = {};
-      $scope.content.regulars = [];
+      $scope.content.image = '';
+      $scope.content.category = {};
+      $scope.content.guest = null;
+      $scope.content.featured = [];
+      $scope.content.links = {};
+      $scope.content.aired = new Date();
+      $scope.content.belongsToRegular = [];
+      $scope.content.belongsToSpecial = [];
       $scope.content.guests = [];
-      $scope.content.air = new Date();
-      $scope.special = null;
-      $scope.content.featured = false;
     };
 
     // Create new Content
@@ -83,16 +74,17 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
       // Create new Content object
       var content = new Contents({
         title: $scope.content.title,
-        image: $scope.content.image,
-        images: $scope.content.images,
-        links: $scope.content.links,
-        categories: $scope.content.categories,
+        headline: $scope.content.headline,
         description: $scope.content.description,
-        regulars: $scope.content.regulars,
-        guests: $scope.content.guests,
+        image: $scope.content.image,
+        category: $scope.content.category,
+        guest: $scope.content.guest,
+        featured: $scope.content.featured,
+        links: $scope.content.links,
         aired: $scope.content.aired,
-        special: $scope.special,
-        featured: $scope.content.featured
+        belongsToRegular: $scope.content.belongsToRegular,
+        belongsToSpecial: $scope.belongsToSpecial,
+        guests: $scope.content.guests
       });
 
       // Redirect after save

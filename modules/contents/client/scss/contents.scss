@@ -1,0 +1,24 @@
+.content-form md-content {
+}
+
+.content-form label {
+  font-size: 1.2em;
+}
+
+.content-form label span {
+  font-size: .8em;
+}
+
+.play-container {
+  padding: 14%;
+  opacity: 0;
+  text-align: center;
+}
+
+.play-container i {
+  font-size: 6em;
+}
+
+.items-list-group:hover .play-container {
+  opacity: 1;
+}

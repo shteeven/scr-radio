@@ -13,6 +13,8 @@ app.directive('scrCarousel', function($rootScope, $http, $interval, Things) {
 
       $scope.currentIndex = 0;
 
+      var rotationDelay = 6800000;
+
       $scope.isCurrentSlideIndex = function (index) {
         return $scope.currentIndex === index;
       };
@@ -28,14 +30,14 @@ app.directive('scrCarousel', function($rootScope, $http, $interval, Things) {
 
       // Set slides to auto rotate
       // initialize rotation
-      var rotateSlide = $interval(function(){$scope.next();}, 6800);
+      var rotateSlide = $interval(function(){$scope.next();}, rotationDelay);
 
       $scope.startRotation = function(){
         if(rotateSlide) {
           $interval.cancel(rotateSlide);
           rotateSlide = undefined;
         }
-        rotateSlide = $interval(function(){$scope.next();}, 6800);
+        rotateSlide = $interval(function(){$scope.next();}, rotationDelay);
       };
       $scope.stopRotation = function(){
         if(rotateSlide) {

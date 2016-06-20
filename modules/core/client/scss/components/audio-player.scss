@@ -15,10 +15,11 @@ audio-player .play-pause {
   position: relative;
   background-color: transparent;
   border: 0;
-  padding: 0;
+  margin-right: 10px;
   -webkit-transition: color .15s ease-in-out;
   -ms-transition: color .15s ease-in-out;
   transition: color .15s ease-in-out;
+  transform: translateY(50%);
 }
 
 .play-pause .pause-text {
@@ -40,6 +41,8 @@ audio-player input {
   height: 100%;
   min-height: 20px;
   overflow: hidden;
+
+  transform: translateY(50%);
 
 
   &:focus {

@@ -153,12 +153,6 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
       }, function(data) {
         $scope.changeBg(data.image);
       });
-      $scope.regular = Regulars.get({
-        contentId: $stateParams.contentId
-      });
-      $scope.specials = Specials.query({
-        contentId: $stateParams.contentId
-      });
     };
 
   }

@@ -12,9 +12,11 @@ audio-player .play-pause {
   position: relative;
   background-color: transparent;
   border: 0;
-  padding: 0;
+  margin-right: 10px;
   -webkit-transition: color .15s ease-in-out;
-  transition: color .15s ease-in-out; }
+  transition: color .15s ease-in-out;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%); }
 
 .play-pause .pause-text {
   display: none; }
@@ -34,7 +36,9 @@ audio-player input {
   display: block;
   height: 100%;
   min-height: 20px;
-  overflow: hidden; }
+  overflow: hidden;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%); }
   audio-player input:focus {
     box-shadow: none;
     outline: none; }

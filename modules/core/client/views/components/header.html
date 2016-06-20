@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="navbar-container-top-left row">
+    <a rel="home" class="brand-logo col-xs-2" ui-sref="home" title="Seoul Community Radio">
+      <!--<img style="max-width:100px; margin-top: -7px;" src="/img/transparent-white-logo.png">-->
+      <img src="modules/core/client/img/brand/brand-logo.jpg" class="img-responsive" alt="Seoul Community Radio Logo">
+    </a>
+    <div class="col-xs-6">
+      <audio-player></audio-player>
+      <mc-widget></mc-widget>
+    </div>
+  </div>
+  <div class="navbar-container-top-right">
+    <scr-links links="ctrl.main_links"></scr-links>
+    <span ng-click="$root.toggleLanguage()" tooltip-placement="left" uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" role="button">
+      <i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>
+    </span>
+  </div>
+</div>

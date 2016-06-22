@@ -83,37 +83,17 @@ exports.delete = function (req, res) {
  * List of Contents
  */
 exports.list = function (req, res) {
-  if (req.query.regularId) {
-    Content.find({ regulars: req.query.regularId }).sort('-created').populate('special', 'title').exec(function (err, contents) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      } else {
-        res.json(contents);
-      }
-    });
-  } else if (req.query.specialId) {
-    Content.find({ special: req.query.specialId }).sort('-created').populate('regulars', 'title').exec(function (err, contents) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      } else {
-        res.json(contents);
-      }
-    });
-  } else {
-    Content.find().sort('-created').populate('user', 'displayName').populate('regulars', 'title').populate('special', 'title').exec(function (err, contents) {
-      if (err) {
-        return res.status(400).send({
-          message: errorHandler.getErrorMessage(err)
-        });
-      } else {
-        res.json(contents);
-      }
-    });
-  }
+  console.log(req.query);
+  Content.find(req.query).sort('-created').populate('user', 'displayName').populate('regulars', 'title').populate('special', 'title').exec(function (err, contents) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    } else {
+      console.log(contents);
+      res.json(contents);
+    }
+  });
 };
 
 /**

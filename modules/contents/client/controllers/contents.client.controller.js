@@ -8,7 +8,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
 
     $scope.contents = Contents.query({ guest: false });
     $scope.regulars = Contents.query({ category: 'regular', guest: false });
-    $scope.specials = Contents.query({ category: 'special'});
+    $scope.specials = Contents.query({ category: 'special' });
     $scope.allRegulars = Contents.query({ category: 'regular' });
     
     $scope.features = [

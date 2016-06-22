@@ -12,7 +12,7 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document)
       // var radio = document.getElementById('radio');
       var radio = $document[0].createElement('audio');
       console.log(radio);
-      radio.src = 'http://vpr.streamguys.net/vpr96.mp3';
+      radio.src = 'http://seoulcommunityradio.out.airtime.pro:8000/seoulcommunityradio_a?1466567397161.mp3';
       var player = {};
       player.isPlaying = false;
 

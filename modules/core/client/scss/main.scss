@@ -1,9 +1,9 @@
 
 
-@font-face {
-  font-family: "DIN";
-  src: url("../assets/fonts/DIN_bold.TTF") format('truetype');
-}
+//@font-face {
+//  font-family: "DIN";
+//  src: url("../assets/fonts/DIN_bold.TTF") format('truetype');
+//}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -16,7 +16,7 @@ body {
   height: 100%;
   padding: 0;
   background-color: transparent;
-  font-family: 'DIN', 'Roboto', sans-serif;
+  font-family: "DIN Condensed", 'Roboto', sans-serif;
   color: rgb(255, 255, 255);
 
   // To avoid covering the carousel component

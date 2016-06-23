@@ -21,7 +21,7 @@ app.directive('scrTiles', function($rootScope, $state) {
       $scope.playPlayer = function(url) {
         $rootScope.$broadcast('player.play', { url: url });
       };
-      $scope.template = $scope.template || 'home';
+      $scope.template = 'home';
       $scope.rowLengthSmall = 2;
 
       $scope.go = function (tile) {

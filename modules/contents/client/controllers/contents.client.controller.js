@@ -3,7 +3,6 @@
 // Contents controller
 angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
   function ($scope, $stateParams, $location, Authentication, Contents) {
-
     $scope.authentication = Authentication;
     $scope.tile_limit = 122;
     $scope.rowLength = 4;

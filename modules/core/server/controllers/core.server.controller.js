@@ -1,49 +1,8 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-  Regular = mongoose.model('Regular'),
-  Episode = mongoose.model('Episode'),
-  Special = mongoose.model('Special'),
   path = require('path'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
-
-
-/**
- * Get featured episodes
- * TODO: refactor this to use a memcache function
- */
-exports.getFeatured = function (req, res) {
-  var featured = [];
-  Regular.find({ featured:true }).exec(function(err, result) {
-    if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
-    } else {
-      featured.push.apply(featured, result);
-      Special.find({ featured:true }).exec(function(err, result) {
-        if (err) {
-          return res.status(400).send({
-            message: errorHandler.getErrorMessage(err)
-          });
-        } else {
-          featured.push.apply(featured, result);
-          Episode.find({ featured:true }).exec(function(err, result) {
-            if (err) {
-              return res.status(400).send({
-                message: errorHandler.getErrorMessage(err)
-              });
-            } else {
-              featured.push.apply(featured, result);
-              res.json(featured);
-            }
-          });
-        }
-      });
-    }
-  });
-};
-
 
 /**
  * Render the main application page

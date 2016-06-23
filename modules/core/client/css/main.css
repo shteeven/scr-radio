@@ -15,7 +15,7 @@ body {
 html {
   height: 100%;
   background-size: cover;
-  background: url("/assets/img/brand/brand-bg.jpg") no-repeat center; }
+  background: url("../img/brand/brand-bg.jpg") no-repeat center; }
 
 /***************************/
 /***************************/

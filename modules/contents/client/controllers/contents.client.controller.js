@@ -153,7 +153,8 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
 
     // Find a list of Contents
     $scope.find = function () {
-      $scope.contents = Contents.query({ category: $stateParams.contentType }, function (data) {
+      var query = $stateParams.contentType ? { category: $stateParams.contentType } : {};
+      $scope.contents = Contents.query(query, function (data) {
         console.log(data);
         $scope.changeBg();
       });

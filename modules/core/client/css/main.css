@@ -14,10 +14,8 @@ body {
 
 html {
   height: 100%;
-  background-position: center;
   background-size: cover;
-  background-image: url("../img/brand/brand-bg.jpg");
-  background-repeat: no-repeat; }
+  background: url("../img/brand/brand-logo.jpg") no-repeat center; }
 
 /***************************/
 /***************************/

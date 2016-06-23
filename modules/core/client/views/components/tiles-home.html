@@ -1,17 +1,3 @@
-<!--<section class="container tiles-container">-->
-<!--<div class="tile" ng-repeat="tile in tiles | limitTo: limit">-->
-<!--<div class="row tile" ng-click="">-->
-<!--<div class="col-xs-6 tile-img" ng-style="{'background-image':'url({{tile.image}})'}"></div>-->
-<!--<div class="col-xs-6 tile-info">-->
-<!--<span class="tile-text tile-title">{{tile.title}}</span>-->
-<!--&lt;!&ndash;TODO: add filter to time to show in hours and minutes&ndash;&gt;-->
-<!--<span class="tile-text text-muted">Duration: {{tile.length}}</span>-->
-<!--<span class="tile-text text-muted">Aired: {{tile.date | date: 'dd-MM-yy'}}</span>-->
-<!--<span class="tile-text text-muted">At: {{tile.date | date: 'HH:mm'}}</span>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</section>-->
 
 <div layout="column" class="tiles">
     <md-content md-theme="scr-main" layout="row" flex layout-wrap>
@@ -37,35 +23,15 @@
                     </md-card-title-text>
                 </md-card-title>
                 <md-card-actions layout="row" layout-align="end center">
-                    <!--<md-card-icon-actions>-->
-                        <!--&lt;!&ndash;<md-button class="md-icon-button" aria-label="Favorite">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-                        <!--&lt;!&ndash;<md-button class="md-icon-button" aria-label="Share">&ndash;&gt;-->
-                        <!--&lt;!&ndash;<md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>&ndash;&gt;-->
-                        <!--&lt;!&ndash;</md-button>&ndash;&gt;-->
-                    <!--</md-card-icon-actions>-->
 
-                    <md-button class="md-icon-button md-raised md-primary" ng-click="tile.go()" aria-label="Link to {{tile.title}} page">
+                    <md-button class="md-icon-button md-raised md-primary" ng-click="go(tile)" aria-label="Link to {{tile.title}} page">
                         <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
                     </md-button>
                   <md-button class="md-icon-button md-raised md-primary"  ng-if="tile.links.mixcloud" ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">
                     <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
                   </md-button>
                 </md-card-actions>
-                <!--<md-card-content>-->
-                    <!--<p>-->
-                        <!--{{tile.description[$root.lang] || tile.description.en}}-->
-                    <!--</p>-->
-                <!--</md-card-content>-->
             </md-card>
         </div>
     </md-content>
 </div>
-
-
-<!--<div class="container" layout="row" flex>-->
-<!--<md-content style="background: #000" id="tiles" flex>-->
-<!--adsfadsf-->
-<!--</md-content>-->
-<!--</div>-->

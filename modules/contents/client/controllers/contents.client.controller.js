@@ -3,13 +3,27 @@
 // Contents controller
 angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
   function ($scope, $stateParams, $location, Authentication, Contents) {
-    // TODO: Add a time picker as well as tracks
-    $scope.authentication = Authentication;
 
-    $scope.contents = Contents.query({ guest: false });
-    $scope.regulars = Contents.query({ category: 'regular', guest: false });
-    $scope.specials = Contents.query({ category: 'special' });
-    $scope.allRegulars = Contents.query({ category: 'regular' });
+    $scope.authentication = Authentication;
+    $scope.tile_limit = 122;
+    $scope.rowLength = 4;
+
+    // on creating content
+    $scope.forCreate = function () {
+      $scope.contents = Contents.query({ guest: false });
+      $scope.regulars = Contents.query({ category: 'regular', guest: false });
+      $scope.specials = Contents.query({ category: 'special' });
+      $scope.allRegulars = Contents.query({ category: 'regular' });
+      $scope.clear();
+    };
+    // on editing content
+    $scope.forEdit = function () {
+      $scope.contents = Contents.query({ guest: false });
+      $scope.regulars = Contents.query({ category: 'regular', guest: false });
+      $scope.specials = Contents.query({ category: 'special' });
+      $scope.allRegulars = Contents.query({ category: 'regular' });
+      $scope.findOne();
+    };
     
     $scope.features = [
       'carousel',
@@ -140,9 +154,9 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
 
     // Find a list of Contents
     $scope.find = function () {
-      $scope.contents = Contents.query({}, function (data) {
-        var item = data[Math.floor(Math.random()*data.length)];
-        $scope.changeBg(item.image);
+      $scope.contents = Contents.query({ category: $stateParams.contentType }, function (data) {
+        console.log(data);
+        $scope.changeBg();
       });
     };
 

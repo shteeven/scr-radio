@@ -8,12 +8,13 @@
  */
 var app = angular.module('core');
 
-app.directive('scrTiles', function($rootScope, $http) {
+app.directive('scrTiles', function($rootScope, $state) {
   return {
     restrict: 'EA',
     scope: {
       limit: '@',
       tiles: '=',
+      rowLength: '=',
       template: '@'
     },
     controller: function($scope, $element) {
@@ -21,9 +22,11 @@ app.directive('scrTiles', function($rootScope, $http) {
         $rootScope.$broadcast('player.play', { url: url });
       };
       $scope.template = $scope.template || 'home';
-
-      $scope.rowLength = 5;
       $scope.rowLengthSmall = 2;
+
+      $scope.go = function (tile) {
+        $state.go('contents.view', { contentId: tile._id });
+      };
       
       $scope.placeholder = 'modules/core/client/img/resources/placeholder-square.png';
 

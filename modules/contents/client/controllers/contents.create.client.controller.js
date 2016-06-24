@@ -9,7 +9,6 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     $scope.regulars = Contents.query({ category: 'regular', guest: false });
     $scope.specials = Contents.query({ category: 'special' });
     $scope.allRegulars = Contents.query({ category: 'regular' });
-    $scope.clear();
 
     $scope.features = [
       'carousel',
@@ -64,6 +63,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
         $scope.content.belongsToSpecial = [];
         $scope.content.guests = [];
     };
+    $scope.clear();
 
     // Create new Content
     $scope.create = function (isValid) {

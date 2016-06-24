@@ -6,10 +6,10 @@
                 <div class="md-card-image" ng-style="{'background-image': 'url(' + tile.image + ')'}">
                     <md-chips>
                         <md-chip>
-                            <span ng-if="tile.type">
-                                {{tile.type | capitalize}}
+                            <span ng-if="tile.category">
+                                {{tile.category | capitalize}}
                             </span>
-                            <span ng-if="!tile.type">
+                            <span ng-if="!tile.category">
                                 Featured
                             </span>
                         </md-chip>

@@ -4,7 +4,7 @@
 angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
   function ($scope, $stateParams, $location, Authentication, Contents) {
     $scope.authentication = Authentication;
-    $scope.tile_limit = 122;
+    $scope.tile_limit = 120;
     $scope.rowLength = 4;
 
     // Remove existing Content
@@ -35,7 +35,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     };
 
     // Find existing Content
-    $scope.findOne = function (edit) {
+    $scope.findOne = function () {
       $scope.content = Contents.get({
         contentId: $stateParams.contentId
       }, function (data) {

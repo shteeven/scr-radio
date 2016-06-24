@@ -55,7 +55,7 @@
         <label for="categorySelect">
             Category: <span>What is the category of this content?</span>
         </label>
-        <select name="categorySelect" id="categorySelect" ng-model="category" ng-change="select(category, 'category')">
+        <select name="categorySelect" id="categorySelect" ng-model="content.category">
             <option value=""></option>
             <option ng-repeat="option in categories" value="{{option}}">{{option | capitalize}}</option>
         </select>
@@ -63,7 +63,7 @@
     <!-- End CATEGORY -->
 
     <!-- GUEST -->
-    <div class="form-group text-muted" ng-if="category === 'regular'">
+    <div class="form-group text-muted" ng-if="content.category === 'regular'">
         <label for="guestSelect">
             Guest: <span>Is this person a guest?</span>
         </label>
@@ -84,7 +84,7 @@
         </select>
         <div>
             Will be featured on:
-            <span class="badge" ng-repeat="item in content.featured">
+            <span class="badge" ng-repeat="item in content.featured track by $index">
                     {{item | capitalize}}
                     <span class="glyphicon glyphicon-minus-sign" ng-click="remove(item, 'featured')"></span>
             </span>

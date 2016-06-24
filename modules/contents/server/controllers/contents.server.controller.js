@@ -40,16 +40,18 @@ exports.update = function (req, res) {
   var content = req.content;
 
   content.title = req.body.title;
-  content.image = req.body.image;
-  content.images = req.body.images;
-  content.links = req.body.links;
-  content.categories = req.body.categories;
+  content.headline = req.body.headline;
   content.description = req.body.description;
-  content.regulars = req.body.regulars;
-  content.guests = req.body.guests;
-  content.aired = req.body.aired;
-  content.special = req.body.special;
+  content.image = req.body.image;
+  content.category = req.body.category;
+  content.guest = req.body.guest;
   content.featured = req.body.featured;
+  content.links = req.body.links;
+  content.regulars = req.body.regulars;
+  content.aired = req.body.aired;
+  content.belongsToSpecial = req.body.belongsToSpecial;
+  content.belongsToRegular = req.body.belongsToRegular;
+  content.guests = req.body.guests;
 
   content.save(function (err) {
     if (err) {

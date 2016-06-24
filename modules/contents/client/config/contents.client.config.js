@@ -14,7 +14,7 @@ angular.module('contents').run(['Menus',
     // Add the dropdown list item
     Menus.addSubMenuItem('topbar', 'contents', {
       title: 'Contents',
-      state: 'contents.list',
+      state: 'contents.list({contentType: null})',
       roles: ['user']
     });
 

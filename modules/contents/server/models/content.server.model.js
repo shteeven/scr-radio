@@ -39,9 +39,7 @@ var Contentschema = new Schema({
     type: String,
     default: 'modules/users/client/img/profile/default.png'
   },
-  category: { // what type of entity is this model
-    type: String
-  },
+  category: String,
   guest: {
     type: Boolean
   },

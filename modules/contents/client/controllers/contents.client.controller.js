@@ -6,6 +6,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     $scope.authentication = Authentication;
     $scope.tile_limit = 122;
     $scope.rowLength = 4;
+    var content;
 
     // on creating content
     $scope.forCreate = function () {
@@ -21,9 +22,9 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
       $scope.regulars = Contents.query({ category: 'regular', guest: false });
       $scope.specials = Contents.query({ category: 'special' });
       $scope.allRegulars = Contents.query({ category: 'regular' });
-      $scope.findOne();
+      $scope.findOne(true);
     };
-    
+
     $scope.features = [
       'carousel',
       'tiles'
@@ -43,35 +44,58 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     };
 
     $scope.remove = function (item, field) {
-      $scope.content[field] = $scope.content[field].filter(function (obj) { return obj !== item; });
+      $scope.content[field] = $scope.content[field].filter(function (obj) {
+        return obj !== item;
+      });
     };
 
     $scope.select = function (item, field) {
+      console.log(item);
+      console.log(field);
       $scope.content[field] = item;
+      console.log($scope.content[field]);
     };
 
-    $scope.getTitleFromId = function(id) {
-      var obj = $scope.contents.filter(function (obj) { return obj._id === id; });
+    $scope.getTitleFromId = function (id) {
+      var obj = $scope.contents.filter(function (obj) {
+        return obj._id === id;
+      });
       if (obj[0]) {
         return obj[0].title;
       }
     };
 
     // Clear forms
-    $scope.clear = function(){
-      $scope.content = {};
-      $scope.content.title = '';
-      $scope.content.headline = {};
-      $scope.content.description = {};
-      $scope.content.image = '';
-      $scope.content.category = {};
-      $scope.content.guest = null;
-      $scope.content.featured = [];
-      $scope.content.links = {};
-      $scope.content.aired = new Date();
-      $scope.content.belongsToRegular = [];
-      $scope.content.belongsToSpecial = [];
-      $scope.content.guests = [];
+    $scope.clear = function (data) {
+      // if (data) {
+      //   $scope.content = {};
+      //   $scope.content.title = data.title;
+      //   $scope.content.headline = content.headline;
+      //   $scope.content.description = data.description;
+      //   $scope.content.image = data.image;
+      //   $scope.content.category = data.category;
+      //   $scope.content.guest = data.guest;
+      //   $scope.content.featured = data.featured;
+      //   $scope.content.links = data.links;
+      //   $scope.content.aired = data.aired;
+      //   $scope.content.belongsToRegular = data.belongsToRegular;
+      //   $scope.content.belongsToSpecial = data.belongsToSpecial;
+      //   $scope.content.guests = data.guests;
+      // } else {
+        $scope.content = {};
+        $scope.content.title = '';
+        $scope.content.headline = {};
+        $scope.content.description = {};
+        $scope.content.image = '';
+        $scope.content.category = '';
+        $scope.content.guest = null;
+        $scope.content.featured = [];
+        $scope.content.links = {};
+        $scope.content.aired = new Date();
+        $scope.content.belongsToRegular = [];
+        $scope.content.belongsToSpecial = [];
+        $scope.content.guests = [];
+      // }
     };
 
     // Create new Content
@@ -131,18 +155,28 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     };
 
     // Update existing Content
-    $scope.update = function (isValid) {
+    $scope.updateContent = function (isValid) {
+      console.log(content);
+      content.title = $scope.content.title;
+      content.headline = $scope.content.headline;
+      content.description = $scope.content.description;
+      content.image = $scope.content.image;
+      content.category = $scope.content.category;
+      content.guest = $scope.content.guest;
+      content.featured = $scope.content.featured;
+      content.links = $scope.content.links;
+      content.aired = $scope.content.aired;
+      content.belongsToRegular = $scope.content.belongsToRegular;
+      content.belongsToSpecial = $scope.content.belongsToSpecial;
+      content.guests = $scope.content.guests;
+      console.log(content);
       $scope.error = null;
-
       if (!isValid) {
         $scope.$broadcast('show-errors-check-validity', 'contentForm');
-
         return false;
       }
-
-      var content = $scope.content;
-
-      content.$update(function () {
+      content.$update(function (data) {
+        console.log(data);
 
         $location.path('contents/' + content._id);
 
@@ -153,7 +187,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
 
     // Find a list of Contents
     $scope.find = function () {
-      var query = $stateParams.contentType ? { category: $stateParams.contentType } : {};
+      var query = $stateParams.contentType ? {category: $stateParams.contentType} : {};
       $scope.contents = Contents.query(query, function (data) {
         console.log(data);
         $scope.changeBg();
@@ -161,10 +195,16 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
     };
 
     // Find existing Content
-    $scope.findOne = function () {
-      $scope.content = Contents.get({
+    $scope.findOne = function (edit) {
+      Contents.get({
         contentId: $stateParams.contentId
-      }, function(data) {
+      }, function (data) {
+        if (edit) {
+          content = data;
+          $scope.clear(data);
+        } else {
+          $scope.content = data;
+        }
         $scope.changeBg(data.image);
       });
     };

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: "DIN";
+  src: url("https://dl.dropboxusercontent.com/s/rft6emsm0da4d81/ufonts.com_din-regular%20%281%29.ttf?dl=0") format("truetype"); }
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -8,14 +12,12 @@ body {
   height: 100%;
   padding: 0;
   background-color: transparent;
-  font-family: "DIN Condensed", 'Roboto', sans-serif;
+  font-family: "DIN", 'Roboto', sans-serif;
   color: white;
   z-index: -1; }
 
 html {
-  height: 100%;
-  background: url("https://lh3.googleusercontent.com/Q5h4bIekRT1y819W9z_O6-ZQdhHmBXRqOFb7gof2mEhv6G1UJ0cJJ8RAOKVlUn_9ei4giJ6UczS3BazqTnPG7y86Eq8q0xFpED6U3RROiZ1owYxUfixQJOhQXgojHCDwPacIXqVdurjcG7JFKgaA4iRTMVCij_JJUqHsojXiO2m5UqVXaWZcySetxGQqhCZaJIBkSCxsgM0eBdZ-y8NXEs-QlGfnPSv5kz-_i45cLfvMj6UhC_UBbCUuD4zrtiN6uKJO00naAAkdf7AJt2bIb8c8stdHbgCC3evDAIPLSaU44CtS654a4l9SRp0hCcLJKuAI4RfRwo49QEbd7PvrhpADJIdzD1UM1GsgNwTO1mhrB-jr816lx8mYXf6pSq62nm-hWFc_GdF47sYDHQ2Hdx-rNQN2Iig6tPcJCE2rJy62eDGXWuKBn3sKOWWyQCrw2X1kloSA6m2swln1gRp7hgvCrJ5dDI1IWlNnOpsZPT65firmMX-7X-W7GzTYHn5TWslrKVpC2whu56htGkS7ZEPSCFbqAlGXyADvxovAs3suy2X-qWvCosSwIWkyTODEFjhbLFez76rDVCT4urC7bK6vcfWatbc=w896-h623-no") no-repeat center;
-  background-size: cover; }
+  height: 100%; }
 
 /***************************/
 /***************************/

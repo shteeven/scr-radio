@@ -23,22 +23,23 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
         });
       }
     };
-
+    $scope.changeBg($scope.defaultBg);
 
     // Find a list of Contents
     $scope.find = function () {
       var query = $stateParams.contentType ? {category: $stateParams.contentType} : {};
       $scope.contents = Contents.query(query, function (data) {
-        console.log(data);
-        $scope.changeBg();
+        $scope.changeBg($scope.defaultBg);
       });
     };
 
     // Find existing Content
     $scope.findOne = function () {
+      console.log($stateParams.contentId);
       $scope.content = Contents.get({
         contentId: $stateParams.contentId
       }, function (data) {
+        console.log(data);
         $scope.changeBg(data.image);
       });
     };

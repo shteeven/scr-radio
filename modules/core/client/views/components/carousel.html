@@ -25,30 +25,15 @@
              ng-repeat="slide in slides">
 
             <h2 ui-sref="things.view({episodeId: slide.resourceId})">
-                <div class="emp">
+                <span class="emp">
                     {{slide.title}}
-                </div>
+                </span>
             </h2>
             <h4>
-                <!--<span class="emp">-->
-                <!--<span>-->
-                <div class="emp">
+                <span class="emp">
                     {{slide.headline}}
-                </div>
-                <!--</span>-->
-                <!--</span>-->
+                </span>
             </h4>
-
-            <!--<p ng-if="$root.lang == 'kr'">-->
-            <!--{{slide.description.kr || slide.description.en}}</span>-->
-            <!--</p>-->
-            <!--<p ng-if="$root.lang == 'en' || !$root.lang">-->
-            <!--<span class="emp">-->
-            <!--<span>{{slide.description.en}}</span>-->
-            <!--</span>-->
-            <!--</p>-->
-
-            <!--<a ui-sref="pages({type:'{{slide.category}}', id:'{{slide.id}}')">Go! &ndash;&gt;</a>-->
         </div>
     </div>
 </section>

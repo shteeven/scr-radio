@@ -1,7 +1,7 @@
 'use strict';
 
 // Contents controller
-angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
+angular.module('contents').controller('ContentsCreateController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
   function ($scope, $stateParams, $location, Authentication, Contents) {
     $scope.authentication = Authentication;
 

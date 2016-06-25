@@ -30,6 +30,8 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
     $rootScope.lang = $rootScope.lang === 'kr' ? 'en' : 'kr';
   };
 
+
+  $rootScope.defaultBg = 'https://dl.dropboxusercontent.com./s/roqyv5w78215tt6/web-background%20%281%29.jpg?dl=0';
   // For dynamic backgrounds. Call within findOne() in each module's controller
   // Set in layout.server.view.html
   $rootScope.changeBg = function(url) {

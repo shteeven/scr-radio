@@ -204,3 +204,6 @@ md-content.md-scr-main-theme {
     left: 0;
     width: 100%;
     height: 100%; }
+
+.responsive-iframe.chat {
+  padding-bottom: 116.1%; }

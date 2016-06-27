@@ -24,16 +24,18 @@
         <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
              ng-repeat="slide in slides">
 
-            <h2 ui-sref="things.view({episodeId: slide.resourceId})">
+            <div class="here">
+                <h2 ui-sref="things.view({episodeId: slide.resourceId})">
                 <span class="emp">
                     {{slide.title}}
                 </span>
-            </h2>
-            <h4>
-                <span class="emp">
-                    {{slide.headline}}
-                </span>
-            </h4>
+                </h2>
+
+                <!--<div class="emp">-->
+                    <!--{{$root.lang === 'en' ? slide.headline.en : (slide.headline.kr || slide.headline.en)}}-->
+                <!--</div>-->
+            </div>
+
         </div>
     </div>
 </section>

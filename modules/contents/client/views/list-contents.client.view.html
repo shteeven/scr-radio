@@ -1,7 +1,7 @@
 <section class="container" ng-controller="ContentsController" ng-init="find()">
   <div class="items-list row">
     <div class="col-xs-12">
-      <h1>SCRadio Contents</h1>
+      <h1>SCR's {{contentType | capitalize}}s</h1>
     </div>
     <div class="col-xs-12">
       <scr-tiles limit="{{tile_limit}}" row-length="rowLength" tiles="contents"></scr-tiles>

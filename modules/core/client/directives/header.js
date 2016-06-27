@@ -16,7 +16,9 @@ angular.module('core').directive('scrHeader', function () {
       ctrl.main_links = {
         facebook: 'https://www.facebook.com/seoulcommunityradio/',
         twitter: 'https://twitter.com/radio_scr',
-        mixcloud: 'https://www.mixcloud.com/SCR_Radio/'
+        mixcloud: 'https://www.mixcloud.com/SCR_Radio/',
+        instagram: 'https://www.instagram.com/scr_radio/',
+        soundcloud: 'https://soundcloud.com/seoulcommunityradio'
       };
 
       // Toggle the menu items

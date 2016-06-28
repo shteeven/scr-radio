@@ -2,7 +2,8 @@
 
 @font-face {
   font-family: "DIN";
-  src: url("https://www.dropbox.com/s/uvsoui72xvysrmj/DIN%20CONDENSED%20BOLD.TTF?dl=0") format('truetype');
+  //src: url("https://www.dropbox.com/s/uvsoui72xvysrmj/DIN%20CONDENSED%20BOLD.TTF?dl=0") format('truetype');
+  src: url("/modules/core/client/assets/fonts/DIN_bold.TTF") format('truetype');
 }
 
 .browsehappy {

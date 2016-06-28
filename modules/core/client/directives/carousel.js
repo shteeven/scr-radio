@@ -4,7 +4,7 @@
  */
 var app = angular.module('core');
 
-app.directive('scrCarousel', function($rootScope, $http, $interval) {
+app.directive('scrCarousel', function($rootScope, $http, $interval, $state) {
   return {
     restrict: 'E',
     scope: {
@@ -14,7 +14,16 @@ app.directive('scrCarousel', function($rootScope, $http, $interval) {
 
       $scope.currentIndex = 0;
 
-      var rotationDelay = 6800;
+      $scope.go = function (slide) {
+        if (slide._id === "576b22cf2c06f24eb4f3ee9e") {
+          $state.go('contents.livestream');
+        } else {
+          $state.go('contents.view', { contentId: slide._id });
+        }
+
+      };
+
+      var rotationDelay = 6800000;
 
       $scope.isCurrentSlideIndex = function (index) {
         return $scope.currentIndex === index;

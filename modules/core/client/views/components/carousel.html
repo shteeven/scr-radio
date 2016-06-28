@@ -24,17 +24,30 @@
         <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
              ng-repeat="slide in slides">
 
-            <div class="here">
-                <h2 ui-sref="things.view({episodeId: slide.resourceId})">
-                <span class="emp">
-                    {{slide.title}}
-                </span>
-                </h2>
 
-                <!--<div class="emp">-->
-                    <!--{{$root.lang === 'en' ? slide.headline.en : (slide.headline.kr || slide.headline.en)}}-->
-                <!--</div>-->
-            </div>
+            <md-content class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">
+                <div flex-xs="" layout="column">
+                    <md-card flex>
+                        <md-card-title>
+                            <md-card-title-text>
+                                <span class="md-headline">{{slide.title}}</span>
+                                <span class="md-subhead">
+                                    {{$root.lang === 'en' ? slide.headline.en : (slide.headline.kr || slide.headline.en)}}
+                                </span>
+                            </md-card-title-text>
+                            <md-card-actions layout="row" layout-align="end center">
+                                <md-button class="md-icon-button md-raised md-primary" ng-click="go(slide)" aria-label="Link to {{slide.title}} page">
+                                    <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
+                                </md-button>
+                                <md-button class="md-icon-button md-raised md-primary"  ng-if="tile.links.mixcloud" ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{slide.title}}">
+                                    <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
+                                </md-button>
+                            </md-card-actions>
+                        </md-card-title>
+
+                    </md-card>
+                </div>
+            </md-content>
 
         </div>
     </div>

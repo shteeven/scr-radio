@@ -15,7 +15,7 @@ app.directive('scrCarousel', function($rootScope, $http, $interval, $state) {
       $scope.currentIndex = 0;
 
       $scope.go = function (slide) {
-        if (slide._id === "576b22cf2c06f24eb4f3ee9e") {
+        if (slide._id === "576b22cf2c06f24eb4f3eea0") {
           $state.go('contents.livestream');
         } else {
           $state.go('contents.view', { contentId: slide._id });

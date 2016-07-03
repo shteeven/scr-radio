@@ -36,17 +36,29 @@
                                 </span>
                             </md-card-title-text>
                             <md-card-actions layout="row" layout-align="end center">
-                                <md-button class="md-icon-button md-raised md-primary" ng-click="go(slide)" aria-label="Link to {{slide.title}} page">
+                                <md-button class="md-icon-button" ng-click="go(slide)"
+                                           aria-label="Link to {{slide.title}} page">
                                     <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
                                 </md-button>
-                                <md-button class="md-icon-button md-raised md-primary"  ng-if="tile.links.mixcloud" ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{slide.title}}">
+                                <md-button class="md-icon-button" ng-if="tile.links.mixcloud"
+                                           ng-click="playPlayer(tile.links.mixcloud)"
+                                           aria-label="Play media for {{slide.title}}">
                                     <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
                                 </md-button>
                             </md-card-actions>
                         </md-card-title>
-
+                        <md-card-content>
+                            <span class="md-media-xl">
+                                    {{$root.lang === 'kr' ? (slide.description.kr || slide.description.en) : slide.description.en}}
+                                </span>
+                        </md-card-content>
                     </md-card>
                 </div>
+                <!--<div flex-xs="" layout="column">-->
+                    <!--<md-card flex>-->
+                        <!---->
+                    <!--</md-card>-->
+                <!--</div>-->
             </md-content>
 
         </div>

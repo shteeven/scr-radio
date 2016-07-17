@@ -8,6 +8,9 @@
   color: #000;
   padding: 0.2em 0; }
 
+span {
+  font-size: 17px; }
+
 body {
   height: 100%;
   padding: 0;

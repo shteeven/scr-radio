@@ -19,6 +19,7 @@ app.directive('scrTiles', function($rootScope, $state) {
     },
     controller: function($scope, $element) {
       $scope.playPlayer = function(url) {
+        console.log('here');
         $rootScope.$broadcast('player.play', { url: url });
       };
       $scope.template = 'home';

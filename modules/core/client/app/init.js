@@ -17,14 +17,24 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
   }
 ]);
 
+// angular.module(ApplicationConfiguration.applicationModuleName).config(['$httpProvider', function($httpProvider) {
+//   $httpProvider.defaults.useXDomain = true;
+//   // $httpProvider.defaults.withCredentials = true;
+//   delete $httpProvider.defaults.headers.common["X-Requested-With"];
+//   $httpProvider.defaults.headers.common["Accept"] = "application/jsonp";
+//   $httpProvider.defaults.headers.common["Content-Type"] = "application/jsonp";
+//   $httpProvider.defaults.headers.common["Access-Control-Allow-Origin"] = "http://localhost:3000";
+// }
+// ]);
+
 angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
 
   // Play Mixcloud plugin on click
   // TODO: move events to service for media players
-  $rootScope.playerPlay = function(url) {
-    $rootScope.$broadcast('player.play', { url: url });
-  };
-
+  // $rootScope.playerPlay = function(url) {
+  //   $rootScope.$broadcast('player.play', { url: url });
+  // };
+  $rootScope.lang = 'en';
   // Language toggling
   $rootScope.toggleLanguage = function() {
     $rootScope.lang = $rootScope.lang === 'kr' ? 'en' : 'kr';

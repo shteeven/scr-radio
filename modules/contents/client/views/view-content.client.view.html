@@ -14,7 +14,7 @@
           <span class="item-title">{{content.title}}</span>
           <small>
             <em class="text-muted">
-              <span class="item-headline" ng-show="$root.lang">{{content.headline}}</span>
+              <span class="item-headline" ng-show="$root.lang">{{content.headline[$root.lang] || content.headline.en}}</span>
             </em>
           </small>
         </div>
@@ -35,8 +35,8 @@
 
       <div class="item-left hidden-xs col-sm-4">
         <div class="item-desc">
-          <p ng-if="$root.lang == 'kr'">{{content.description.kr || content.description.en}}</p>
-          <p ng-if="$root.lang == 'en' || !$root.lang">{{content.description.en}}</p>
+          <span>{{content.description[$root.lang] || content.description.en}}</span>
+          <!--<p ng-if="$root.lang == 'en' || !$root.lang">{{content.description.en}}</p>-->
         </div>
       </div>
 

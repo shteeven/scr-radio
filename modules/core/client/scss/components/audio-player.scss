@@ -183,3 +183,11 @@ audio-player input {
   100% { text-indent: -20em }
 }
 
+
+
+audio-player .form-inline {
+  width: 400px;
+}
+@media (max-width: 600px) {
+
+}

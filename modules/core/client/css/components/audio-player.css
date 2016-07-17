@@ -143,3 +143,6 @@ audio-player input {
     text-indent: 0; }
   100% {
     text-indent: -20em; } }
+
+audio-player .form-inline {
+  width: 400px; }

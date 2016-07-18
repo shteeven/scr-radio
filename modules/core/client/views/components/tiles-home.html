@@ -18,22 +18,24 @@
                 </div>
 
                 <md-card-title>
-                    <md-card-title-text>
+                    <md-card-title-text layout="column">
                         <span class="md-headline">{{tile.title}}</span>
                     </md-card-title-text>
-                </md-card-title>
-                <md-card-actions layout="row" layout-align="end center">
+                    <md-card-actions layout="column">
 
-                    <md-button class="md-icon-button md-raised md-primary" ng-click="go(tile)"
-                               aria-label="Link to {{tile.title}} page">
-                        <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
-                    </md-button>
-                    <md-button class="md-icon-button md-raised md-primary" ng-if="tile.links.mixcloud"
-                               ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">
-                        <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
-                    </md-button>
-                </md-card-actions>
+                        <md-button class="md-icon-button md-raise md-primary" ng-click="go(tile)"
+                                   aria-label="Link to {{tile.title}} page">
+                            <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
+                        </md-button>
+                        <!--<md-button class="md-icon-button md-raised md-primary" ng-if="tile.links.mixcloud"-->
+                                   <!--ng-click="playPlayer(tile.links.mixcloud)" aria-label="Play media for {{tile.title}}">-->
+                            <!--<md-icon md-font-icon="fa fa-play fa-lg"></md-icon>-->
+                        <!--</md-button>-->
+                    </md-card-actions>
+                </md-card-title>
+
             </md-card>
         </div>
     </md-content>
 </div>
+

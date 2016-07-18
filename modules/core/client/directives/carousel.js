@@ -1,4 +1,5 @@
 'use strict';
+//noinspection JSAnnotator
 /**
  * Created by stevenbarnhurst on 11/3/15.
  */

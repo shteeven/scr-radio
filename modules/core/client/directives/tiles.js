@@ -1,4 +1,5 @@
 'use strict';
+//noinspection JSAnnotator
 /**
  * Created by stevenbarnhurst on 11/3/15.
  * Info: This directive has three items in a closed scope that can be used to pass information into it.

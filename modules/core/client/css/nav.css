@@ -5,9 +5,9 @@
 /*       Top-Nav Bar             */
 /*-------------------------------*/
 /*bs fix to keep .navbar-static-top from covering sidebar*/
-.navbar-fixed-top {
+.scr-navbar-fixed-top {
   z-index: 101;
-  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
   min-height: 44px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.8); }
 

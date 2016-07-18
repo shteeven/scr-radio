@@ -1,35 +1,6 @@
 /*==================================================
 =            Bootstrap 3 Media Queries             =
 ==================================================*/
-/*==========  Mobile First Method  ==========*/
-/* Custom, iPhone Retina */
-/* Extra Small Devices, Phones */
-/* Small Devices, Tablets */
-/* Medium Devices, Desktops */
-/* Large Devices, Wide Screens */
-.tile-title {
-  font-size: 1.3em;
-  font-weight: 800; }
-
-.tile {
-  color: whitesmoke;
-  height: 350px;
-  width: 350px;
-  margin-bottom: 10px;
-  background-color: black; }
-
-.tile-img {
-  height: 100%;
-  background-size: cover;
-  background-position: center; }
-
-.tile-text {
-  display: block; }
-
-.tile-info {
-  height: 100%;
-  padding: 15px; }
-
 .md-card-image[ng-style] {
   background-size: cover;
   background-position: center; }

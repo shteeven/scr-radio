@@ -62,6 +62,13 @@
   border-bottom: 9px solid transparent;
   border-left: 12px solid white; }
 
+.play-icon:hover {
+  width: 0;
+  height: 0;
+  border-top: 12px solid transparent;
+  border-bottom: 12px solid transparent;
+  border-left: 16px solid white; }
+
 .pause-icon {
   height: 16px;
   width: 12px;

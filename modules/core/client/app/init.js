@@ -9,7 +9,6 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 
     $mdThemingProvider.theme('scr-main')
       .primaryPalette('grey')
-      .accentPalette('blue-grey')
       .dark();
     $locationProvider.html5Mode(true).hashPrefix('!');
 
@@ -17,15 +16,6 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
   }
 ]);
 
-// angular.module(ApplicationConfiguration.applicationModuleName).config(['$httpProvider', function($httpProvider) {
-//   $httpProvider.defaults.useXDomain = true;
-//   // $httpProvider.defaults.withCredentials = true;
-//   delete $httpProvider.defaults.headers.common["X-Requested-With"];
-//   $httpProvider.defaults.headers.common["Accept"] = "application/jsonp";
-//   $httpProvider.defaults.headers.common["Content-Type"] = "application/jsonp";
-//   $httpProvider.defaults.headers.common["Access-Control-Allow-Origin"] = "http://localhost:3000";
-// }
-// ]);
 
 angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
 

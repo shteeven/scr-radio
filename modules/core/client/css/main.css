@@ -190,11 +190,6 @@ a:focus {
   height: 100%;
   background-color: #282828; }
 
-/***************************/
-/***************************/
-md-content.md-scr-main-theme {
-  background-color: transparent; }
-
 .responsive-iframe {
   position: relative;
   padding-bottom: 56.25%;

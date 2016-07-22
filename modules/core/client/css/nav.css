@@ -33,6 +33,9 @@
 .lang {
   padding: 6px; }
 
+.md-overflow-visible {
+  overflow: visible; }
+
 /*END fix*/
 /*-------------------------------*/
 /* Overlay for use w/sidebar     */
@@ -42,13 +45,16 @@
   opacity: 0;
   position: fixed;
   left: 250px;
-  top: 44px;
+  top: 82px;
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.2);
   z-index: 10;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease; }
+  @media (min-width: 600px) {
+    #sidebar-overlay {
+      top: 44px; } }
 
 #sidebar-overlay.toggled-remove {
   opacity: 0;
@@ -73,13 +79,15 @@
   /* move sidebar off screen on toggle */
   width: 250px;
   height: 100%;
-  margin-top: 44px;
+  margin-top: 82px;
   overflow: visible;
   /* the placement of the button requires this */
-  background: rgba(0, 0, 0, 0.4);
   border-right: 2px solid white;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease; }
+  @media (min-width: 600px) {
+    #sidebar-wrapper {
+      margin-top: 44px; } }
 
 #sidebar-wrapper nav ul {
   height: 100%;

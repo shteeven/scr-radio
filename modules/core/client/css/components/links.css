@@ -1,8 +1,9 @@
 .links a {
   margin-top: 5px; }
 
-.links .md-fab-action-item .md-button.md-icon-button {
-  width: 32px; }
+.links md-fab-speed-dial {
+  position: absolute;
+  right: 30px; }
 
 .links .social-link {
   display: inline-block;

@@ -1,14 +1,14 @@
 <div class="links">
 
-  <md-fab-speed-dial hide-gt-sm md-open="isOpen" md-direction="left" class="md-scale">
+  <md-fab-speed-dial hide-gt-sm md-open="isOpen" md-direction="down" class="md-scale">
     <md-fab-trigger>
       <md-button aria-label="menu" class="md-icon-button">
-        <md-icon md-font-icon="fa fa-ellipsis-v fa-2x"></md-icon>
+        <md-icon md-font-icon="fa fa-share-alt fa-2x"></md-icon>
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
-      <div class="md-fab-action-item" layout="row">
-        <md-button ng-repeat="(key, value) in links" aria-label="{{key | capitalize}}" class="md-icon-button">
+      <div class="" layout="column">
+        <md-button ng-repeat="(key, value) in links" aria-label="{{key | capitalize}}" class="md-fab md-raised md-mini">
           <md-icon md-font-icon="fa fa-{{key}} fa-fw fa-lg" aria-label="Twitter"></md-icon>
         </md-button>
       </div>

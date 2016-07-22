@@ -23,9 +23,7 @@
     <div class="info" ng-mouseover="stopRotation()" ng-mouseleave="startRotation()">
         <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
              ng-repeat="slide in slides">
-
-
-            <md-content class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">
+            <div class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">
                 <div flex-xs="" layout="column">
                     <md-card flex>
                         <md-card-title>
@@ -54,13 +52,7 @@
                         </md-card-content>
                     </md-card>
                 </div>
-                <!--<div flex-xs="" layout="column">-->
-                    <!--<md-card flex>-->
-                        <!---->
-                    <!--</md-card>-->
-                <!--</div>-->
-            </md-content>
-
+            </div>
         </div>
     </div>
 </section>

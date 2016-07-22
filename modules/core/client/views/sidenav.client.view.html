@@ -9,7 +9,7 @@
 
   <!-- Sidebar -->
   <div id="sidebar-overlay" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()"></div>
-  <div id="sidebar-wrapper" ng-class="{toggled: menu_toggled}">
+  <md-content id="sidebar-wrapper" md-theme="scr-main" ng-class="{toggled: menu_toggled}">
     <ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">
       <!-- Home link: TODO: add styling or image here-->
       <li class="sidebar-brand"><a ui-sref="home">SCRadio</a></li>
@@ -35,10 +35,7 @@
         <a href="/api/auth/signout" target="_self">Signout</a>
       </li>
     </ul>
-
-
-
-  </div>
+  </md-content>
 </div>
 
 

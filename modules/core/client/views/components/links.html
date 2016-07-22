@@ -1,12 +1,25 @@
 <div class="links">
-  <a ng-repeat="(key, value) in links" href="{{value}}" class="social-link" target="_blank">
+
+  <md-fab-speed-dial hide-gt-sm md-open="isOpen" md-direction="left" class="md-scale">
+    <md-fab-trigger>
+      <md-button aria-label="menu" class="md-icon-button">
+        <md-icon md-font-icon="fa fa-ellipsis-v fa-2x"></md-icon>
+      </md-button>
+    </md-fab-trigger>
+    <md-fab-actions>
+      <div class="md-fab-action-item" layout="row">
+        <md-button ng-repeat="(key, value) in links" aria-label="{{key | capitalize}}" class="md-icon-button">
+          <md-icon md-font-icon="fa fa-{{key}} fa-fw fa-lg" aria-label="Twitter"></md-icon>
+        </md-button>
+      </div>
+    </md-fab-actions>
+  </md-fab-speed-dial>
+
+
+
+  <a  hide-xs hide-sm ng-repeat="(key, value) in links" href="{{value}}" class="social-link" target="_blank">
     <div class="icon">
       <i class="fa fa-{{key}} fa-fw fa-lg"></i>
     </div>
-    <!--<div class="icon">-->
-      <!--<div class="icon-{{key}}">-->
-        <!--<img class="icon-placeholder" src="/modules/core/client/img/sprites/placeholder_32.png" alt="{{key}} image icon">-->
-      <!--</div>-->
-    <!--</div>-->
   </a>
 </div>

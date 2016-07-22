@@ -163,31 +163,49 @@ audio-player input {
 
 /* Make it a marquee */
 .marquee {
-  position: relative;
-  width: 150px;
-  margin: 0 auto;
   overflow: hidden;
-  white-space: nowrap;
-  box-sizing: border-box;
-  animation: marquee 10s linear infinite;
-  padding-left: 1.5em;
+  position: relative;
+  padding-top: 3px;
 }
+
+.marquee div {
+  display: block;
+  width: 400%;
+  height: 35px;
+
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 8s linear infinite;
+}
+
+.marquee span {
+  font-size: 1.4em;
+  float: left;
+  width: 50%;
+  overflow-x: hidden;
+}
+
+.marquee .fader {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: -webkit-linear-gradient(left, #424242 0%, rgba(66,66,66,0) 5%, rgba(66,66,66,0) 95%, rgba(66,66,66, 1) 100%);
+  background: linear-gradient(to right, #424242 0%, rgba(66,66,66,0) 5%, rgba(66,66,66,0) 95%, rgba(66,66,66, 1) 100%);
+}
+
+
+
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -200%; }
+}
+
 
 .marquee:hover {
   animation-play-state: paused
 }
 
-/* Make it move */
-@keyframes marquee {
-  0%   { text-indent: 0 }
-  100% { text-indent: -20em }
-}
-
-
-
-audio-player .form-inline {
-  width: 400px;
-}
-@media (max-width: 600px) {
-
-}

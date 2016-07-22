@@ -1,4 +1,5 @@
 'use strict';
+//noinspection JSAnnotator
 /**
  * Created by stevenbarnhurst on 11/2/15.
  * TODO: Add a buffering icon to the play/pause button cycle
@@ -57,8 +58,18 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
         }, interval);
       }
 
-      player.volumeChange = function (volume) {
-        radio.volume = volume / 100.0;
+      player.volumeChange = function (direction) {
+        if (radio.volume !== 1.0 && radio.volume !== 0.0) {
+          radio.volume = direction === 'up' ? radio.volume+0.05 : radio.volume-0.05;
+        }
+        if (radio.volume === 1.0) {
+          $scope.atMax = true;
+        } else if (radio.volume === 0.0) {
+          $scope.atMin = true;
+        } else {
+          $scope.atMax = true;
+          $scope.atMin = true;
+        }
       };
 
       player.playPause = function () {

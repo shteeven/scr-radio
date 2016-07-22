@@ -1,66 +1,33 @@
-<!--<md-content>-->
-  <!--<md-toolbar class="md-hue-2" style="padding:0px;margin:0px;position:fixed;">-->
-    <!--<div class="md-toolbar-tools">-->
-      <!--<md-button class="md-icon-button" aria-label="Settings" ng-disabled="true">-->
-        <!--<md-icon md-svg-icon="img/icons/menu.svg"></md-icon>-->
-      <!--</md-button>-->
-      <!--<h2>-->
-        <!--<span>Toolbar with Disabled/Enabled Icon Buttons</span>-->
-      <!--</h2>-->
-      <!--<span flex=""></span>-->
-      <!--<md-button class="md-icon-button" aria-label="Favorite">-->
-        <!--<md-icon md-svg-icon="img/icons/favorite.svg" style="color: greenyellow;"></md-icon>-->
-      <!--</md-button>-->
-      <!--<md-button class="md-icon-button" aria-label="More">-->
-        <!--<md-icon md-svg-icon="img/icons/more_vert.svg"></md-icon>-->
-      <!--</md-button>-->
-        <!--<audio-player></audio-player>-->
-        <!--<mc-widget></mc-widget>-->
-    <!--</div>-->
-  <!--</md-toolbar>-->
-<!--</md-content>-->
 
-<!--<div class="navbar-fixed-top container-fluid">-->
 
-  <!--<div class="navbar-container-top-left row">-->
-    <!--<a rel="home" class="brand-logo col-xs-2" ui-sref="home" title="Seoul Community Radio">-->
-      <!--&lt;!&ndash;<img style="max-width:100px; margin-top: -7px;" src="/img/transparent-white-logo.png">&ndash;&gt;-->
-      <!--<img src="modules/core/client/img/brand/brand-logo.jpg" class="img-responsive" alt="Seoul Community Radio Logo">-->
-    <!--</a>-->
-    <!--<div class="col-xs-6">-->
-      <!--<audio-player></audio-player>-->
-      <!--<mc-widget></mc-widget>-->
-    <!--</div>-->
-  <!--</div>-->
-  <!--<div class="navbar-container-top-right">-->
-    <!--<scr-links links="ctrl.main_links"></scr-links>-->
-    <!--<span ng-click="$root.toggleLanguage()" tooltip-placement="left" uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" role="button">-->
-      <!--<i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>-->
-    <!--</span>-->
-  <!--</div>-->
-<!--</div>-->
 
-<md-toolbar md-theme="scr-main" class="md-hue-2 scr-navbar-fixed-top">
-    <md-button aria-label="Home" layout="column">
-        <a rel="home" class="brand-logo col-xs-2" ui-sref="home" title="Seoul Community Radio">
-            <!--<img style="max-width:100px; margin-top: -7px;" src="/img/transparent-white-logo.png">-->
-            <img src="modules/core/client/img/brand/brand-logo.jpg" class="img-responsive"
-                 alt="Seoul Community Radio Logo">
+
+
+<md-toolbar md-theme="scr-main" class="md-hue-2 scr-navbar-fixed-top" layout="row" layout-wrap>
+
+    <!--<div flex-order-xs="-3" flex-xs="40px" hide-gt-xs=""></div>-->
+
+    <div id="brand-logo-container" aria-label="Home" flex-offset-xs="5" flex-order-xs="-1" flex-xs="20" flex-gt-xs="5">
+        <a rel="home" class="brand-logo" ui-sref="home" title="Seoul Community Radio">
+            <img src="modules/core/client/img/brand/brand-logo.jpg" alt="Seoul Community Radio Logo">
         </a>
-    </md-button>
-    <div layout="column">
-
-        <div class="col-xs-6">
-            <audio-player></audio-player>
-            <mc-widget></mc-widget>
-        </div>
     </div>
 
-    <!--<div class="navbar-container-top-right">-->
-        <!--<scr-links links="ctrl.main_links"></scr-links>-->
-        <!--<span ng-click="$root.toggleLanguage()" tooltip-placement="left"-->
-              <!--uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" role="button">-->
-            <!--<i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>-->
-        <!--</span>-->
-    <!--</div>-->
+    <md-content flex-sm="55" flex-gt-sm="50" flex-xs="100">
+        <audio-player></audio-player>
+        <mc-widget></mc-widget>
+    </md-content>
+
+    <md-content flex=""></md-content>
+
+    <md-content class="md-fab-top-right" flex-order-xs="-1" flex-xs flex-sm="30" flex-gt-sm="35" layout-align="end" layout="row">
+        <scr-links links="ctrl.main_links"></scr-links>
+        <div class="lang">
+            <span ng-click="$root.toggleLanguage()" tooltip-placement="left"
+                  uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" role="button">
+            <i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>
+        </span>
+        </div>
+    </md-content>
+
 </md-toolbar>

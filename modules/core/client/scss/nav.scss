@@ -15,7 +15,7 @@
 
 $primary-nav-bg: rgba(0, 0, 0, .4);
 $primary-nav-overlay-bg: rgba(0, 0, 0, .2);
-$primary-nav-color: rgba(255, 255, 255, .8);
+$primary-nav-color: rgba(255, 255, 255, 1);
 $primary-nav-height: 44px;
 $primary-nav-width: 250px;
 
@@ -34,36 +34,36 @@ $primary-nav-width: 250px;
   border-bottom: 2px solid $primary-nav-color;
 }
 
-.navbar-container-top-left {
-  left: 45px;
-  top: 2px;
-  position: absolute;
+#brand-logo-container {
+  margin-top: 7px;
 }
 
-.navbar-container-top-right {
-  right: 25px;
-  top: 2px;
-  position: absolute;
+@media (min-width: 600px) {
+  #brand-logo-container {
+    margin-left: 50px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 599px) {
+  #brand-logo-container {
+    text-align: center;
+  }
 }
 
 .brand-logo {
   width: 35px;
-  padding: 0;
-  margin-left: 15px;
-  margin-right: 5px;
 }
 
 .brand-logo img {
-  //margin: 2px;
   width: 30px;
   height: 30px;
-  float: left;
-  margin: 4px;
 }
 
-.links {
-  display: inline-block;
+.lang {
+  padding: 6px;
 }
+
 /*END fix*/
 
 

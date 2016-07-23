@@ -8,7 +8,7 @@
     </md-fab-trigger>
     <md-fab-actions>
       <div class="" layout="column">
-        <md-button ng-repeat="(key, value) in links" aria-label="{{key | capitalize}}" class="md-fab md-raised md-mini">
+        <md-button ng-repeat="(key, value) in links" href="{{value}}" target="_blank" aria-label="{{key | capitalize}}" class="md-fab  md-mini">
           <md-icon md-font-icon="fa fa-{{key}} fa-fw fa-lg" aria-label="Twitter"></md-icon>
         </md-button>
       </div>

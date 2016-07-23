@@ -9,6 +9,8 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 
     $mdThemingProvider.theme('scr-main')
       .primaryPalette('grey')
+        .accentPalette('grey')
+        .warnPalette('grey')
       .dark();
     $locationProvider.html5Mode(true).hashPrefix('!');
 

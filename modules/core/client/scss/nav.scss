@@ -26,11 +26,14 @@ $primary-nav-width: 250px;
 /*       Top-Nav Bar             */
 /*-------------------------------*/
 /*bs fix to keep .navbar-static-top from covering sidebar*/
-.scr-navbar-fixed-top {
+#scr-navbar-fixed-top {
   z-index: 101;
   position: fixed;
   min-height: $primary-nav-height;
   border-bottom: 2px solid $primary-nav-color;
+}
+#scr-navbar-fixed-top md-icon {
+  color: rgba(255, 255, 255, 1.0);
 }
 
 #brand-logo-container {

@@ -11,24 +11,6 @@
   top: 46%;
   z-index: 1; }
 
-.carousel-container .emp {
-  position: relative;
-  left: 20px;
-  padding-top: 7px;
-  padding-bottom: 10px;
-  background-color: #000;
-  overflow: hidden; }
-
-.carousel-container .emp:before {
-  position: absolute;
-  top: 0;
-  right: 100%;
-  content: '';
-  width: 20px;
-  height: 100%;
-  bottom: 0;
-  background-color: inherit; }
-
 .carousel-container .md-headline {
   font-size: 34px;
   font-weight: 400;
@@ -41,18 +23,10 @@
   padding-bottom: 10px; }
 
 .carousel-container .info {
-  position: absolute;
-  height: 50%;
-  min-height: 250px;
-  width: 28%;
-  min-width: 240px;
-  top: 15%;
-  left: 10%;
-  overflow: hidden; }
-  @media screen and (max-width: 767px) {
-    .carousel-container .info {
-      width: 80%;
-      height: 80%; } }
+  height: 100%;
+  position: relative; }
+  .carousel-container .info .info-container {
+    position: relative; }
 
 @media screen and (max-width: 767px) {
   .info p {

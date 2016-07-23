@@ -24,7 +24,7 @@ app.directive('scrCarousel', function($rootScope, $http, $interval, $state) {
 
       };
 
-      var rotationDelay = 6800;
+      var rotationDelay = 680000;
 
       $scope.isCurrentSlideIndex = function (index) {
         return $scope.currentIndex === index;

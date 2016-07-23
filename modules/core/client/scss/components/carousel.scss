@@ -16,25 +16,25 @@ $transition-duration: .9s;
   z-index: 1;
 }
 
-.carousel-container .emp {
-  position: relative;
-  left: 20px;
-  padding-top: 7px;
-  padding-bottom: 10px;
-  background-color: #000;
-  overflow: hidden;
-}
-
-.carousel-container .emp:before {
-  position: absolute;
-  top: 0;
-  right: 100%;
-  content: '';
-  width: 20px;
-  height: 100%;
-  bottom: 0;
-  background-color: inherit;
-}
+//.carousel-container .emp {
+//  position: relative;
+//  left: 20px;
+//  padding-top: 7px;
+//  padding-bottom: 10px;
+//  background-color: #000;
+//  overflow: hidden;
+//}
+//
+//.carousel-container .emp:before {
+//  position: absolute;
+//  top: 0;
+//  right: 100%;
+//  content: '';
+//  width: 20px;
+//  height: 100%;
+//  bottom: 0;
+//  background-color: inherit;
+//}
 
 .carousel-container .md-headline {
   font-size: 34px;
@@ -51,20 +51,26 @@ $transition-duration: .9s;
 }
 
 .carousel-container .info{
-  position: absolute;
-  height: 50%;
-  min-height: 250px;
-  width: 28%;
-  min-width: 240px;
-  top: 15%;
-  left: 10%;
-  overflow: hidden;
-  //background: rgba(0, 0, 0, .5);
-  @media screen and (max-width: 767px) {
-    //background: none;
-    width: 80%;
-    height: 80%;
+  height: 100%;
+  position: relative;
+  .info-container {
+    position: relative;
+    //height: 100%;
   }
+  //position: absolute;
+  //height: 50%;
+  //min-height: 250px;
+  //width: 28%;
+  //min-width: 240px;
+  //top: 15%;
+  //left: 10%;
+  //overflow: hidden;
+  //background: rgba(0, 0, 0, .5);
+  //@media screen and (max-width: 767px) {
+  //  //background: none;
+  //  width: 80%;
+  //  height: 80%;
+  //}
 }
 
 .info p{

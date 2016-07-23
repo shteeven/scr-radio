@@ -20,39 +20,43 @@
              style="background-image: url('{{slide.image}}')"></div>
     </div>
 
-    <div class="info" ng-mouseover="stopRotation()" ng-mouseleave="startRotation()">
-        <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
-             ng-repeat="slide in slides">
-            <div class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">
-                <div flex-xs="" layout="column">
-                    <md-card flex>
-                        <md-card-title>
-                            <md-card-title-text>
-                                <span class="md-headline">{{slide.title}}</span>
-                                <span class="md-subhead">
+    <div class="info" ng-mouseover="stopRotation()" ng-mouseleave="startRotation()" layout="row" layout-align="center center">
+        <div flex="10"></div>
+        <div class="info-container" flex="30" flex-xs="80" flex-sm="50" flex-md="40">
+            <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
+                 ng-repeat="slide in slides">
+                <div class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">
+                    <div flex-xs="" layout="column">
+                        <md-card flex>
+                            <md-card-title>
+                                <md-card-title-text>
+                                    <span class="md-headline">{{slide.title}}</span>
+                                    <span class="md-subhead">
                                     {{$root.lang === 'en' ? slide.headline.en : (slide.headline.kr || slide.headline.en)}}
                                 </span>
-                            </md-card-title-text>
-                            <md-card-actions layout="row" layout-align="end center">
-                                <md-button class="md-icon-button" ng-click="go(slide)"
-                                           aria-label="Link to {{slide.title}} page">
-                                    <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
-                                </md-button>
-                                <md-button class="md-icon-button" ng-if="tile.links.mixcloud"
-                                           ng-click="playPlayer(tile.links.mixcloud)"
-                                           aria-label="Play media for {{slide.title}}">
-                                    <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
-                                </md-button>
-                            </md-card-actions>
-                        </md-card-title>
-                        <md-card-content>
+                                </md-card-title-text>
+                                <md-card-actions layout="row" layout-align="end center">
+                                    <md-button class="md-icon-button" ng-click="go(slide)"
+                                               aria-label="Link to {{slide.title}} page">
+                                        <md-icon md-font-icon="fa fa-link fa-lg"></md-icon>
+                                    </md-button>
+                                    <md-button class="md-icon-button" ng-if="tile.links.mixcloud"
+                                               ng-click="playPlayer(tile.links.mixcloud)"
+                                               aria-label="Play media for {{slide.title}}">
+                                        <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
+                                    </md-button>
+                                </md-card-actions>
+                            </md-card-title>
+                            <md-card-content>
                             <span class="md-media-xl">
                                     {{$root.lang === 'kr' ? (slide.description.kr || slide.description.en) : slide.description.en}}
                                 </span>
-                        </md-card-content>
-                    </md-card>
+                            </md-card-content>
+                        </md-card>
+                    </div>
                 </div>
             </div>
         </div>
+        <div flex></div>
     </div>
 </section>

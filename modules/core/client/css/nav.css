@@ -5,11 +5,14 @@
 /*       Top-Nav Bar             */
 /*-------------------------------*/
 /*bs fix to keep .navbar-static-top from covering sidebar*/
-.scr-navbar-fixed-top {
+#scr-navbar-fixed-top {
   z-index: 101;
   position: fixed;
   min-height: 44px;
   border-bottom: 2px solid white; }
+
+#scr-navbar-fixed-top md-icon {
+  color: white; }
 
 #brand-logo-container {
   margin-top: 7px; }

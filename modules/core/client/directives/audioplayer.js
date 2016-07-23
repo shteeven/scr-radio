@@ -53,22 +53,29 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       function setTimer(interval) {
         $timeout.cancel(timeout);
         timeout = $timeout(function() {
-          console.log('here');
           getMetadata();
         }, interval);
       }
 
       player.volumeChange = function (direction) {
-        if (radio.volume !== 1.0 && radio.volume !== 0.0) {
-          radio.volume = direction === 'up' ? radio.volume+0.05 : radio.volume-0.05;
+        if (radio.volume !== 1.0 && direction === 'up') {
+          radio.volume = radio.volume+0.1;
+          $scope.opacityPlus = {opacity: 1-(radio.volume*0.6)};
+          $scope.opacityMinus = {opacity: 0.4+(radio.volume*0.6)};
+        } else if (radio.volume !== 0.0) {
+          radio.volume = radio.volume-0.1;
+          $scope.opacityPlus = {opacity: 1-(radio.volume*0.6)};
+          $scope.opacityMinus = {opacity: 0.4+(radio.volume*0.6)};
         }
-        if (radio.volume === 1.0) {
+        if (radio.volume >= 0.999) {
           $scope.atMax = true;
-        } else if (radio.volume === 0.0) {
+          radio.volume = 1;
+        } else if (radio.volume <= 0.001) {
           $scope.atMin = true;
+          radio.volume = 0;
         } else {
-          $scope.atMax = true;
-          $scope.atMin = true;
+          $scope.atMax = false;
+          $scope.atMin = false;
         }
       };
 
@@ -90,6 +97,10 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       });
 
       $scope.player = player;
+      radio.volume = 0.5;
+      $scope.opacityPlus = {opacity: 1-(radio.volume*0.6)};
+      $scope.opacityMinus = {opacity: 0.4+(radio.volume*0.6)};
+
       setTimer(10);
     },
     templateUrl: 'modules/core/client/views/components/audio-player.html'

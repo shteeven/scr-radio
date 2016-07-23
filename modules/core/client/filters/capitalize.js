@@ -3,10 +3,7 @@
  */
 
 'use strict';
-/**
- * Created by stevenbarnhurst on 11/2/15.
- */
-
+//noinspection JSAnnotator
 angular.module('core').filter('capitalize', function() {
   return function(input, all) {
     if (typeof(input) === 'string') {

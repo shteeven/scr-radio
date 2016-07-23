@@ -1,9 +1,9 @@
 <section ng-controller="ContentsController" ng-init="findOne()" style="min-height:100vh;">
   <div layout="row" layout-align="start center" style="min-height:100vh;">
     <div flex="30" flex-xs="80" flex-sm="50" flex-md="40" flex-offset="5">
-      <div layout="column" >
+      <div layout="column" layout-padding>
         <md-card flex>
-          <md-card-title class="md-padding">
+          <md-card-title>
             <md-card-title-text>
               <span class="md-headline">{{content.title}}</span>
               <small>
@@ -20,7 +20,7 @@
               </md-button>
             </md-card-actions>
           </md-card-title>
-          <md-card-content md-layout="row" class="md-padding" ng-show="content.description[$root.lang] || content.description.en">
+          <md-card-content md-layout="row" ng-show="content.description[$root.lang] || content.description.en">
             <span>{{content.description[$root.lang] || content.description.en}}</span>
           </md-card-content>
           <md-card-actions layout="row" layout-align="end center">

@@ -1,69 +1,34 @@
-<section ng-controller="ContentsController" ng-init="log(); findOne()">
-  <div class="bg-revealer">
-  </div>
-  <div class="item container-fluid">
+<section ng-controller="ContentsController" ng-init="findOne()" style="min-height:100vh;">
+  <div layout="row" layout-align="start center" style="min-height:100vh;">
+    <div flex="30" flex-xs="80" flex-sm="50" flex-md="40" flex-offset="5">
+      <div layout="column" >
+        <md-card flex>
+          <md-card-title class="md-padding">
+            <md-card-title-text>
+              <span class="md-headline">{{content.title}}</span>
+              <small>
+                <em class="text-muted">
+                  <span class="item-headline" ng-show="$root.lang">{{content.headline[$root.lang] || content.headline.en}}</span>
+                </em>
+              </small>
+            </md-card-title-text>
+            <md-card-actions layout="row" layout-align="end start">
+              <md-button class="md-icon-button" ng-if="content.links.mixcloud"
+                         ng-click="$root.playerPlay(content.links.mixcloud)"
+                         aria-label="Play media for {{content.title}}">
+                <md-icon md-font-icon="fa fa-play fa-lg"></md-icon>
+              </md-button>
+            </md-card-actions>
+          </md-card-title>
+          <md-card-content md-layout="row" class="md-padding" ng-show="content.description[$root.lang] || content.description.en">
+            <span>{{content.description[$root.lang] || content.description.en}}</span>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
 
-    <div class="item-top row no-gutter">
-
-      <div class="item-header col-sm-4">
-        <div class="item-play">
-          <i ng-if="content.links.mixcloud" ng-click="$root.playerPlay(content.links.mixcloud)" class="fa fa-play fa-3x fa-fw"></i>
-          <!--<i ng-if="!content.links.mixcloud" ng-click="$root.playerPlay(content.links.mixcloud)" class="fa fa-play fa-3x fa-fw"></i>-->
-        </div>
-        <div class="item-info">
-          <span class="item-title">{{content.title}}</span>
-          <small>
-            <em class="text-muted">
-              <span class="item-headline" ng-show="$root.lang">{{content.headline[$root.lang] || content.headline.en}}</span>
-            </em>
-          </small>
-        </div>
-      </div>
-
-      <div class="admin-crud" ng-show="authentication.user._id == content.user._id || authentication.user.roles.indexOf('admin')">
-        <a class="btn btn-primary" ui-sref="contents.edit({contentId: content._id})">
-          <i class="glyphicon glyphicon-edit"></i>
-        </a>
-        <a class="btn btn-primary" ng-click="removeContent();">
-          <i class="glyphicon glyphicon-trash"></i>
-        </a>
+          </md-card-actions>
+        </md-card>
       </div>
 
     </div>
-
-    <div class="item-bottom row no-gutter">
-
-      <div class="item-left hidden-xs col-sm-4">
-        <div class="item-desc">
-          <span>{{content.description[$root.lang] || content.description.en}}</span>
-          <!--<p ng-if="$root.lang == 'en' || !$root.lang">{{content.description.en}}</p>-->
-        </div>
-      </div>
-
-      <!--<div class="item-middle col-xs-12 col-sm-4" ng-if="regulars.length">-->
-        <!--<ul>-->
-          <!--<li ng-repeat="item in regulars">-->
-            <!--<div class="item-play">-->
-              <!--<i ng-click="$root.playerPlay(item.links.mixcloud)" class="fa fa-play-circle fa-2x fa-fw"></i>-->
-            <!--</div>-->
-            <!--<div class="item-info">-->
-              <!--<a ui-sref="regulars.view({regularId: item._id})">{{item.title}}</a>-->
-              <!--<small>-->
-                <!--<em class="text-muted">-->
-                  <!--<span class="item-headline" ng-show="item.special.title">-->
-                    <!--{{item.special.title}}-->
-                    <!--<a ui-sref="specials.view({specialId: item.special._id})">-->
-                      <!--<i class="fa fa-angle-double-right fa-fw"></i>-->
-                    <!--</a>-->
-                  <!--</span>-->
-                  <!--<span class="item-headline" ng-hide="item.special.title"></span>-->
-                <!--</em>-->
-              <!--</small>-->
-            <!--</div>-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-    </div>
-
   </div>
 </section>

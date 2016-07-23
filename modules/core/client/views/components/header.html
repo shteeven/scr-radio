@@ -6,6 +6,9 @@
 <md-toolbar id="scr-navbar-fixed-top" md-theme="scr-main" class="md-hue-2" layout="row" layout-wrap>
 
     <div id="brand-logo-container" aria-label="Home" flex-offset-xs="5" flex-order-xs="-1" flex-xs="20" flex-gt-xs="5">
+        <md-tooltip md-direction="down">
+            Home
+        </md-tooltip>
         <a rel="home" class="brand-logo" ui-sref="home" title="Seoul Community Radio">
             <img src="modules/core/client/img/brand/brand-logo.jpg" alt="Seoul Community Radio Logo">
         </a>
@@ -18,24 +21,22 @@
 
     <md-content flex=""></md-content>
 
-    <md-content class="md-overflow-visible" flex-order-xs="-1" flex-xs flex-sm="30" flex-gt-sm="35" layout-align="end" layout="row">
-        <scr-links links="ctrl.main_links"></scr-links>
+    <md-content class="md-overflow-visible" flex-order-xs="-1" flex-xs flex-sm="30" flex-gt-sm="35" layout="row" layout-align="end">
+        <div flex-gt-sm="90" flex="100" layout-align="end" layout="row">
+            <scr-links links="ctrl.main_links"></scr-links>
 
-        <div class="links">
-            <a class="social-link" target="_blank" ng-click="$root.toggleLanguage()"
-               uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" tooltip-placement="left">
-                <div class="icon">
-                    <i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>
-                </div>
-            </a>
+            <div class="links">
+                <a class="social-link" target="_blank" ng-click="$root.toggleLanguage()">
+                    <md-tooltip md-direction="down">
+                        {{$root.lang === 'kr' ? '한글' : 'English'}}
+                    </md-tooltip>
+                    <div class="icon">
+                        <i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>
+                    </div>
+                </a>
+            </div>
         </div>
-
-        <!--<div class="lang">-->
-            <!--<span ng-click="$root.toggleLanguage()" tooltip-placement="left"-->
-                  <!--uib-tooltip="{{$root.lang === 'kr' ? '한글' : 'Eng'}}" role="button">-->
-            <!--<i class="fa fa-language fa-fw fa-lg" ng-class="{'fa-flip-horizontal': $root.lang === 'kr'}"></i>-->
-        <!--</span>-->
-        <!--</div>-->
+        <div flex-gt-sm="5" hide-sm="" hide-xs="" ></div>
     </md-content>
 
 </md-toolbar>

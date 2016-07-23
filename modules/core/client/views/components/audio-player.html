@@ -5,22 +5,28 @@
             <div class="sr-only">Play/pause Button</div>
             <md-icon md-font-icon="fa fa-play fa-xl" ng-if="!player.isPlaying"></md-icon>
             <md-icon md-font-icon="fa fa-pause fa-xl" ng-if="player.isPlaying"></md-icon>
+            <md-tooltip md-direction="down">
+                <span ng-if="!player.isPlaying">Play</span>
+                <span ng-if="player.isPlaying">Pause</span>
+            </md-tooltip>
         </md-button>
 
-        <!--<md-slider-container flex="">-->
-        <!--<md-slider flex min="0" max="1" step=".05" ng-model="radio.volume" aria-label="volume">-->
-        <!--</md-slider>-->
-        <!--</md-slider-container>-->
-
-        <md-button class="md-icon-button" ng-click="player.volumeChange('up')" ng-disabled="atMax" ng-style="opacityPlus">
-            <md-icon md-font-icon="fa fa-plus fa-lg"></md-icon>
+        <md-button class="md-icon-button" ng-click="player.volumeChange('up')" ng-style="opacityPlus">
+            <md-tooltip md-direction="down">
+                {{radio.volume * 100}}%
+            </md-tooltip>
+            <md-icon md-font-icon="fa fa-plus fa-xl"></md-icon>
         </md-button>
-        <md-button class="md-icon-button" ng-click="player.volumeChange()" ng-disabled="atMin" ng-style="opacityMinus">
-            <md-icon md-font-icon="fa fa-minus fa-lg"></md-icon>
+        <md-button class="md-icon-button" ng-click="player.volumeChange('down')" ng-style="opacityMinus">
+            <md-tooltip md-direction="down">
+                {{radio.volume * 100}}%
+            </md-tooltip>
+            <md-icon md-font-icon="fa fa-minus fa-xl"></md-icon>
         </md-button>
 
     </md-content>
     <md-content flex-xs="60" flex-sm="300px" flex-gt-sm="300px" layout="row">
+        <md-tooltip md-direction="down">Currently Playing</md-tooltip>
         <div class="meta-data marquee" flex="100">
             <div>
                 <span>{{metadata.tracks.current.name || 'this is all just one big game' | jsonToHtml}}</span>

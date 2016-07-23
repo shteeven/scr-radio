@@ -3,12 +3,18 @@
   <md-fab-speed-dial hide-gt-sm md-open="isOpen" md-direction="down" class="md-scale">
     <md-fab-trigger>
       <md-button aria-label="menu" class="md-icon-button">
+        <md-tooltip md-direction="down">
+          View Links
+        </md-tooltip>
         <md-icon md-font-icon="fa fa-share-alt fa-2x"></md-icon>
       </md-button>
     </md-fab-trigger>
     <md-fab-actions>
       <div class="" layout="column">
         <md-button ng-repeat="(key, value) in links" href="{{value}}" target="_blank" aria-label="{{key | capitalize}}" class="md-fab  md-mini">
+          <md-tooltip md-direction="left">
+            {{key | capitalize}}
+          </md-tooltip>
           <md-icon md-font-icon="fa fa-{{key}} fa-fw fa-lg" aria-label="Twitter"></md-icon>
         </md-button>
       </div>
@@ -18,6 +24,9 @@
 
 
   <a  hide-xs hide-sm ng-repeat="(key, value) in links" href="{{value}}" class="social-link" target="_blank">
+    <md-tooltip md-direction="down">
+      {{key | capitalize}}
+    </md-tooltip>
     <div class="icon">
       <i class="fa fa-{{key}} fa-fw fa-lg"></i>
     </div>

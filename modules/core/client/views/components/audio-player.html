@@ -3,8 +3,8 @@
     <md-content layout="row" flex-sm="40" flex-gt-sm="30" flex-xs="45">
         <md-button class="md-icon-button md-mini" ng-click="player.playPause()">
             <div class="sr-only">Play/pause Button</div>
-            <md-icon md-font-icon="fa fa-play fa-2x" ng-if="!player.isPlaying"></md-icon>
-            <md-icon md-font-icon="fa fa-pause fa-2x" ng-if="player.isPlaying"></md-icon>
+            <md-icon md-font-icon="fa fa-play fa-xl" ng-if="!player.isPlaying"></md-icon>
+            <md-icon md-font-icon="fa fa-pause fa-xl" ng-if="player.isPlaying"></md-icon>
         </md-button>
 
         <!--<md-slider-container flex="">-->
@@ -13,10 +13,10 @@
         <!--</md-slider-container>-->
 
         <md-button class="md-icon-button" ng-click="player.volumeChange('up')" ng-disabled="atMax" ng-style="opacityPlus">
-            <md-icon md-font-icon="fa fa-plus fa-2x"></md-icon>
+            <md-icon md-font-icon="fa fa-plus fa-lg"></md-icon>
         </md-button>
         <md-button class="md-icon-button" ng-click="player.volumeChange()" ng-disabled="atMin" ng-style="opacityMinus">
-            <md-icon md-font-icon="fa fa-minus fa-2x"></md-icon>
+            <md-icon md-font-icon="fa fa-minus fa-lg"></md-icon>
         </md-button>
 
     </md-content>

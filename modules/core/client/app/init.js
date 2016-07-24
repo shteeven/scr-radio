@@ -12,6 +12,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
         .accentPalette('grey')
         .warnPalette('grey')
       .dark();
+    $mdThemingProvider.setDefaultTheme('scr-main');
     $locationProvider.html5Mode(true).hashPrefix('!');
 
     $httpProvider.interceptors.push('authInterceptor');
@@ -19,13 +20,13 @@ angular.module(ApplicationConfiguration.applicationModuleName).config(['$locatio
 ]);
 
 
-angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, Authentication) {
+angular.module(ApplicationConfiguration.applicationModuleName).run(function ($rootScope, $state, $window, Authentication) {
 
   // Play Mixcloud plugin on click
   // TODO: move events to service for media players
-  // $rootScope.playerPlay = function(url) {
-  //   $rootScope.$broadcast('player.play', { url: url });
-  // };
+  $rootScope.playerPlay = function(url) {
+    $rootScope.$broadcast('player.play', { url: url });
+  };
   $rootScope.lang = 'en';
   // Language toggling
   $rootScope.toggleLanguage = function() {
@@ -67,6 +68,7 @@ angular.module(ApplicationConfiguration.applicationModuleName).run(function ($ro
   // Record previous state
   $rootScope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
     storePreviousState(fromState, fromParams);
+    $window.scrollTo(0,0);
   });
 
   // Store previous state

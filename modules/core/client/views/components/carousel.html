@@ -21,8 +21,7 @@
     </div>
 
     <div class="info" ng-mouseover="stopRotation()" ng-mouseleave="startRotation()" layout="row" layout-align="center center">
-        <div flex="10"></div>
-        <div class="info-container" flex="30" flex-xs="80" flex-sm="50" flex-md="40">
+        <div class="info-container" flex="30" flex-xs="80" flex-sm="50" flex-md="40" flex-offset="10">
             <div class="animated-slide" ng-class="direction" ng-hide="!isCurrentSlideIndex($index)"
                  ng-repeat="slide in slides">
                 <div class="md-padding" md-theme="scr-main" layout-xs="column" layout="row">

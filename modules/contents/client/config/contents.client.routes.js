@@ -1,6 +1,7 @@
 'use strict';
 
 // Setting up route
+//noinspection JSAnnotator
 angular.module('contents').config(['$stateProvider',
   function ($stateProvider) {
     // Contents state routing

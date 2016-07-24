@@ -1,5 +1,6 @@
 'use strict';
 
+//noinspection JSAnnotator
 angular.module('core').controller('SidenavController', ['$scope', '$state', 'Authentication', 'Menus', '$log',
   function ($scope, $state, Authentication, Menus, $log) {
     // Expose view variables
@@ -19,6 +20,7 @@ angular.module('core').controller('SidenavController', ['$scope', '$state', 'Aut
 
     // Get the topbar menu
     $scope.menu = Menus.getMenu('topbar');
+    console.log($scope.menu);
 
     // Collapsing the menu after navigation
     $scope.$on('$stateChangeSuccess', function () {

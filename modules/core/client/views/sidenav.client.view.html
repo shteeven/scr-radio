@@ -1,47 +1,93 @@
 <div id="sidebar" ng-controller="SidenavController">
 
-  <!-- Sidenav toggle button. Hangs to the right, relative to sidenav -->
-  <button type="button" id="menu-toggle" class="col-xs-1" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()" >
-    <!--<md-tooltip md-direction="down" md-theme="scr-main">-->
-      <!--Open Nav-->
-    <!--</md-tooltip>-->
-      <span class="hamb-top"></span>
-      <span class="hamb-middle"></span>
-      <span class="hamb-bottom"></span>
-  </button>
+    <!-- Sidenav toggle button. Hangs to the right, relative to sidenav -->
+    <button type="button" id="menu-toggle" class="col-xs-1" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()">
+        <span class="hamb-top"></span>
+        <span class="hamb-middle"></span>
+        <span class="hamb-bottom"></span>
+    </button>
 
-  <!-- Sidebar -->
-  <div id="sidebar-overlay" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()"></div>
-  <md-content id="sidebar-wrapper" md-theme="scr-main" ng-class="{toggled: menu_toggled}">
-    <ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">
-      <!-- Home link: TODO: add styling or image here-->
-      <li class="sidebar-brand"><a ui-sref="home">SCRadio</a></li>
-      <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">
-        <div ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
-          <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
-        </div>
-      </li>
-    </ul>
+    <!-- Sidebar -->
+    <div id="sidebar-overlay" ng-class="{toggled: menu_toggled}" ng-click="menuToggle()"></div>
+    <md-content id="sidebar-wrapper" md-theme="scr-main" ng-class="{toggled: menu_toggled}">
+        <md-toolbar layout="column">
+            <md-button>
+                <h5 class="md-headline">
+                    <i class="fa fa-home fa-lg"></i>
+                    SCRadio
+                </h5>
+            </md-button>
+        </md-toolbar>
+        <md-list flex ng-if="menu.shouldRender(authentication.user);" ng-repeat="items in menu.items | orderBy: 'position'">
+            <md-list-item ng-repeat="item in items.items | orderBy: 'position'"
+                          ng-if="item.shouldRender(authentication.user);"
+                          ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">
+                <md-button>
+                    <div class="md-list-item-text" layout="column">
+                        <h3>{{ item.title }}</h3>
+                    </div>
+                </md-button>
+            </md-list-item>
+        </md-list>
+        <md-divider></md-divider>
 
-    <ul class="sidebar-nav" style="border-top: solid whitesmoke 2px" ng-show="authentication.user">
-      <li ui-sref-active="active">
-        <a ui-sref="settings.profile">Edit Profile</a>
-      </li>
-      <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
-        <a ui-sref="settings.password">Change Password</a>
-      </li>
-      <li ui-sref-active="active">
-        <a ui-sref="settings.accounts">Manage Social Accounts</a>
-      </li>
-      <li class="divider"></li>
-      <li>
-        <a href="/api/auth/signout" target="_self">Signout</a>
-      </li>
-    </ul>
-  </md-content>
+
+        <ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">
+            <li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);"
+                ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">
+                <div ng-repeat="subitem in item.items | orderBy: 'position'"
+                     ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">
+                    <a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="sidebar-nav" style="border-top: solid whitesmoke 2px" ng-show="authentication.user">
+            <li ui-sref-active="active">
+                <a ui-sref="settings.profile">Edit Profile</a>
+            </li>
+            <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
+                <a ui-sref="settings.password">Change Password</a>
+            </li>
+            <li ui-sref-active="active">
+                <a ui-sref="settings.accounts">Manage Social Accounts</a>
+            </li>
+            <li class="divider"></li>
+            <li>
+                <a href="/api/auth/signout" target="_self">Signout</a>
+            </li>
+        </ul>
+
+
+    </md-content>
 </div>
 
 
+<!--<ul class="sidebar-nav" ng-if="menu.shouldRender(authentication.user);">-->
+<!--&lt;!&ndash; Home link: TODO: add styling or image here&ndash;&gt;-->
+<!--<li class="sidebar-brand"><a ui-sref="home">SCRadio</a></li>-->
+<!--<li ng-repeat="item in menu.items | orderBy: 'position'" ng-if="item.shouldRender(authentication.user);" ng-class="{ active: $state.includes(item.state) }" class="{{item.class}}">-->
+<!--<div ng-repeat="subitem in item.items | orderBy: 'position'" ng-if="subitem.shouldRender(authentication.user);" ui-sref-active="active">-->
+<!--<a ui-sref="{{subitem.state}}" ng-bind="subitem.title"></a>-->
+<!--</div>-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--<ul class="sidebar-nav" style="border-top: solid whitesmoke 2px" ng-show="authentication.user">-->
+<!--<li ui-sref-active="active">-->
+<!--<a ui-sref="settings.profile">Edit Profile</a>-->
+<!--</li>-->
+<!--<li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">-->
+<!--<a ui-sref="settings.password">Change Password</a>-->
+<!--</li>-->
+<!--<li ui-sref-active="active">-->
+<!--<a ui-sref="settings.accounts">Manage Social Accounts</a>-->
+<!--</li>-->
+<!--<li class="divider"></li>-->
+<!--<li>-->
+<!--<a href="/api/auth/signout" target="_self">Signout</a>-->
+<!--</li>-->
+<!--</ul>-->
 
 
 <!--<ul class="nav navbar-nav" data-ng-hide="authentication.user">-->
@@ -79,8 +125,6 @@
 <!--</ul>-->
 <!--</li>-->
 <!--</ul>-->
-
-
 
 
 <!--&lt;!&ndash; Sign-in/out Section: TODO: work on transition and styles &ndash;&gt;-->

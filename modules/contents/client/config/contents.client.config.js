@@ -1,6 +1,7 @@
 'use strict';
 
 // Configuring the Contents module
+//noinspection JSAnnotator
 angular.module('contents').run(['Menus',
   function (Menus) {
     // Add the contents dropdown item

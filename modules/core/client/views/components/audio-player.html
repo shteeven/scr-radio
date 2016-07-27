@@ -29,8 +29,8 @@
         <md-tooltip md-direction="down">Currently Playing</md-tooltip>
         <div class="meta-data marquee" flex="100">
             <div>
-                <span>{{metadata.tracks.current.name || 'this is all just one big game' | jsonToHtml}}</span>
-                <span>{{metadata.tracks.current.name || 'this is all just one big game' | jsonToHtml}}</span>
+                <span>{{metadata.tracks.current.name || defaultText | jsonToHtml}}</span>
+                <span>{{metadata.tracks.current.name || defaultText | jsonToHtml}}</span>
             </div>
             <span class="fader"></span>
         </div>

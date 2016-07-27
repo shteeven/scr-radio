@@ -12,7 +12,9 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
     link: function ($scope, $element) {
       // for metadata
       var timeout;
-      var timer = 50;
+      var resetTimer = 20000;
+      $scope.defaultText = 'All our Residents are currently getting their beauty sleep.'
+      var timer = resetTimer;
       var timeNow;
       var timeEnd;
       var diffMs;
@@ -24,7 +26,6 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
 
       function getMetadata() {
         $http.jsonp("https://seoulcommunityradio.airtime.pro/api/live-info-v2", {
-          // headers: {'content-type': 'application/json'},
           params: {
             format: 'jsonp',
             callback: 'JSON_CALLBACK'
@@ -36,13 +37,15 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
             if ($scope.metadata && data.tracks && data.tracks.current && data.tracks.current.name === $scope.metadata.tracks.current.name) { // try again in ten
               timer = 10000; // check in 10 seconds
               setTimer(timer); // start new timeout
-            } else {
+            } else if (data.tracks.current) {
               $scope.metadata = data; // set metadata
               timeNow = new Date(data.station.schedulerTime);
               var endDateTime = data.tracks.next ? data.tracks.next.starts : data.tracks.current.ends;
               timeEnd = new Date(endDateTime);
               timer = timeEnd.getTime() - timeNow.getTime() + 100;
               setTimer(timer);  // create new timeout based on metadata
+            } else {
+              setTimer(resetTimer); // check periodically for new metadata till radio begins again
             }
           }, function (err) {
             console.log(err);

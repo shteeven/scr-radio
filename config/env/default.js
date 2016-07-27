@@ -3,7 +3,7 @@
 module.exports = {
   app: {
     title: 'Seoul Community Radio',
-    description: 'Straight from Itaewon, this app allows you to enjoy the music you love to hear. Build on the power-house: MEAN.js',
+    description: 'Channeling the spirit of pirate radio and the fresh vibe of Korea’s creative underground, Seoul Community Radio is a next-level platform for a world city about to blow.',
     keywords: 'mongodb, express, angularjs, node.js, mongoose, passport, Steven Barnhurst, Richard Price, Seoul, Itaewon, dj, djs, music, radio, online, shows, tracks',
     googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
   },

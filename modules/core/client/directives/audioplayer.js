@@ -13,7 +13,7 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       // for metadata
       var timeout;
       var resetTimer = 20000;
-      $scope.defaultText = 'All our Residents are currently getting their beauty sleep.'
+      $scope.defaultText = 'All our Residents are currently getting their beauty sleep.';
       var timer = resetTimer;
       var timeNow;
       var timeEnd;

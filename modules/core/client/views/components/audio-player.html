@@ -1,6 +1,6 @@
 <div layout="row">
 
-    <md-content layout="row" flex-sm="40" flex-gt-sm="30" flex-xs="45">
+    <md-content layout="row" flex-sm="55" flex-gt-sm="35" flex-xs="50">
         <md-button class="md-icon-button md-mini" ng-click="player.playPause()">
             <div class="sr-only">Play/pause Button</div>
             <md-icon md-font-icon="fa fa-play fa-xl" ng-if="!player.isPlaying"></md-icon>
@@ -23,7 +23,7 @@
             </md-tooltip>
             <md-icon md-font-icon="fa fa-minus fa-xl"></md-icon>
         </md-button>
-        <md-button class="md-icon-button" ng-click="showAdvanced($event)">
+        <md-button class="md-icon-button" ng-click="showLiveStream($event)">
             <md-tooltip md-direction="down">
                 Watch Live!
             </md-tooltip>
@@ -31,7 +31,7 @@
         </md-button>
 
     </md-content>
-    <md-content flex-xs="60" flex-sm="300px" flex-gt-sm="300px" layout="row">
+    <md-content flex-xs="50" flex-sm="300px" flex-gt-sm="300px" layout="row">
         <md-tooltip md-direction="down">Currently Playing</md-tooltip>
         <div class="meta-data marquee" flex="100">
             <div>

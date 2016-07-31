@@ -1,15 +1,13 @@
 <md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!">
     <md-toolbar class="md-toolbar-tools">
-        <md-button class="md-icon-button" ng-click="closeDialog()">
-            <md-icon class="fa fa-times fa-2x">
-
-            </md-icon>
+        <md-button class="md-icon-button" ng-click="cancel()">
+            <md-icon class="fa fa-times fa-xl"></md-icon>
         </md-button>
-        <h2 flex>Live Stream</h2>
+        <h2 flex>You're watching Seoul Community Radio!</h2>
     </md-toolbar>
 
     <md-dialog-content>
-        <div class="md-dialog-content" layout="row" layout-fill layout-align="center">
+        <div class="md-dialog-content" layout="row" layout-fill layout-align="center" layout-wrap>
             <div flex="100" flex-gt-xs="90" flex-gt-sm="95" layout="column" layout-gt-sm="row">
 
                 <div flex-gt-sm="65">
@@ -24,34 +22,44 @@
                 </div>
                 <div flex-gt-sm="35">
                     <div class="responsive-iframe chat">
-                        <iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0" scrolling="no"
+                        <iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0"
+                                scrolling="no"
                                 height="500" width="350"></iframe>
                     </div>
                 </div>
 
             </div>
+            <div flex="100" flex-gt-xs="90" flex-gt-sm="95">
+                <div ng-if="$root.lang === 'kr'" flex-gt-sm="65">
+                    <h2>ABOUT US</h2>
+                    <h4>
+                        다양한 문화가 공존하는 서울의 이태원 우사단로에서 벙커 스튜디오를 운영하는 Seoul Community Radio (SCR)는 ON AIR의 사명을 가지고 있습니다.
+                        멋진 것을 추구하는 이들을 위해 그러한 씬에서 만들어진SCR은 한국의 언더그라운드 컬쳐를 위해, 그리고 그것이 더 성장 할 수 있도록 라이브 오디오-비주얼 플랫폼을
+                        제공합니다. 음악, 창의적인 작업물, 이벤트 + 커뮤니티. 세계가 원하는. 서울에서 만들어진 새로움.
+                    </h4>
+                </div>
+
+                <div ng-if="!$root.lang || $root.lang === 'en'" flex-gt-sm="65">
+                    <h2>ABOUT US</h2>
+                    <h4>
+                        Operating out of a bunker studio in Itaewon’s multicultural hotbed Usadan-ro, Seoul Community
+                        Radio
+                        (SCR) is ON AIR and on a mission. Created by the scene for the people that make it great, SCR
+                        exists to champion underground culture in
+                        Korea and provide the LIVE audio-visual platform to help it grow and thrive. Music, Creative
+                        works, Events + Community.
+                        Freshness made in Seoul, with the World invited.
+                    </h4>
+                </div>
+            </div>
+
         </div>
+        <!--<div class="md-dialog-content md-whiteframe-4dp" layout="row" layout-align-gt-sm="" layout-align="center">-->
+
+            <!--<md-content flex="90" flex-gt-xs="80" flex-gt-sm="50" layout="column" layout-gt-sm="row">-->
+                <!---->
+            <!--</md-content>-->
+        <!--</div>-->
 
     </md-dialog-content>
 </md-dialog>
-
-
-<!--<div class="container-fluid" ng-controller="ContentsController">-->
-<!--<div class="row">-->
-<!--<div class="col-xs-12 col-md-7 col-lg-8">-->
-<!--<div class="responsive-iframe">-->
-<!--<iframe src="https://player.twitch.tv/?channel=seoulcommunityradio" frameborder="0"-->
-<!--scrolling="no" height="378" width="620"></iframe>-->
-<!--<a href="https://www.twitch.tv/seoulcommunityradio?tt_medium=live_embed&tt_content=text_link"-->
-<!--style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">-->
-<!--Watch live video from seoulcommunityradio on www.twitch.tv-->
-<!--</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-xs-12 col-md-5 col-lg-4">-->
-<!--<div class="responsive-iframe chat">-->
-<!--<iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->

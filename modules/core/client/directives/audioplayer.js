@@ -24,8 +24,7 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       var player = {};
       player.isPlaying = false;
 
-      $scope.showAdvanced = function(ev) {
-        console.log('here');
+      $scope.showLiveStream = function(ev) {
         var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
         $mdDialog.show({
           controller: DialogController,
@@ -131,8 +130,8 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       $scope.opacityMinus = {opacity: 0.4+(radio.volume*0.6)};
 
       setTimer(10);
+      $scope.showLiveStream();
     },
-
     templateUrl: 'modules/core/client/views/components/audio-player.html'
   };
 });

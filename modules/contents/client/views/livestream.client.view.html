@@ -1,19 +1,57 @@
-<div class="container-fluid" ng-controller="ContentsController">
-    <div class="row">
-        <div class="col-xs-12 col-md-7 col-lg-8">
-            <div class="responsive-iframe">
-                <iframe src="https://player.twitch.tv/?channel=seoulcommunityradio" frameborder="0"
-                        scrolling="no" height="378" width="620"></iframe>
-                <a href="https://www.twitch.tv/seoulcommunityradio?tt_medium=live_embed&tt_content=text_link"
-                   style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">
-                    Watch live video from seoulcommunityradio on www.twitch.tv
-                </a>
+<md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!">
+    <md-toolbar class="md-toolbar-tools">
+        <md-button class="md-icon-button" ng-click="closeDialog()">
+            <md-icon class="fa fa-times fa-2x">
+
+            </md-icon>
+        </md-button>
+        <h2 flex>Live Stream</h2>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <div class="md-dialog-content" layout="row" layout-fill layout-align="center">
+            <div flex="100" flex-gt-xs="90" flex-gt-sm="95" layout="column" layout-gt-sm="row">
+
+                <div flex-gt-sm="65">
+                    <div class="responsive-iframe">
+                        <iframe src="https://player.twitch.tv/?channel=seoulcommunityradio" frameborder="0"
+                                scrolling="no" height="378" width="620"></iframe>
+                        <a href="https://www.twitch.tv/seoulcommunityradio?tt_medium=live_embed&tt_content=text_link"
+                           style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">
+                            Watch live video from seoulcommunityradio on www.twitch.tv
+                        </a>
+                    </div>
+                </div>
+                <div flex-gt-sm="35">
+                    <div class="responsive-iframe chat">
+                        <iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0" scrolling="no"
+                                height="500" width="350"></iframe>
+                    </div>
+                </div>
+
             </div>
         </div>
-        <div class="col-xs-12 col-md-5 col-lg-4">
-            <div class="responsive-iframe chat">
-                <iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
+
+    </md-dialog-content>
+</md-dialog>
+
+
+<!--<div class="container-fluid" ng-controller="ContentsController">-->
+<!--<div class="row">-->
+<!--<div class="col-xs-12 col-md-7 col-lg-8">-->
+<!--<div class="responsive-iframe">-->
+<!--<iframe src="https://player.twitch.tv/?channel=seoulcommunityradio" frameborder="0"-->
+<!--scrolling="no" height="378" width="620"></iframe>-->
+<!--<a href="https://www.twitch.tv/seoulcommunityradio?tt_medium=live_embed&tt_content=text_link"-->
+<!--style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">-->
+<!--Watch live video from seoulcommunityradio on www.twitch.tv-->
+<!--</a>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-xs-12 col-md-5 col-lg-4">-->
+<!--<div class="responsive-iframe chat">-->
+<!--<iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0" scrolling="no" height="500" width="350"></iframe>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

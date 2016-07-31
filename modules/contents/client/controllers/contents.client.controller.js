@@ -1,8 +1,9 @@
 'use strict';
 
 // Contents controller
-angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
-  function ($scope, $stateParams, $location, Authentication, Contents) {
+//noinspection JSAnnotator
+angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents', '$rootScope',
+  function ($scope, $stateParams, $location, Authentication, Contents, $rootScope) {
     $scope.authentication = Authentication;
     $scope.tile_limit = 120;
     $scope.rowLength = 4;
@@ -23,7 +24,7 @@ angular.module('contents').controller('ContentsController', ['$scope', '$statePa
         });
       }
     };
-    $scope.changeBg($scope.defaultBg);
+    $rootScope.changeBg($scope.defaultBg);
 
     // Find a list of Contents
     $scope.find = function () {

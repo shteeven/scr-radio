@@ -1,5 +1,6 @@
 'use strict';
 
+//noinspection JSAnnotator
 angular.module('core').directive('scrHeader', function () {
   return {
     restrict: 'E',
@@ -8,9 +9,8 @@ angular.module('core').directive('scrHeader', function () {
     },
     templateUrl: 'modules/core/client/views/components/header.html',
     controllerAs: 'ctrl',
-    controller: ['$rootScope', 'Menus', function ($rootScope, Menus) {
+    controller: ['$rootScope', function ($rootScope) {
       var ctrl = this;
-      ctrl.menu = Menus.getMenu('topbar');
 
       //init state
       ctrl.main_links = {

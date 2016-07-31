@@ -1,5 +1,6 @@
 'use strict';
 
+//noinspection JSAnnotator
 angular.module('core').controller('SidenavController', ['$scope', '$state', 'Authentication', 'Menus', '$log',
   function ($scope, $state, Authentication, Menus, $log) {
     // Expose view variables

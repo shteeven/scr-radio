@@ -5,7 +5,7 @@
  * TODO: Add a buffering icon to the play/pause button cycle
  */
 
-angular.module('core').directive('audioPlayer', function ($rootScope, $document, $timeout, $http) {
+angular.module('core').directive('audioPlayer', function ($rootScope, $document, $timeout, $http, $mdDialog, $mdMedia) {
   return {
     restrict: 'E',
     scope: {},
@@ -23,6 +23,41 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
       radio.src = 'http://seoulcommunityradio.out.airtime.pro:8000/seoulcommunityradio_a?1466567397161.mp3';
       var player = {};
       player.isPlaying = false;
+
+      $scope.showAdvanced = function(ev) {
+        console.log('here');
+        var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'))  && $scope.customFullscreen;
+        $mdDialog.show({
+          controller: DialogController,
+          templateUrl: '/modules/contents/client/views/livestream.client.view.html',
+          parent: angular.element(document.body),
+          targetEvent: ev,
+          clickOutsideToClose:true,
+          fullscreen: useFullScreen
+        })
+          .then(function(answer) {
+            $scope.status = 'You said the information was "' + answer + '".';
+          }, function() {
+            $scope.status = 'You cancelled the dialog.';
+          });
+        $scope.$watch(function() {
+          return $mdMedia('xs') || $mdMedia('sm');
+        }, function(wantsFullScreen) {
+          $scope.customFullscreen = (wantsFullScreen === true);
+        });
+      };
+
+      function DialogController($scope, $mdDialog) {
+        $scope.hide = function() {
+          $mdDialog.hide();
+        };
+        $scope.cancel = function() {
+          $mdDialog.cancel();
+        };
+        $scope.answer = function(answer) {
+          $mdDialog.hide(answer);
+        };
+      }
 
       function getMetadata() {
         $http.jsonp("https://seoulcommunityradio.airtime.pro/api/live-info-v2", {
@@ -97,6 +132,7 @@ angular.module('core').directive('audioPlayer', function ($rootScope, $document,
 
       setTimer(10);
     },
+
     templateUrl: 'modules/core/client/views/components/audio-player.html'
   };
 });

@@ -85,14 +85,12 @@ exports.delete = function (req, res) {
  * List of Contents
  */
 exports.list = function (req, res) {
-  console.log(req.query);
   Content.find(req.query).sort('-created').populate('user', 'displayName').populate('regulars', 'title').populate('special', 'title').exec(function (err, contents) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     } else {
-      console.log(contents);
       res.json(contents);
     }
   });

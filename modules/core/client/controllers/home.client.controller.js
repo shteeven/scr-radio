@@ -1,5 +1,6 @@
 'use strict';
 
+//noinspection JSAnnotator
 angular.module('core').controller('HomeController', ['$scope', 'Authentication', 'Contents',
   function ($scope, Authentication, Contents) {
     // This provides Authentication context.

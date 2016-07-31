@@ -1,6 +1,7 @@
 'use strict';
 
 // Configuring the Contents module
+//noinspection JSAnnotator
 angular.module('contents').run(['Menus',
   function (Menus) {
     // Add the contents dropdown item
@@ -25,10 +26,10 @@ angular.module('contents').run(['Menus',
       roles: ['user']
     });
 
-    Menus.addSubMenuItem('topbar', 'contents', {
-      title: 'Live Video Stream',
-      state: 'contents.livestream'
-    });
+    // Menus.addSubMenuItem('topbar', 'contents', {
+    //   title: 'Live Video Stream',
+    //   state: 'contents.livestream'
+    // });
 
     Menus.addSubMenuItem('topbar', 'contents', {
       title: 'Regulars',

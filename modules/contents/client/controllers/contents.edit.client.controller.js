@@ -1,6 +1,7 @@
 'use strict';
 
 // Contents controller
+//noinspection JSAnnotator
 angular.module('contents').controller('ContentsEditController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents',
   function ($scope, $stateParams, $location, Authentication, Contents) {
     $scope.regulars = Contents.query({ category: 'regular', guest: false });

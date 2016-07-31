@@ -1,6 +1,7 @@
 'use strict';
 
 // Setting up route
+//noinspection JSAnnotator
 angular.module('contents').config(['$stateProvider',
   function ($stateProvider) {
     // Contents state routing
@@ -31,12 +32,12 @@ angular.module('contents').config(['$stateProvider',
       .state('contents.view', {
         url: '/:contentId',
         templateUrl: 'modules/contents/client/views/view-content.client.view.html'
-      })
-      
-      .state('contents.livestream', {
-        url: '/pages/livestream',
-        templateUrl: 'modules/contents/client/views/livestream.client.view.html'
       });
+      
+      // .state('contents.livestream', {
+      //   url: '/pages/livestream',
+      //   templateUrl: 'modules/contents/client/views/livestream.client.view.html'
+      // });
       
   }
 ]);

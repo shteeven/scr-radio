@@ -23,8 +23,13 @@
           <md-card-content md-layout="row" ng-show="content.description[$root.lang] || content.description.en">
             <span>{{content.description[$root.lang] || content.description.en}}</span>
           </md-card-content>
-          <md-card-actions layout="row" layout-align="end center">
-
+          <md-card-actions layout="row" layout-align="end center" ng-if="authentication.user">
+            <md-button ng-click="removeContent()">
+              <md-icon md-font-icon="fa fa-times fa-lg"></md-icon>
+            </md-button>
+            <md-button ui-sref="contents.edit({contentId: content._id})">
+              <md-icon md-font-icon="fa fa-edit fa-lg"></md-icon>
+            </md-button>
           </md-card-actions>
         </md-card>
       </div>

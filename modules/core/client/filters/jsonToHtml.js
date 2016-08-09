@@ -8,6 +8,6 @@
 
 angular.module('core').filter('jsonToHtml', function() {
     return function(input){
-        return input ? input.replace(/&amp;/, '&') : '';
+        return input ? input.replace(/&amp;/g, '&') : '';
     };
 });

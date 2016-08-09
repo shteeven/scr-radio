@@ -4,8 +4,9 @@ module.exports = {
   app: {
     title: 'Seoul Community Radio',
     description: 'Channeling the spirit of pirate radio and the fresh vibe of Korea’s creative underground, Seoul Community Radio is a next-level platform for a world city about to blow.',
-    keywords: 'mongodb, express, angularjs, node.js, mongoose, passport, Steven Barnhurst, Richard Price, Seoul, Itaewon, dj, djs, music, radio, online, shows, tracks',
-    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID'
+    keywords: 'mongodb, express, angularjs, node.js, mongoose, passport, Steven Barnhurst, Richard Price, Seoul, Itaewon, dj, djs, music, radio, online, shows, tracks, independent, watch',
+    googleAnalyticsTrackingID: process.env.GOOGLE_ANALYTICS_TRACKING_ID || 'GOOGLE_ANALYTICS_TRACKING_ID',
+    logo: 'modules/core/client/img/brand/brand-logo.jpg'
   },
   port: process.env.PORT || 3000,
   templateEngine: 'swig',
@@ -33,7 +34,7 @@ module.exports = {
     profileUpload: {
       dest: './modules/users/client/img/profile/uploads/', // Profile upload destination path
       limits: {
-        fileSize: 1*1024*1024 // Max file size in bytes (1 MB)
+        fileSize: 1 * 1024 * 1024 // Max file size in bytes (1 MB)
       }
     }
   }

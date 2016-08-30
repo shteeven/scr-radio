@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACZ,QAAQ,EAAE,KAAK;EACf,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,CAAC;EACR,IAAI,EAAE,CAAC;EACP,MAAM,EAAE,IAAI;;AAEd,UAAW;EACT,QAAQ,EAAE,QAAQ;EAClB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,UAAU;EACjB,gBAAgB,EAAE,kBAAiB",
+"sources": ["../../scss/components/mcwidget.scss"],
+"names": [],
+"file": "mcwidget.css"
+}

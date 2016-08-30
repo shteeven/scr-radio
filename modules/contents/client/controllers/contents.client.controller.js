@@ -2,11 +2,17 @@
 
 // Contents controller
 //noinspection JSAnnotator
-angular.module('contents').controller('ContentsController', ['$scope', '$stateParams', '$location', 'Authentication', 'Contents', '$rootScope',
-  function ($scope, $stateParams, $location, Authentication, Contents, $rootScope) {
+angular.module('contents').controller('ContentsController', ['$scope', '$window', '$stateParams', '$location', 'Authentication', 'Contents', '$rootScope',
+  function ($scope, $window, $stateParams, $location, Authentication, Contents, $rootScope) {
     $scope.authentication = Authentication;
     $scope.tile_limit = 120;
     $scope.rowLength = 4;
+    $scope.ytChat = 'https://www.youtube.com/live_chat?v='+ $window.youtubeStreamID + '&embed_domain=www.seoulcommunityradio.com';
+    $scope.ytVideo = 'https://www.youtube.com/embed/' + $window.youtubeStreamID;
+
+    // $scope.getTrustedUrl = function (url) {
+    //   return $sce.getTrustAsResourceUrl(url);
+    // };
 
     // Remove existing Content
     $scope.removeContent = function (content) {

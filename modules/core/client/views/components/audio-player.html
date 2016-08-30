@@ -1,6 +1,6 @@
 <div layout="row">
 
-    <md-content layout="row" flex-sm="55" flex-gt-sm="35" flex-xs="50">
+    <div layout="row" flex-sm="55" flex-gt-sm="35" flex-xs="50">
         <md-button class="md-icon-button md-mini" ng-click="player.playPause()">
             <div class="sr-only">Play/pause Button</div>
             <md-icon md-font-icon="fa fa-play fa-xl" ng-if="!player.isPlaying"></md-icon>
@@ -30,8 +30,8 @@
             <md-icon md-font-icon="fa fa-twitch fa-xl"></md-icon>
         </md-button>
 
-    </md-content>
-    <md-content flex-xs="50" flex-sm="300px" flex-gt-sm="300px" layout="row">
+    </div>
+    <div flex-xs="50" flex-sm="300px" flex-gt-sm="300px" layout="row">
         <md-tooltip md-direction="down">Currently Playing</md-tooltip>
         <div class="meta-data marquee" flex="100">
             <div>
@@ -40,7 +40,7 @@
             </div>
             <span class="fader"></span>
         </div>
-    </md-content>
+    </div>
 
 </div>
 

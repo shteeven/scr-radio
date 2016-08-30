@@ -55,6 +55,11 @@
   <!--Load The Socket.io File-->
   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
 
+  <!--Youtube embed URL-->
+  <script>
+    var youtubeStreamID = '{{youtubeStreamID}}';
+    console.log(youtubeStreamID);
+  </script>
 
   <!--Application JavaScript Files-->
   {% for jsFile in jsFiles %}<script type="text/javascript" src="{{jsFile}}"></script>{% endfor %}

@@ -1,9 +1,26 @@
-<md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!">
+<md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!" ng-controller="ContentsController">
     <md-toolbar class="md-toolbar-tools">
         <md-button class="md-icon-button" ng-click="cancel()">
             <md-icon class="fa fa-times fa-xl"></md-icon>
         </md-button>
         <h2 flex>You're watching Seoul Community Radio!</h2>
+        <div layout="row" layout-align="start">
+            <md-button class="md-raised" href="http://seoulcommunityradio.tictail.com/" target="_blank">
+                Get Merch
+                <!--<md-icon class="fa fa-times fa-xl"></md-icon>-->
+            </md-button>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="GGZCU26R6XG52">
+                <!--<md-button class="md-raised" name="submit">-->
+                    <!--Support SCR-->
+                <!--</md-button>-->
+                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0"
+                name="submit" alt="PayPal - The safer, easier way to pay online!">
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
+                     height="1">
+            </form>
+        </div>
     </md-toolbar>
 
     <md-dialog-content>
@@ -12,24 +29,26 @@
 
                 <div flex-gt-sm="65">
                     <div class="responsive-iframe">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/mVYkslElpi8"
+                        <iframe width="640" height="360" ng-src="{{ytVideo | trustUrl}}"
                                 frameborder="0" allowfullscreen></iframe>
+                        <!--OLD CODE:   x7kQISUKmUw-->
+                        <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/9IYhh-gfpVg"-->
+                                <!--frameborder="0" allowfullscreen></iframe>-->
+
+                        <!--<iframe width="640" height="360" src="https://www.youtube.com/embed/GCo9u9UIw7Y"-->
+                        <!--frameborder="0" allowfullscreen></iframe>-->
                         <!--<iframe src="https://player.twitch.tv/?channel=seoulcommunityradio" frameborder="0"-->
-                                <!--scrolling="no" height="378" width="620"></iframe>-->
+                        <!--scrolling="no" height="378" width="620"></iframe>-->
                         <!--<a href="https://www.twitch.tv/seoulcommunityradio?tt_medium=live_embed&tt_content=text_link"-->
-                           <!--style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">-->
-                            <!--Watch live video from seoulcommunityradio on www.twitch.tv-->
+                        <!--style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px;text-decoration:underline;">-->
+                        <!--Watch live video from seoulcommunityradio on www.twitch.tv-->
                         <!--</a>-->
                     </div>
                 </div>
                 <div flex-gt-sm="35">
                     <div class="responsive-iframe chat">
-                        <iframe src="https://www.youtube.com/live_chat?v=mVYkslElpi8&embed_domain=www.seoulcommunityradio.com"
+                        <iframe ng-src="{{ytChat | trustUrl}}"
                                 frameborder="0" scrolling="no" height="500" width="350"></iframe>
-
-                        <!--<iframe src="https://www.twitch.tv/seoulcommunityradio/chat?popout=" frameborder="0"-->
-                                <!--scrolling="no"-->
-                                <!--height="500" width="350"></iframe>-->
                     </div>
                 </div>
 
@@ -61,9 +80,9 @@
         </div>
         <!--<div class="md-dialog-content md-whiteframe-4dp" layout="row" layout-align-gt-sm="" layout-align="center">-->
 
-            <!--<md-content flex="90" flex-gt-xs="80" flex-gt-sm="50" layout="column" layout-gt-sm="row">-->
-                <!---->
-            <!--</md-content>-->
+        <!--<md-content flex="90" flex-gt-xs="80" flex-gt-sm="50" layout="column" layout-gt-sm="row">-->
+        <!---->
+        <!--</md-content>-->
         <!--</div>-->
 
     </md-dialog-content>

@@ -27,6 +27,7 @@ module.exports = {
   // sessionKey is set to the generic sessionId key used by PHP applications
   // for obsecurity reasons
   sessionKey: 'sessionId',
+  youtubeStreamID: process.env.YOUTUBE_STREAM_ID || '9IYhh-gfpVg',
   sessionCollection: 'sessions',
   logo: 'modules/core/client/img/brand/logo.png',
   favicon: 'modules/core/client/img/favicon.ico',

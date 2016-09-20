@@ -15,9 +15,9 @@
     "npm": ">=1.4.28"
   },
   "scripts": {
-    "start": "grunt",
-    "test": "grunt test",
-    "postinstall": "bower install --config.interactive=false"
+    "start": "gulp",
+    "test": "gulp test",
+    "postinstall": "bower install --config.interactive=false && gulp build"
   },
   "dependencies": {
     "acl": "~0.4.4",
@@ -38,9 +38,7 @@
     "forever": "~0.14.2",
     "generate-password": "^1.1.1",
     "glob": "^5.0.13",
-    "grunt": "0.4.5",
-    "grunt-cli": "~0.1.13",
-    "grunt-contrib-sass": "^0.9.2",
+
     "helmet": "~0.9.1",
     "jasmine-core": "^2.3.4",
     "lodash": "^3.10.0",
@@ -67,25 +65,7 @@
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
-    "grunt-concurrent": "^2.0.0",
-    "grunt-contrib-copy": "~0.8.0",
-    "grunt-contrib-csslint": "~0.4.0",
-    "grunt-contrib-cssmin": "~0.12.3",
-    "grunt-contrib-jshint": "~0.11.2",
-    "grunt-contrib-less": "^1.0.1",
-    "grunt-contrib-sass": "~0.9.2",
-    "grunt-contrib-uglify": "~0.9.1",
-    "grunt-contrib-watch": "~0.6.1",
-    "grunt-env": "~0.4.4",
-    "grunt-eslint": "~17.3.1",
-    "grunt-karma": "~0.11.2",
-    "grunt-mocha-istanbul": "^2.4.0",
-    "grunt-mocha-test": "~0.12.7",
-    "grunt-ng-annotate": "^1.0.1",
-    "grunt-node-inspector": "~0.3.0",
-    "grunt-nodemon": "~0.4.0",
-    "grunt-protractor-coverage": "~0.2.15",
-    "grunt-protractor-runner": "^2.1.0",
+
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
     "gulp-autoprefixer": "^2.3.1",
@@ -115,7 +95,7 @@
     "karma-jasmine": "~0.3.6",
     "karma-ng-html2js-preprocessor": "^0.1.2",
     "karma-phantomjs-launcher": "~0.2.0",
-    "load-grunt-tasks": "^3.2.0",
+
     "mock-fs": "~3.4.0",
     "run-sequence": "^1.1.1",
     "should": "^7.0.1",

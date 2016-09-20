@@ -267,6 +267,11 @@ gulp.task('build', function (done) {
   runSequence('env:dev', 'lint', ['uglify', 'cssmin'], done);
 });
 
+// Run build and deploy to heroku
+gulp.task('heroku', function (done) {
+  runSequence('env:dev', 'lint', ['uglify', 'cssmin'], done);
+});
+
 // Run the project tests
 gulp.task('test', function (done) {
   runSequence('env:test', 'lint', 'mocha', 'karma', 'nodemon', 'protractor', done);

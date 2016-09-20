@@ -1,4 +1,4 @@
-<md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!">
+<md-dialog class="fullscreen-dialog" aria-label="SCR Live Video Stream!" ng-controller="ContentsController">
     <md-toolbar class="md-toolbar-tools">
         <md-button class="md-icon-button" ng-click="cancel()">
             <md-icon class="fa fa-times fa-xl"></md-icon>
@@ -24,12 +24,13 @@
     </md-toolbar>
 
     <md-dialog-content>
+      {{ytVideo}}
         <div class="md-dialog-content" layout="row" layout-fill layout-align="center" layout-wrap>
             <div flex="100" flex-gt-xs="90" flex-gt-sm="95" layout="column" layout-gt-sm="row">
 
                 <div flex-gt-sm="65">
                     <div class="responsive-iframe">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/D9CfUhEBgwM"
+                        <iframe width="640" height="360" ng-src="{{ytVideo | trustUrl}}"
                                 frameborder="0" allowfullscreen></iframe>
                         <!--OLD CODE:   x7kQISUKmUw-->
                         <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/9IYhh-gfpVg"-->
@@ -47,7 +48,7 @@
                 </div>
                 <div flex-gt-sm="35">
                     <div class="responsive-iframe chat">
-                        <iframe src="https://www.youtube.com/live_chat?v=D9CfUhEBgwM&embed_domain=www.seoulcommunityradio.com"
+                        <iframe ng-src="{{ytChat | trustUrl}}"
                                 frameborder="0" scrolling="no" height="500" width="350"></iframe>
                     </div>
                 </div>
